@@ -22,3 +22,6 @@ F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\bin\Debug\E
 F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\bin\Debug\ERP_MODEL.dll
 F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\bin\Debug\ERP_BLL.pdb
 F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\bin\Debug\ERP_MODEL.pdb
+F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\bin\Debug\ComponentFactory.Krypton.Navigator.dll
+F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\bin\Debug\ComponentFactory.Krypton.Navigator.pdb
+F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\SimpleERPSystem.FrmMenu.resources

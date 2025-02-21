@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("SimpleERPSystem")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("简易进销存系统")]
+[assembly: AssemblyDescription("使用 .NET Framework 4.8 框架实现的简易进销存系统")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("SimpleERPSystem")]

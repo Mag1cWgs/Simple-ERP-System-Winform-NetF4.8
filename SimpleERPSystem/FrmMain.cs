@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace SimpleERPSystem
 {
@@ -21,6 +22,10 @@ namespace SimpleERPSystem
         {
             FrmHomePage frmHomePage = new FrmHomePage();
             frmHomePage.Show(dockPanelMain);
+
+            FrmMenu frmMenu = new FrmMenu();
+            frmMenu.Show(dockPanelMain, DockState.DockLeft);
+            dockPanelMain.DockLeftPortion = 240; // 设置左侧菜单栏的宽度
         }
     }
 }
