@@ -90,6 +90,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\FrmMajor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FrmMajor.Designer.cs">
+      <DependentUpon>FrmMajor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FrmMinor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FrmMinor.Designer.cs">
+      <DependentUpon>FrmMinor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FrmPartner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FrmPartner.Designer.cs">
+      <DependentUpon>FrmPartner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FrmTax.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FrmTax.Designer.cs">
+      <DependentUpon>FrmTax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Base\FrmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\FrmUser.Designer.cs">
+      <DependentUpon>FrmUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +140,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Base\FrmMajor.resx">
+      <DependentUpon>FrmMajor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FrmMinor.resx">
+      <DependentUpon>FrmMinor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FrmPartner.resx">
+      <DependentUpon>FrmPartner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FrmTax.resx">
+      <DependentUpon>FrmTax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\FrmUser.resx">
+      <DependentUpon>FrmUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmHomePage.resx">
       <DependentUpon>FrmHomePage.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,6 +247,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="image\house.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\google_custom_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\table_tab_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\table_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\table_row_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\table_row_insert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\bin_closed.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

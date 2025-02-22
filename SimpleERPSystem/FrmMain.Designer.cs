@@ -40,6 +40,7 @@
             this.dockPanelMain.Name = "dockPanelMain";
             this.dockPanelMain.Padding = new System.Windows.Forms.Padding(6);
             this.dockPanelMain.ShowAutoHideContentOnHover = false;
+            this.dockPanelMain.ShowDocumentIcon = true;
             this.dockPanelMain.Size = new System.Drawing.Size(1184, 681);
             this.dockPanelMain.TabIndex = 1;
             this.dockPanelMain.Theme = this.vS2015LightTheme1;
@@ -52,15 +53,14 @@
             this.Controls.Add(this.dockPanelMain);
             this.IsMdiContainer = true;
             this.Name = "FrmMain";
-            this.Text = "FrmMain";
+            this.Text = "进销存管理系统";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanelMain;
         private WeifenLuo.WinFormsUI.Docking.VS2015LightTheme vS2015LightTheme1;
+        public WeifenLuo.WinFormsUI.Docking.DockPanel dockPanelMain;
     }
 }

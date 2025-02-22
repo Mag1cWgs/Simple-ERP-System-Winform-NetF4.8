@@ -29,16 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHomePage));
-            this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
-            // kryptonButton1
+            // tableLayoutPanel1
             // 
-            this.kryptonButton1.Location = new System.Drawing.Point(60, 68);
-            this.kryptonButton1.Name = "kryptonButton1";
-            this.kryptonButton1.Size = new System.Drawing.Size(171, 75);
-            this.kryptonButton1.TabIndex = 0;
-            this.kryptonButton1.Values.Text = "kryptonButton1";
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // FrmHomePage
             // 
@@ -47,7 +54,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.CloseButton = false;
             this.CloseButtonVisible = false;
-            this.Controls.Add(this.kryptonButton1);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)(((((WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight) 
             | WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop) 
             | WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom) 
@@ -55,13 +62,13 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmHomePage";
             this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.Document;
-            this.Text = "FrmHomePage";
+            this.Text = "主页";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private ComponentFactory.Krypton.Toolkit.KryptonButton kryptonButton1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

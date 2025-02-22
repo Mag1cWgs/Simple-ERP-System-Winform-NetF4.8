@@ -176,6 +176,7 @@
             this.lblMajor.TabIndex = 0;
             this.lblMajor.Values.Image = global::SimpleERPSystem.Properties.Resources.category;
             this.lblMajor.Values.Text = "主代码";
+            this.lblMajor.Click += new System.EventHandler(this.lblMajor_Click);
             // 
             // lblMinor
             // 
@@ -191,6 +192,7 @@
             this.lblMinor.TabIndex = 1;
             this.lblMinor.Values.Image = global::SimpleERPSystem.Properties.Resources.categories;
             this.lblMinor.Values.Text = "子代码";
+            this.lblMinor.Click += new System.EventHandler(this.lblMinor_Click);
             // 
             // lblPartner
             // 
@@ -207,6 +209,7 @@
             this.lblPartner.TabIndex = 2;
             this.lblPartner.Values.Image = global::SimpleERPSystem.Properties.Resources.lorry_link;
             this.lblPartner.Values.Text = "往来单位";
+            this.lblPartner.Click += new System.EventHandler(this.lblPartner_Click);
             // 
             // lblTax
             // 
@@ -222,6 +225,7 @@
             this.lblTax.TabIndex = 3;
             this.lblTax.Values.Image = global::SimpleERPSystem.Properties.Resources.decimal_less;
             this.lblTax.Values.Text = "税率";
+            this.lblTax.Click += new System.EventHandler(this.lblTax_Click);
             // 
             // lblUser
             // 
@@ -237,6 +241,7 @@
             this.lblUser.TabIndex = 4;
             this.lblUser.Values.Image = global::SimpleERPSystem.Properties.Resources.cards_bind_address;
             this.lblUser.Values.Text = "人员信息";
+            this.lblUser.Click += new System.EventHandler(this.lblUser_Click);
             // 
             // FrmMenu
             // 
