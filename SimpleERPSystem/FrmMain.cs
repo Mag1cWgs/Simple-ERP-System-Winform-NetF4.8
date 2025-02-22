@@ -25,7 +25,7 @@ namespace SimpleERPSystem
 
             FrmMenu frmMenu = new FrmMenu();
             frmMenu.Show(dockPanelMain, DockState.DockLeft);
-            dockPanelMain.DockLeftPortion = 240; // 设置左侧菜单栏的宽度
+            dockPanelMain.DockLeftPortion = 140; // 设置左侧菜单栏的宽度
         }
     }
 }
