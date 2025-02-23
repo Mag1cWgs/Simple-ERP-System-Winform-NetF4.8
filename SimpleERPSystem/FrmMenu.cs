@@ -24,9 +24,10 @@ namespace SimpleERPSystem
 
         #region 窗体加载事件
         /// <summary>
-        /// 窗体加载事件的辅助函数
+        /// 窗体加载事件的辅助函数，用于打开子窗体，并保证单例
         /// </summary>
-        /// <param name="dockContent">使用父类传入，实现加载子类窗体</param>
+        /// <param name="dockContent">使用父类传入，类似泛型化</param>
+        /// <param name="label">窗体标题同步的目标Label</param>
         private void OpenSubForm(DockContent dockContent, KryptonLabel label)
         {
             // 遍历所有窗体，如果已经打开则激活，保证单例
@@ -45,6 +46,11 @@ namespace SimpleERPSystem
             dockContent.Show(FrmMain.frmMain.dockPanelMain);
         }
 
+        /// <summary>
+        /// 窗体加载事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblMajor_Click(object sender, EventArgs e)
         {
             var lbl = sender as KryptonLabel;
@@ -52,30 +58,50 @@ namespace SimpleERPSystem
         }
 
 
+        /// <summary>
+        /// 窗体加载事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblMinor_Click(object sender, EventArgs e)
         {
             var lbl = sender as KryptonLabel;
             OpenSubForm(new FrmMinor(), lbl);
         }
 
+        /// <summary>
+        /// 窗体加载事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblPartner_Click(object sender, EventArgs e)
         {
             var lbl = sender as KryptonLabel;
             OpenSubForm(new FrmPartner(), lbl);
         }
 
+        /// <summary>
+        /// 窗体加载事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblTax_Click(object sender, EventArgs e)
         {
             var lbl = sender as KryptonLabel;
             OpenSubForm(new FrmTax(), lbl);
         }
 
+        /// <summary>
+        /// 窗体加载事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblUser_Click(object sender, EventArgs e)
         {
             var lbl = sender as KryptonLabel;
             OpenSubForm(new FrmUser(), lbl);
         }
- #endregion
+        #endregion
     }
    
 }

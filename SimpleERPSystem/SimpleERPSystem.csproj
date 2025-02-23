@@ -192,6 +192,10 @@
       <Project>{8755c0af-32e5-4bc6-a9e9-5a6fb6485e49}</Project>
       <Name>ERP_BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ERP_DAL\ERP_DAL.csproj">
+      <Project>{2b33d886-ff7f-474d-9a3f-1764f2837856}</Project>
+      <Name>ERP_DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ERP_MODEL\ERP_MODEL.csproj">
       <Project>{c1fca16b-11e6-4b7e-be85-dfb46df96ca1}</Project>
       <Name>ERP_MODEL</Name>
@@ -210,64 +214,103 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="image\account_balances.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="image\cart.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="image\cog.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="image\pencil.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="image\category.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="image\menu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="image\categories.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="image\lorry_link.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="image\decimal_less.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="image\decimal_more.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="image\cards_bind_address.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="image\house.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="image\house.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="image\google_custom_search.png" />
+    <None Include="image\16x16\cards_bind_address.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="image\table.png" />
+    <None Include="image\16x16\cart.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="image\table_tab_search.png" />
+    <None Include="image\16x16\categories.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="image\table_save.png" />
+    <None Include="image\16x16\category.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="image\table_row_delete.png" />
+    <None Include="image\16x16\cog.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="image\table_row_insert.png" />
+    <None Include="image\16x16\decimal_less.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="image\bin_closed.png" />
+    <None Include="image\16x16\lorry_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\table_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\table_row_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\table_row_insert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\account_balances.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\administrator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\cards_bind_address.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\categories.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\decimal_less.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\lorry_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\ico\application_form_magnify.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\ico\house.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\ico\list.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\ico\menu.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\table_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\bin_closed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\table_tab_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\table_tab_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\table_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\table_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\table_row_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\table_row_insert.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

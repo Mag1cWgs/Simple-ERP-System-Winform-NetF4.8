@@ -79,7 +79,7 @@
             this.kryptonPagePO.LastVisibleSet = true;
             this.kryptonPagePO.MinimumSize = new System.Drawing.Size(50, 50);
             this.kryptonPagePO.Name = "kryptonPagePO";
-            this.kryptonPagePO.Size = new System.Drawing.Size(282, 448);
+            this.kryptonPagePO.Size = new System.Drawing.Size(182, 448);
             this.kryptonPagePO.Text = "采购管理";
             this.kryptonPagePO.TextDescription = "采购管理";
             this.kryptonPagePO.TextTitle = "采购管理";
@@ -111,7 +111,7 @@
             this.kryptonPageItem.LastVisibleSet = true;
             this.kryptonPageItem.MinimumSize = new System.Drawing.Size(50, 50);
             this.kryptonPageItem.Name = "kryptonPageItem";
-            this.kryptonPageItem.Size = new System.Drawing.Size(282, 448);
+            this.kryptonPageItem.Size = new System.Drawing.Size(182, 448);
             this.kryptonPageItem.Text = "商品管理";
             this.kryptonPageItem.TextDescription = "商品管理";
             this.kryptonPageItem.TextTitle = "商品管理";
@@ -174,7 +174,7 @@
             this.lblMajor.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.lblMajor.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.lblMajor.TabIndex = 0;
-            this.lblMajor.Values.Image = global::SimpleERPSystem.Properties.Resources.category;
+            this.lblMajor.Values.Image = global::SimpleERPSystem.Properties.Resources.category1;
             this.lblMajor.Values.Text = "主代码";
             this.lblMajor.Click += new System.EventHandler(this.lblMajor_Click);
             // 
@@ -190,7 +190,7 @@
             this.lblMinor.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.lblMinor.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.lblMinor.TabIndex = 1;
-            this.lblMinor.Values.Image = global::SimpleERPSystem.Properties.Resources.categories;
+            this.lblMinor.Values.Image = global::SimpleERPSystem.Properties.Resources.categories1;
             this.lblMinor.Values.Text = "子代码";
             this.lblMinor.Click += new System.EventHandler(this.lblMinor_Click);
             // 
@@ -207,7 +207,7 @@
             this.lblPartner.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.lblPartner.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.lblPartner.TabIndex = 2;
-            this.lblPartner.Values.Image = global::SimpleERPSystem.Properties.Resources.lorry_link;
+            this.lblPartner.Values.Image = global::SimpleERPSystem.Properties.Resources.lorry_link1;
             this.lblPartner.Values.Text = "往来单位";
             this.lblPartner.Click += new System.EventHandler(this.lblPartner_Click);
             // 
@@ -223,7 +223,7 @@
             this.lblTax.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.lblTax.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.lblTax.TabIndex = 3;
-            this.lblTax.Values.Image = global::SimpleERPSystem.Properties.Resources.decimal_less;
+            this.lblTax.Values.Image = global::SimpleERPSystem.Properties.Resources.decimal_less1;
             this.lblTax.Values.Text = "税率";
             this.lblTax.Click += new System.EventHandler(this.lblTax_Click);
             // 
@@ -239,7 +239,7 @@
             this.lblUser.StateCommon.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.lblUser.StateCommon.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
             this.lblUser.TabIndex = 4;
-            this.lblUser.Values.Image = global::SimpleERPSystem.Properties.Resources.cards_bind_address;
+            this.lblUser.Values.Image = global::SimpleERPSystem.Properties.Resources.cards_bind_address1;
             this.lblUser.Values.Text = "人员信息";
             this.lblUser.Click += new System.EventHandler(this.lblUser_Click);
             // 
