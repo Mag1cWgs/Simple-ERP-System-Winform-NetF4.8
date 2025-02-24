@@ -144,6 +144,7 @@
             this.btnSave.Image = global::SimpleERPSystem.Properties.Resources.table_save1;
             this.btnSave.Text = "保存";
             this.btnSave.UniqueName = "96E47CDE5C0C4AE45CAE8240EB0581C7";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnSearch
             // 
@@ -256,6 +257,7 @@
             this.major_nm,
             this.remark});
             this.dgView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgView.Location = new System.Drawing.Point(3, 161);
             this.dgView.Name = "dgView";
             this.dgView.RowHeadersWidth = 70;

@@ -15,6 +15,7 @@ namespace SimpleERPSystem
     {
         // 用于在其他窗体中调用主窗体
         public static FrmMain frmMain;
+        public static string user_id = "admin"; // 用户ID
 
         public FrmMain()
         {

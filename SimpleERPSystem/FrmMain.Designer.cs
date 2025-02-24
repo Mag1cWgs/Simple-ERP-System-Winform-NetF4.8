@@ -53,6 +53,7 @@
             this.Controls.Add(this.dockPanelMain);
             this.IsMdiContainer = true;
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "进销存管理系统";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);

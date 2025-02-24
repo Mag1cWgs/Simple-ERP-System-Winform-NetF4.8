@@ -19,7 +19,13 @@ namespace SimpleERPSystem.Base
         {
             InitializeComponent();
         }
-        // 查询
+
+        #region 对显示表格操作
+        /// <summary>
+        ///     搜索按钮，根据输入条件查询主代码表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSearch_Click(object sender, EventArgs e)
         {
             // 数据封装
@@ -36,7 +42,11 @@ namespace SimpleERPSystem.Base
             // “无法将类型为“System.Data.DataView”的对象强制转换为类型“System.Data.DataTable”
         }
 
-        // 新增行
+        /// <summary>
+        ///     加行按钮，添加一行空白行
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddRow_Click(object sender, EventArgs e)
         {   /*
              * ERROR: “未将对象引用设置到对象的实例。”
@@ -61,7 +71,11 @@ namespace SimpleERPSystem.Base
             dgView.Rows[dgView.Rows.Count - 1].Cells["idu"].ToolTipText = "Insert";
         }
 
-        // 删除行
+        /// <summary>
+        ///     删除行按钮，删除选中行
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelRow_Click(object sender, EventArgs e)
         {
             foreach(DataGridViewRow row in dgView.SelectedRows)
@@ -78,6 +92,7 @@ namespace SimpleERPSystem.Base
             }
         }
 
+        #region dgView编辑事件 dgView_CellBeginEdit dgView_CellEndEdit
         // 存储表格内容
         string str_old , str_new;
         // 修改表格内容时，记录修改前的值
@@ -95,11 +110,44 @@ namespace SimpleERPSystem.Base
             /* 如果前后的值不一样，且当前行没有标记，则标记为Update
              * 对查询结果：修改值后标记为Update，已标记删除的行仍为Delete，后续追加删除仍会覆盖为Delete
              * 对新增行：默认有Insert标记，不标记为Update               */
-            if (str_old != str_new && dgView.Rows[e.RowIndex].Cells["idu"].ToolTipText=="")
+            if (str_old != str_new && dgView.Rows[e.RowIndex].Cells["idu"].ToolTipText == "")
             {
                 dgView.Rows[e.RowIndex].Cells["idu"].Value = Properties.Resources.table_edit;
                 dgView.Rows[e.RowIndex].Cells["idu"].ToolTipText = "Update";
             }
         }
+        #endregion
+
+        #endregion
+
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {// 数据封装
+            B_major model = new B_major();
+            
+            foreach (DataGridViewRow row in dgView.Rows)
+            {
+                model.major_cd = row.Cells[major_cd.Name].Value.ToString();
+                model.major_nm = row.Cells[major_nm.Name].Value.ToString();
+                model.remark = row.Cells[remark.Name].Value.ToString();
+                model.user_cd = FrmMain.user_id;
+                // 根据标记进行增删改操作
+                switch (row.Cells["idu"].ToolTipText)
+                {
+                    case "":
+                        break;
+                    case "Insert":
+                        new B_major_BLL().Insert_B_Major(model);
+                        break;
+                    case "Update":
+                        new B_major_BLL().Update_B_Major(model);
+                        break;
+                    case "Delete":
+                        new B_major_BLL().Delete_B_Major(model);
+                        break;
+                }
+            }
+        }
+
     }
 }
