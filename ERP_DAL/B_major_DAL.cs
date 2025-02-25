@@ -9,6 +9,9 @@ using ERP_MODEL;
 
 namespace ERP_DAL
 {
+    /// <summary>
+    /// 主代码数据访问层
+    /// </summary>
     public class B_major_DAL
     {
         /// <summary>
@@ -22,7 +25,7 @@ namespace ERP_DAL
             strSql.AppendFormat(@"
                     SELECT major_cd,major_nm,remark FROM dbo.b_major
                     WHERE major_cd LIKE N'%{0}%'
-                    OR major_nm LIKE N'%{1}%'",
+                    AND major_nm LIKE N'%{1}%'",
                     model.major_cd,
                     model.major_nm);
 

@@ -39,10 +39,10 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblMajor_cd = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtMajor_cd = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.btnDelTbText = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnDelMajor_cd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.lblMajor_nm = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtMajor_nm = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.buttonSpecAny1 = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnDelMajor_nm = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.dgView = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.idu = new System.Windows.Forms.DataGridViewImageColumn();
             this.major_cd = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
@@ -192,7 +192,7 @@
             // 
             this.txtMajor_cd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtMajor_cd.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.btnDelTbText});
+            this.btnDelMajor_cd});
             this.txtMajor_cd.Location = new System.Drawing.Point(94, 14);
             this.txtMajor_cd.Name = "txtMajor_cd";
             this.txtMajor_cd.Size = new System.Drawing.Size(130, 26);
@@ -204,12 +204,13 @@
             this.txtMajor_cd.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
             this.txtMajor_cd.TabIndex = 1;
             // 
-            // btnDelTbText
+            // btnDelMajor_cd
             // 
-            this.btnDelTbText.Image = global::SimpleERPSystem.Properties.Resources.bin_closed;
-            this.btnDelTbText.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.ListItem;
-            this.btnDelTbText.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
-            this.btnDelTbText.UniqueName = "5120F1F90130417A42A423F2264257A5";
+            this.btnDelMajor_cd.Image = global::SimpleERPSystem.Properties.Resources.bin_closed;
+            this.btnDelMajor_cd.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.ListItem;
+            this.btnDelMajor_cd.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
+            this.btnDelMajor_cd.UniqueName = "5120F1F90130417A42A423F2264257A5";
+            this.btnDelMajor_cd.Click += new System.EventHandler(this.btnDelMajor_cd_Click);
             // 
             // lblMajor_nm
             // 
@@ -225,7 +226,7 @@
             // 
             this.txtMajor_nm.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtMajor_nm.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.buttonSpecAny1});
+            this.btnDelMajor_nm});
             this.txtMajor_nm.Location = new System.Drawing.Point(311, 14);
             this.txtMajor_nm.Name = "txtMajor_nm";
             this.txtMajor_nm.Size = new System.Drawing.Size(130, 26);
@@ -237,12 +238,13 @@
             this.txtMajor_nm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
             this.txtMajor_nm.TabIndex = 3;
             // 
-            // buttonSpecAny1
+            // btnDelMajor_nm
             // 
-            this.buttonSpecAny1.Image = global::SimpleERPSystem.Properties.Resources.bin_closed;
-            this.buttonSpecAny1.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.ListItem;
-            this.buttonSpecAny1.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
-            this.buttonSpecAny1.UniqueName = "5120F1F90130417A42A423F2264257A5";
+            this.btnDelMajor_nm.Image = global::SimpleERPSystem.Properties.Resources.bin_closed;
+            this.btnDelMajor_nm.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.ListItem;
+            this.btnDelMajor_nm.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
+            this.btnDelMajor_nm.UniqueName = "5120F1F90130417A42A423F2264257A5";
+            this.btnDelMajor_nm.Click += new System.EventHandler(this.btnDelMajor_nm_Click);
             // 
             // dgView
             // 
@@ -305,9 +307,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)(((((WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight) 
+            | WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop) 
+            | WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom) 
+            | WeifenLuo.WinFormsUI.Docking.DockAreas.Document)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMajor";
             this.Text = "主代码";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMajor_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -329,10 +336,10 @@
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnAddRow;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lblMajor_cd;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtMajor_cd;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDelTbText;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDelMajor_cd;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lblMajor_nm;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtMajor_nm;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny buttonSpecAny1;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDelMajor_nm;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgView;
         private System.Windows.Forms.DataGridViewImageColumn idu;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn major_cd;
