@@ -120,6 +120,12 @@
     <Compile Include="Base\FrmUser.Designer.cs">
       <DependentUpon>FrmUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Base\POP\FrmPopMajor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Base\POP\FrmPopMajor.Designer.cs">
+      <DependentUpon>FrmPopMajor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Base\FrmUser.resx">
       <DependentUpon>FrmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\POP\FrmPopMajor.resx">
+      <DependentUpon>FrmPopMajor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHomePage.resx">
       <DependentUpon>FrmHomePage.cs</DependentUpon>
@@ -311,6 +320,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="image\32x32\table_row_insert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\select_invert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\bullet_magnify.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

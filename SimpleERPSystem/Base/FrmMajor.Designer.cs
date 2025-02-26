@@ -79,6 +79,7 @@
             this.kryptonHeader2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonHeader2.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Form;
             this.kryptonHeader2.Location = new System.Drawing.Point(3, 115);
+            this.kryptonHeader2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.kryptonHeader2.Name = "kryptonHeader2";
             this.kryptonHeader2.Size = new System.Drawing.Size(794, 40);
             this.kryptonHeader2.StateCommon.Content.Padding = new System.Windows.Forms.Padding(3);
@@ -260,11 +261,11 @@
             this.remark});
             this.dgView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dgView.Location = new System.Drawing.Point(3, 161);
+            this.dgView.Location = new System.Drawing.Point(3, 158);
             this.dgView.Name = "dgView";
             this.dgView.RowHeadersWidth = 70;
             this.dgView.RowTemplate.Height = 30;
-            this.dgView.Size = new System.Drawing.Size(794, 286);
+            this.dgView.Size = new System.Drawing.Size(794, 289);
             this.dgView.TabIndex = 3;
             this.dgView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgView_CellBeginEdit);
             this.dgView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgView_CellEndEdit);

@@ -103,6 +103,16 @@ namespace SimpleERPSystem.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap bullet_magnify {
+            get {
+                object obj = ResourceManager.GetObject("bullet_magnify", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap cards_bind_address {
             get {
                 object obj = ResourceManager.GetObject("cards_bind_address", resourceCulture);
@@ -256,6 +266,16 @@ namespace SimpleERPSystem.Properties {
         internal static System.Drawing.Bitmap pencil {
             get {
                 object obj = ResourceManager.GetObject("pencil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap select_invert {
+            get {
+                object obj = ResourceManager.GetObject("select_invert", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

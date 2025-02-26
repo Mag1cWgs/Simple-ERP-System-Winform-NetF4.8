@@ -32,3 +32,4 @@ F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\bin\Debug\C
 F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\SimpleER.02501A7A.Up2Date
 F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\SimpleERPSystem.exe
 F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\SimpleERPSystem.pdb
+F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\SimpleERPSystem.Base.POP.FrmPopMajor.resources

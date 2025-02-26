@@ -90,6 +90,9 @@ namespace SimpleERPSystem.Base
 
         /// <summary>
         /// 判断当前 DataGridView 是否有尚未保存的数据
+        /// <para>
+        ///     存在未保存数据但要刷新或关闭表格时，会弹出提示框，提示用户是否继续操作。
+        /// </para>
         /// </summary>
         /// <returns>
         ///     返回 <c>True</c> 说明存在未保存数据，需要进一步处理；
@@ -111,8 +114,7 @@ namespace SimpleERPSystem.Base
         /// <summary>
         ///     搜索按钮，根据输入条件查询主代码表。
         /// <para>
-        ///     如果有已经标记但为保存的数据，会弹出提示框；
-        ///     另外有窗体 Close 事件时同样弹出提示框。
+        ///     如果有已经标记但未保存的数据，会弹出提示框
         /// </para>
         /// </summary>
         /// <param name="sender"></param>
