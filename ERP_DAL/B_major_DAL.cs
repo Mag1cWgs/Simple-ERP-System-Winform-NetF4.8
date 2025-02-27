@@ -118,5 +118,26 @@ namespace ERP_DAL
             return DbHelperSQL.Exists(strSql.ToString());
             // return Convert.ToInt32(DbHelperSQL.GetSingle(strSql.ToString())) > 0;
         }
+
+        /// <summary>
+        /// 删除主代码前验证是否有外键关联
+        /// <para>
+        ///     对应的外键表：b_minor
+        /// </para>
+        /// </summary>
+        /// <param name="model">子代码实体类</param>
+        /// <returns>
+        ///     返回 <c>True</c> 是存在使用当前主代码的子代码实体；
+        ///     返回 <c>False</c> 不存在主键冲突。
+        /// </returns>
+        public bool ExistMinor(B_major model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.AppendFormat(@"
+                    SELECT COUNT(1) FROM dbo.b_minor
+                    WHERE major_cd = N'{0}'",
+                    model.major_cd);
+            return DbHelperSQL.Exists(strSql.ToString());
+        }
     }
 }

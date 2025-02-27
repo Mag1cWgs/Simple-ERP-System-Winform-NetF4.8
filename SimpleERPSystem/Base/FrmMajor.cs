@@ -33,14 +33,14 @@ namespace SimpleERPSystem.Base
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// <exception cref="1006: 存在未保存数据，确认以继续操作"/>
+        /// <exception cref="2101: 存在未保存数据，确认以继续操作"/>
         private void FrmMajor_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 if (HasNoSavedData())  // 存在未保存数据，提示用户是否继续关闭
                 {
-                    DialogResult dr = B_Message_BLL.ShowYesOrNo("1006");
+                    DialogResult dr = B_Message_BLL.ShowYesOrNo("2101");
                     if (dr == DialogResult.No) // 用户选择 No 时，取消关闭窗体
                     {
                         e.Cancel = true;  // 取消 FormClosing 事件，默认为 false
@@ -119,12 +119,12 @@ namespace SimpleERPSystem.Base
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// <exception cref="1006: 存在未保存数据，确认以继续操作"/>
+        /// <exception cref="2101: 存在未保存数据，确认以继续操作"/>
         private void btnSearch_Click(object sender, EventArgs e)
         {   // 存在未保存数据，提示是否继续查询
             if (HasNoSavedData())
             {
-                DialogResult dr = B_Message_BLL.ShowYesOrNo("1006");
+                DialogResult dr = B_Message_BLL.ShowYesOrNo("2101");
                 if (dr == DialogResult.No)
                     return;
             }

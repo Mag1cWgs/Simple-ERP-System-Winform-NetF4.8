@@ -126,6 +126,7 @@
             this.btnDelRow.Image = global::SimpleERPSystem.Properties.Resources.table_row_delete1;
             this.btnDelRow.Text = "删除行";
             this.btnDelRow.UniqueName = "640999D05B8443CBFCAAD82EFA7B1CCA";
+            this.btnDelRow.Click += new System.EventHandler(this.btnDelRow_Click);
             // 
             // btnAddRow
             // 
@@ -133,6 +134,7 @@
             this.btnAddRow.Image = global::SimpleERPSystem.Properties.Resources.table_row_insert1;
             this.btnAddRow.Text = "添加行";
             this.btnAddRow.UniqueName = "E60FBF8FD534468531B932B1EE9E31C5";
+            this.btnAddRow.Click += new System.EventHandler(this.btnAddRow_Click);
             // 
             // btnSave
             // 
@@ -140,6 +142,7 @@
             this.btnSave.Image = global::SimpleERPSystem.Properties.Resources.table_save1;
             this.btnSave.Text = "保存";
             this.btnSave.UniqueName = "96E47CDE5C0C4AE45CAE8240EB0581C7";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnSearch
             // 
@@ -188,6 +191,7 @@
             this.btnSearchMajor_cd});
             this.txtMajor_cd.Location = new System.Drawing.Point(94, 14);
             this.txtMajor_cd.Name = "txtMajor_cd";
+            this.txtMajor_cd.ReadOnly = true;
             this.txtMajor_cd.Size = new System.Drawing.Size(130, 26);
             this.txtMajor_cd.StateCommon.Back.Color1 = System.Drawing.Color.Snow;
             this.txtMajor_cd.StateCommon.Border.Color1 = System.Drawing.Color.OrangeRed;
@@ -226,6 +230,8 @@
             this.dgView.RowTemplate.Height = 30;
             this.dgView.Size = new System.Drawing.Size(794, 289);
             this.dgView.TabIndex = 3;
+            this.dgView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgView_CellBeginEdit);
+            this.dgView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgView_CellEndEdit);
             // 
             // idu
             // 
@@ -270,6 +276,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMinor";
             this.Text = "子代码";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMinor_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
