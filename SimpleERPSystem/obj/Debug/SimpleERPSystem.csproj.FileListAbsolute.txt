@@ -1,7 +1,6 @@
 F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\SimpleERPSystem.csproj.AssemblyReference.cache
 F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\SimpleERPSystem.Base.FrmMajor.resources
 F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\SimpleERPSystem.Base.FrmMinor.resources
-F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\SimpleERPSystem.Base.FrmPartner.resources
 F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\SimpleERPSystem.Base.FrmTax.resources
 F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\SimpleERPSystem.Base.FrmUser.resources
 F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\SimpleERPSystem.FrmHomePage.resources
@@ -33,3 +32,6 @@ F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\S
 F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\SimpleERPSystem.exe
 F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\SimpleERPSystem.pdb
 F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\SimpleERPSystem.Base.POP.FrmPopMajor.resources
+F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\bin\Debug\ERP_CL.dll
+F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\bin\Debug\ERP_CL.pdb
+F:\ComputerScience_Learning\vsc_file\SimpleERPSystem\SimpleERPSystem\obj\Debug\SimpleERPSystem.Base.FrmPartner.resources

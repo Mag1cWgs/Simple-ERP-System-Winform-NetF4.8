@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP_DAL", "ERP_DAL\ERP_DAL.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP_MODEL", "ERP_MODEL\ERP_MODEL.csproj", "{C1FCA16B-11E6-4B7E-BE85-DFB46DF96CA1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP_CL", "ERP_CL\ERP_CL.csproj", "{E13205DB-E198-4FFD-92D3-A02B3FC20226}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C1FCA16B-11E6-4B7E-BE85-DFB46DF96CA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1FCA16B-11E6-4B7E-BE85-DFB46DF96CA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1FCA16B-11E6-4B7E-BE85-DFB46DF96CA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E13205DB-E198-4FFD-92D3-A02B3FC20226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E13205DB-E198-4FFD-92D3-A02B3FC20226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E13205DB-E198-4FFD-92D3-A02B3FC20226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E13205DB-E198-4FFD-92D3-A02B3FC20226}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -201,6 +201,10 @@
       <Project>{8755c0af-32e5-4bc6-a9e9-5a6fb6485e49}</Project>
       <Name>ERP_BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ERP_CL\ERP_CL.csproj">
+      <Project>{e13205db-e198-4ffd-92d3-a02b3fc20226}</Project>
+      <Name>ERP_CL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ERP_DAL\ERP_DAL.csproj">
       <Project>{2b33d886-ff7f-474d-9a3f-1764f2837856}</Project>
       <Name>ERP_DAL</Name>
@@ -326,6 +330,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="image\16x16\bullet_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\account_balances.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\page_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\page_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\page_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\page_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\page_find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\page_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\page_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\page_find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\page_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\page_add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

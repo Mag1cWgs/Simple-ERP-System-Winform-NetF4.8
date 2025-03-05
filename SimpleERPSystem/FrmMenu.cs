@@ -16,6 +16,9 @@ namespace SimpleERPSystem
 {
     public partial class FrmMenu : DockContent
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public FrmMenu()
         {
             InitializeComponent();
@@ -54,7 +57,7 @@ namespace SimpleERPSystem
         private void lblMajor_Click(object sender, EventArgs e)
         {
             var lbl = sender as KryptonLabel;
-            OpenSubForm(new FrmMajor(),lbl);
+            OpenSubForm(new Base.FrmMajor(),lbl);
         }
 
 
@@ -66,7 +69,7 @@ namespace SimpleERPSystem
         private void lblMinor_Click(object sender, EventArgs e)
         {
             var lbl = sender as KryptonLabel;
-            OpenSubForm(new FrmMinor(), lbl);
+            OpenSubForm(new Base.FrmMinor(), lbl);
         }
 
         /// <summary>
@@ -77,7 +80,7 @@ namespace SimpleERPSystem
         private void lblPartner_Click(object sender, EventArgs e)
         {
             var lbl = sender as KryptonLabel;
-            OpenSubForm(new FrmPartner(), lbl);
+            OpenSubForm(new Base.FrmPartner(), lbl);
         }
 
         /// <summary>
@@ -88,7 +91,7 @@ namespace SimpleERPSystem
         private void lblTax_Click(object sender, EventArgs e)
         {
             var lbl = sender as KryptonLabel;
-            OpenSubForm(new FrmTax(), lbl);
+            OpenSubForm(new Base.FrmTax(), lbl);
         }
 
         /// <summary>
@@ -99,7 +102,7 @@ namespace SimpleERPSystem
         private void lblUser_Click(object sender, EventArgs e)
         {
             var lbl = sender as KryptonLabel;
-            OpenSubForm(new FrmUser(), lbl);
+            OpenSubForm(new Base.FrmUser(), lbl);
         }
         #endregion
     }

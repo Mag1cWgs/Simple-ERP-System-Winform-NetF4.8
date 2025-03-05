@@ -45,6 +45,7 @@
     <Compile Include="B_major_DAL.cs" />
     <Compile Include="B_Message_DAL.cs" />
     <Compile Include="B_minor_DAL.cs" />
+    <Compile Include="B_partner_DAL.cs" />
     <Compile Include="DbHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

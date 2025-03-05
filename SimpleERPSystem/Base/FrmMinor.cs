@@ -140,13 +140,13 @@ namespace SimpleERPSystem.Base
             frm.ShowDialog(); // 使用时阻塞主窗体
             /// <remarks>
             /// 如果在弹出的参照窗体中选中了主代码，则 <c>selectedMajor_cd</c> 不为空，
-            /// 此时将 <c>selectedMajor_cd</c> 赋值给主代码文本框，并重置 <c>selectedMajor_cd</c>
-            /// 并将 <c>txtMajor_cd</c> 设置为只读。
+            /// 此时将 <c>selectedMajor_cd</c> 赋值给主代码文本框，并重置 <c>selectedMajor_cd</c>。
             /// </remarks>
             if (selectedMajor_cd != String.Empty)
             {
                 txtMajor_cd.Text = selectedMajor_cd; // 选中的主代码赋值给主代码文本框
                 selectedMajor_cd = String.Empty; // 清空选中的主代码
+                Query(); // 查询主代码对应的子代码
                 ///<remarks>
                 /// 当前选用方案中不允许用户直接输入主代码，只能通过参照窗体选取，
                 /// 因而不在这里单独设置只读，直接对该控件设置只读
@@ -159,7 +159,6 @@ namespace SimpleERPSystem.Base
                 //txtMajor_cd.ReadOnly = true; // 主代码文本框设置为只读
             }
         }
-
 
         /// <summary>
         ///     搜索按钮，根据输入条件查询主代码表。

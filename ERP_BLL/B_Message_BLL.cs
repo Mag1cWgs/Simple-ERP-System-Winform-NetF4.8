@@ -25,6 +25,27 @@ namespace ERP_BLL
         /// <param name="msg_cd">信息编号，有效范围在'0000'~'9999'</param>
         public static void ShowConfirm(string msg_cd)
         {
+            /// <para>
+            /// 
+            /// 从 0000 开始为操作提示
+            ///     <c>0000</c> 操作成功！
+            ///     <c>0001</c> 保存成功，请确认！已自动查询最新数据。
+            /// 
+            /// 从 1000 开始为数据库操作提示
+            ///     <c>1001</c> 已经存在相同的主代码，无法添加！
+            ///     <c>1002</c> 查找失败！未找到所要操作数据，请确认查找条件是否正确！
+            ///     <c>1003</c> 插入失败！
+            ///     <c>1004</c> 删除失败！未找到待删除数据
+            ///     <c>1005</c> 更新失败！未找到待更新数据！
+            ///     <c>1006</c> 删除失败！子代码表中有当前主代码关联数据，请清除子代码表中与之关联所有数据后再执行删除！
+            /// 
+            /// 从 2000 开始为窗体内报信息提示，不进入数据库查询
+            ///     <c>2000</c> 未填写必填信息！请检查并填写完整！
+            ///     <c>2001</c> 主代码编号不能为空！
+            ///     <c>2002</c> 主代码名称不能为空！
+            ///     <c>2003</c> 子代码编号不能为空！
+            ///     <c>2004</c> 子代码名称不能为空！
+            /// </para>
             string str = B_Message_DAL.Get_Exception_Message(msg_cd);
             KryptonMessageBox.Show(str,msg_cd.ToString(),
                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -59,6 +80,10 @@ namespace ERP_BLL
         /// <returns>返回用户选择的结果，类型为 <c>DialogResult</c> </returns>
         public static DialogResult ShowYesOrNo(string msg_cd)
         {
+            /// <para>
+            ///     <c>2101</c> 当前有未保存的数据，是否继续操作？
+            ///     <c>2102</c> 敏感操作：删除，确认以继续操作。
+            /// </para>
             string str = B_Message_DAL.Get_Exception_Message(msg_cd);
             return KryptonMessageBox.Show(str, msg_cd.ToString(),
                                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
