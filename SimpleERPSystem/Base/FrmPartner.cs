@@ -29,10 +29,49 @@ namespace SimpleERPSystem.Base
         /// <summary>
         /// 实例化子代码对象，用于数据封装
         /// </summary>
-        B_partner model = new B_partner();
+        B_partner model;
         #endregion
 
-        #region 辅助函数: Query() / Clear_pnl_partner_info()
+        #region 辅助函数: IsPanelClear() / Query() / Clear_pnl_partner_info()
+        /// <summary>
+        /// 确认面板是否为空
+        /// </summary>
+        /// <returns></returns>
+        private bool IsPanelClear()
+        {
+            /* 用于测试输出
+            MessageBox.Show((txt_bp_cd.Text.Trim() == String.Empty).ToString() + "\n" +
+            (txt_bp_full_nm.Text.Trim() == String.Empty).ToString() + "\n" +
+            (txt_bp_nm.Text.Trim() == String.Empty).ToString() + "\n" +
+            (txt_bp_addr.Text.Trim() == String.Empty).ToString() + "\n" +
+            (txt_bp_repre.Text.Trim() == String.Empty).ToString() + "\n" +
+            (txt_bp_email.Text.Trim() == String.Empty).ToString() + "\n" +
+            (txt_bp_tel.Text.Trim() == String.Empty).ToString() + "\n" +
+            (txt_bp_tax.Text.Trim() == String.Empty).ToString() + "\n" +
+            (txt_bank_acct_no.Text.Trim() == String.Empty).ToString() + "\n" +
+            (txt_remark.Text.Trim() == String.Empty).ToString() + "\n" +
+            (cb_so_flag.Checked == false).ToString() + "\n" +
+            (cb_po_flag.Checked == false).ToString() + "\n" +
+            (cbb_bank_cd.Text == default_bank_cd).ToString() + "\n" +
+           (cbb_pay_type.Text == default_pay_type).ToString());
+             */
+            return
+            txt_bp_cd.Text.Trim() == String.Empty &&
+            txt_bp_full_nm.Text.Trim() == String.Empty &&
+            txt_bp_nm.Text.Trim() == String.Empty &&
+            txt_bp_addr.Text.Trim() == String.Empty &&
+            txt_bp_repre.Text.Trim() == String.Empty &&
+            txt_bp_email.Text.Trim() == String.Empty &&
+            txt_bp_tel.Text.Trim() == String.Empty &&
+            txt_bp_tax.Text.Trim() == String.Empty &&
+            txt_bank_acct_no.Text.Trim() == String.Empty &&
+            txt_remark.Text.Trim() == String.Empty &&
+            cb_so_flag.Checked == false &&
+            cb_po_flag.Checked == false &&
+            cbb_bank_cd.Text == default_bank_cd &&
+            cbb_pay_type.Text == default_pay_type;
+        }
+
         /// <summary>
         /// 作为清除 pnl_partner_info 中内容的辅助函数
         /// </summary>
@@ -76,12 +115,16 @@ namespace SimpleERPSystem.Base
                     txt = (ERP_TextBox)item;
                     txt.Text = string.Empty;
                 }
-                else if ("ComponentFactory.Krypton.Toolkit." + name
+                /* // 直接设置选取索引为0
+                 else if ("ComponentFactory.Krypton.Toolkit." + name
                     == typeof(KryptonComboBox).ToString())
                 {
                     cbb = (KryptonComboBox)item;
                     cbb.Text = string.Empty;
                 }
+                 */
+                cbb_pay_type.SelectedIndex = 0;
+                cbb_bank_cd.SelectedIndex = 0;
             }
             this.txt_bp_cd.Focus();
         }
@@ -92,6 +135,7 @@ namespace SimpleERPSystem.Base
         /// <exception cref="1002: 查找失败！未找到所要操作数据，请确认查找条件是否正确！"/>
         private void Query()
         {
+            model = new B_partner();
             // 数据封装
             if (rbtn_query_so.Checked == true)
                 model.so_flag = true;
@@ -101,6 +145,8 @@ namespace SimpleERPSystem.Base
                 model.so_flag = model.po_flag = true;
             model.bp_full_nm = txt_query_bp_full_nm.Text.Trim();
             model.bp_repre = txt_query_bp_repre.Text.Trim();
+
+            //MessageBox.Show(model.flag.ToString());
             // 数据绑定
             DataTable dt = bll.Get_B_Partner(model);
             dgView.DataSource = dt;
@@ -114,16 +160,16 @@ namespace SimpleERPSystem.Base
 
         #endregion
 
-        #region 缓存查找结果变量、缓存函数、验证更改函数 tempQueryModel、TempQueryModel()、DataChange()
+        #region 缓存查找结果变量、缓存函数、验证更改函数 tempQueryModel、GetPanelShowModel()、DataChange()
         /// <summary>
         /// 用于缓存查找结果
         /// </summary>
-        B_partner tempQueryModel;
+        B_partner tempQueryModel = null;
         /// <summary>
         /// 缓存查找结果
         /// </summary>
         /// <returns></returns>
-        private B_partner TempQueryModel()
+        private B_partner GetPanelShowModel()
         {
             B_partner newB_parter = new B_partner();
             newB_parter.bp_cd = txt_bp_cd.Text.Trim();
@@ -143,28 +189,43 @@ namespace SimpleERPSystem.Base
             newB_parter.user_cd = FrmMain.user_id;
             return newB_parter;
         }
+
         /// <summary>
         /// 验证数据是否更改
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        ///     <c>True</c> 对应数据已经被更改，
+        ///     <c>False</c> 对应数据未被更改或未曾获取过数据。
+        /// </returns>
         private bool DataChange()
         {
-            return
-            tempQueryModel.bp_cd    == txt_bp_cd.Text.Trim() &&
-            tempQueryModel.bp_full_nm   == txt_bp_full_nm.Text.Trim()&&
-            tempQueryModel.bp_nm        == txt_bp_nm.Text.Trim() &&
-            tempQueryModel.bp_addr      == txt_bp_addr.Text.Trim() &&
-            tempQueryModel.bp_repre     == txt_bp_repre.Text.Trim() &&
-            tempQueryModel.bp_email     == txt_bp_email.Text.Trim() &&
-            tempQueryModel.bp_tel       == txt_bp_tel.Text.Trim() &&
-            tempQueryModel.bp_tax       == txt_bp_tax.Text.Trim() &&
-            tempQueryModel.bank_acct_no == txt_bank_acct_no.Text.Trim() &&
-            tempQueryModel.remark       == txt_remark.Text.Trim() &&
-            tempQueryModel.so_flag      == cb_so_flag.Checked &&
-            tempQueryModel.po_flag      == cb_po_flag.Checked &&
-            tempQueryModel.bank_cd      == cbb_bank_cd.SelectedValue.ToString() &&
-            tempQueryModel.pay_type     == cbb_pay_type.SelectedValue.ToString() &&
-            tempQueryModel.user_cd      == FrmMain.user_id;
+            // 如果绑定空值，则说明未进行过查询、或者查询后值被新建操作清除
+            if (tempQueryModel == null)
+                return false;
+            bool result = (
+            tempQueryModel.bp_cd != txt_bp_cd.Text.Trim() ||
+            tempQueryModel.bp_full_nm != txt_bp_full_nm.Text.Trim() ||
+            tempQueryModel.bp_nm != txt_bp_nm.Text.Trim() ||
+            tempQueryModel.bp_addr != txt_bp_addr.Text.Trim() ||
+            tempQueryModel.bp_repre != txt_bp_repre.Text.Trim() ||
+            tempQueryModel.bp_email != txt_bp_email.Text.Trim() ||
+            tempQueryModel.bp_tel != txt_bp_tel.Text.Trim() ||
+            tempQueryModel.bp_tax != txt_bp_tax.Text.Trim() ||
+            tempQueryModel.bank_acct_no != txt_bank_acct_no.Text.Trim() ||
+            tempQueryModel.remark != txt_remark.Text.Trim() ||
+            tempQueryModel.so_flag != cb_so_flag.Checked ||
+            tempQueryModel.po_flag != cb_po_flag.Checked ||
+            tempQueryModel.bank_cd != cbb_bank_cd.SelectedValue.ToString() ||
+            tempQueryModel.pay_type != cbb_pay_type.SelectedValue.ToString());
+            /* 
+            // 用于测试
+                MessageBox.Show((tempQueryModel.remark).ToString()+"\n txt:"+ (txt_remark.Text.Trim()).ToString());
+                MessageBox.Show((tempQueryModel.bank_cd != cbb_bank_cd.SelectedValue.ToString()).ToString()
+                    +"\n"+(tempQueryModel.pay_type != cbb_pay_type.SelectedValue.ToString()).ToString());
+            // 用于测试
+            MessageBox.Show(result.ToString());
+             */
+            return result;
         }
         #endregion
 
@@ -179,6 +240,11 @@ namespace SimpleERPSystem.Base
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 辅助字段，用于存储窗体加载时从数据库获取的默认值
+        /// </summary>
+        private string default_pay_type = String.Empty;
+        private string default_bank_cd = String.Empty;
         /// <summary>
         ///     窗体加载事件
         /// <para>
@@ -206,8 +272,37 @@ namespace SimpleERPSystem.Base
             cbb_pay_type.DataSource = dt_pay_type;
             cbb_pay_type.DisplayMember = "minor_nm";
             cbb_pay_type.ValueMember = "minor_cd";
-
+            // 设置辅助字段值
+            default_bank_cd = cbb_bank_cd.Text;
+            default_pay_type = cbb_pay_type.Text;
             pnl_partner_info.Enabled = false;
+        }
+
+        /// <summary>
+        /// 窗体关闭事件，询问未保存数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="2101: 存在未保存数据，确认以继续操作"/>
+        private void FrmPartner_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing 
+                || e.CloseReason == CloseReason.MdiFormClosing)
+            {  // 存在未保存数据，提示用户是否继续关闭
+                if (pnl_partner_info.Enabled == true && DataChange() == true)
+                {   // 用户选择 No 时，取消关闭窗体
+                    if (B_Message_BLL.ShowYesOrNo("2101") == DialogResult.No)
+                    {
+                        e.Cancel = true;  // 取消 FormClosing 事件，默认为 false
+                        return;
+                    }
+                    else  // 用户选择 Yes 时，确认关闭窗体(默认发生)
+                    {
+                        e.Cancel = false;  // 确认关闭窗体
+                        return;
+                    }
+                }
+            }
         }
         #endregion
 
@@ -227,14 +322,20 @@ namespace SimpleERPSystem.Base
         /// <exception cref="2102: 当前有未保存的数据，是否继续操作？"
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if(pnl_partner_info.Enabled == true && DataChange())
+            // 如果面板启用: 有新增或有选取
+            // 且数据被修改: 获取过数据并修改
+            if(pnl_partner_info.Enabled && DataChange())
             {
                 if (B_Message_BLL.ShowYesOrNo("2101") == DialogResult.No)
                     return;
             }
             Query();
-            if(dgView.Rows.Count != 0)
+            /* // 不需要查找后设置可用，因而注释掉
+            if (dgView.Rows.Count != 0)
                 pnl_partner_info.Enabled = true;
+            else
+                return;
+             */
         }
 
         /// <summary>
@@ -270,7 +371,7 @@ namespace SimpleERPSystem.Base
             cbb_pay_type.SelectedValue = dgView[pay_type.Name, e.RowIndex].Value;
             // 保证编辑可达
             pnl_partner_info.Enabled = true;
-            tempQueryModel = TempQueryModel();
+            tempQueryModel = GetPanelShowModel();
         }
         #endregion
 
@@ -282,7 +383,23 @@ namespace SimpleERPSystem.Base
         /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // 如果没有绑定数据源，则先查询(此时绑定数据源)
+            if (dgView.DataSource == null)
+                Query();
+            // 如果面板启用、且面板非空、且数据被修改
+            // 则证明是经查询并被修改，询问是否继续当前新增操作
+            ///面板未启用 -> 不存在数据操作与选取；
+            ///面板启用、面板为空 -> 已经点击过一次添加按钮
+            ///面板启用、且面板非空、数据未被修改 -> 显示之前查询并选取的结果
+            if (pnl_partner_info.Enabled == true 
+                && IsPanelClear() == false
+                && DataChange() == true
+                && B_Message_BLL.ShowYesOrNo("2101") == DialogResult.No)
+                return;
+            // 确认新增操作则清除之前查询并显示的面板
             Clear_pnl_partner_info();
+            tempQueryModel = null;
+            // 保证可编辑
             pnl_partner_info.Enabled = true;
             txt_bp_cd.Enabled = true;
         }
@@ -295,17 +412,35 @@ namespace SimpleERPSystem.Base
         /// <exception cref="2102: 敏感操作：删除，确认以继续操作"/>
         private void btnDel_Click(object sender, EventArgs e)
         {
-            if (txt_bp_cd.Text == String.Empty)
+            // 如果为空面板，直接禁用面板
+            if (IsPanelClear() == true)
+            {
+                pnl_partner_info.Enabled = false;
+                txt_bp_cd.Enabled = false;
                 return;
-            // 如果 pnl_partner_info 启用，则说明存在编辑中数据
+            }
+            // 如果面板非空且启用 txt_bp_cd 则需要清空后禁用
+            if (txt_bp_cd.Enabled == true)
+            {
+                Clear_pnl_partner_info();
+                pnl_partner_info.Enabled = false;
+                txt_bp_cd.Enabled = false;
+                return;
+            }
+            /* // 错误的判断逻辑
+             // 如果 pnl_partner_info 启用，则说明存在编辑中数据
             // 此时调用 DataChange() 判断是否存在数据改动
             // 如果存在则弹窗，选择 No 则停止操作
-            if (pnl_partner_info.Enabled == true 
+            if (pnl_partner_info.Enabled == true
+                && IsPanelClear() == false
                 && DataChange() == true
                 && B_Message_BLL.ShowYesOrNo("2101") == DialogResult.No)
-                    return;
-            if(B_Message_BLL.ShowYesOrNo("2102") == DialogResult.Yes)
+                return;
+             */
+            // 面板非空，未启用 txt_bp_cd 则需要操作数据库清除并刷新
+            if (B_Message_BLL.ShowYesOrNo("2102") == DialogResult.Yes)
             {
+                model = new B_partner();
                 model.bp_cd = txt_bp_cd.Text.Trim();
                 bll.Delete_B_Partner(model);
                 Clear_pnl_partner_info();
@@ -325,7 +460,7 @@ namespace SimpleERPSystem.Base
         private void btnSave_Click(object sender, EventArgs e)
         {
             // 缓存当前值
-            model = TempQueryModel();
+            model = GetPanelShowModel();
             // 新增操作判断，如果 bp_cd 可编辑则新增
             if (txt_bp_cd.Enabled == true)
             {   // 如果插入成功则关闭
@@ -339,7 +474,8 @@ namespace SimpleERPSystem.Base
                     return;
                 }
             }
-            else // 不可编辑则更新
+            // 不可编辑则更新
+            else
             {   // 更新失败不清理面板，但是查询并返回
                 if (bll.Update_B_Partner(model)==false)
                 {
@@ -349,11 +485,12 @@ namespace SimpleERPSystem.Base
             }
             pnl_partner_info.Enabled = false;
             B_Message_BLL.ShowConfirm("0001");
-            //Clear_pnl_partner_info();
+            Clear_pnl_partner_info();
             Query();
         }
         #endregion
 
         #endregion
+
     }
 }

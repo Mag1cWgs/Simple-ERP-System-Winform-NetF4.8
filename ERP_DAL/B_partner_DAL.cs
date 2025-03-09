@@ -45,7 +45,6 @@ namespace ERP_DAL
                     model.flag,
                     model.bp_full_nm,
                     model.bp_repre);
-
             return DbHelperSQL.Query(strSql.ToString()).Tables[0];
         }
 

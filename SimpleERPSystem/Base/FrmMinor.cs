@@ -35,7 +35,8 @@ namespace SimpleERPSystem.Base
         /// <exception cref="2101: 存在未保存数据，确认以继续操作"/>
         private void FrmMinor_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing
+                || e.CloseReason == CloseReason.MdiFormClosing)
             {
                 if (HasNoSavedData())  // 存在未保存数据，提示用户是否继续关闭
                 {

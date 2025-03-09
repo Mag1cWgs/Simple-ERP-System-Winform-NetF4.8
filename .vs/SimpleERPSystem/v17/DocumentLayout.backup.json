@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "F:\\ComputerScience_Learning\\vsc_file\\SimpleERPSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8755C0AF-32E5-4BC6-A9E9-5A6FB6485E49}|ERP_BLL\\ERP_BLL.csproj|f:\\computerscience_learning\\vsc_file\\simpleerpsystem\\erp_bll\\b_partner_bll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8755C0AF-32E5-4BC6-A9E9-5A6FB6485E49}|ERP_BLL\\ERP_BLL.csproj|solutionrelative:erp_bll\\b_partner_bll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17511246-BD67-429C-81A2-8A6F3CD0D308}|SimpleERPSystem\\SimpleERPSystem.csproj|F:\\ComputerScience_Learning\\vsc_file\\SimpleERPSystem\\simpleerpsystem\\base\\frmpartner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{17511246-BD67-429C-81A2-8A6F3CD0D308}|SimpleERPSystem\\SimpleERPSystem.csproj|f:\\computerscience_learning\\vsc_file\\simpleerpsystem\\simpleerpsystem\\base\\frmpartner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{17511246-BD67-429C-81A2-8A6F3CD0D308}|SimpleERPSystem\\SimpleERPSystem.csproj|solutionrelative:simpleerpsystem\\base\\frmpartner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17511246-BD67-429C-81A2-8A6F3CD0D308}|SimpleERPSystem\\SimpleERPSystem.csproj|f:\\computerscience_learning\\vsc_file\\simpleerpsystem\\simpleerpsystem\\base\\frmpartner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{17511246-BD67-429C-81A2-8A6F3CD0D308}|SimpleERPSystem\\SimpleERPSystem.csproj|solutionrelative:simpleerpsystem\\base\\frmpartner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2B33D886-FF7F-474D-9A3F-1764F2837856}|ERP_DAL\\ERP_DAL.csproj|f:\\computerscience_learning\\vsc_file\\simpleerpsystem\\erp_dal\\b_partner_dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2B33D886-FF7F-474D-9A3F-1764F2837856}|ERP_DAL\\ERP_DAL.csproj|solutionrelative:erp_dal\\b_partner_dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C1FCA16B-11E6-4B7E-BE85-DFB46DF96CA1}|ERP_MODEL\\ERP_MODEL.csproj|f:\\computerscience_learning\\vsc_file\\simpleerpsystem\\erp_model\\b_partner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C1FCA16B-11E6-4B7E-BE85-DFB46DF96CA1}|ERP_MODEL\\ERP_MODEL.csproj|solutionrelative:erp_model\\b_partner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 157,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,6 +46,10 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
@@ -70,66 +62,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FrmPartner.cs [\u8BBE\u8BA1]",
-              "DocumentMoniker": "F:\\ComputerScience_Learning\\vsc_file\\SimpleERPSystem\\SimpleERPSystem\\Base\\FrmPartner.cs",
-              "RelativeDocumentMoniker": "SimpleERPSystem\\Base\\FrmPartner.cs",
-              "ToolTip": "F:\\ComputerScience_Learning\\vsc_file\\SimpleERPSystem\\SimpleERPSystem\\Base\\FrmPartner.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "SimpleERPSystem\\Base\\FrmPartner.cs [\u8BBE\u8BA1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T16:18:38.544Z",
-              "EditorCaption": " [\u8BBE\u8BA1]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "B_partner.cs",
-              "DocumentMoniker": "F:\\ComputerScience_Learning\\vsc_file\\SimpleERPSystem\\ERP_MODEL\\B_partner.cs",
-              "RelativeDocumentMoniker": "ERP_MODEL\\B_partner.cs",
-              "ToolTip": "F:\\ComputerScience_Learning\\vsc_file\\SimpleERPSystem\\ERP_MODEL\\B_partner.cs",
-              "RelativeToolTip": "ERP_MODEL\\B_partner.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAIA3wDIAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T16:13:05.097Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "B_partner_DAL.cs",
               "DocumentMoniker": "F:\\ComputerScience_Learning\\vsc_file\\SimpleERPSystem\\ERP_DAL\\B_partner_DAL.cs",
               "RelativeDocumentMoniker": "ERP_DAL\\B_partner_DAL.cs",
               "ToolTip": "F:\\ComputerScience_Learning\\vsc_file\\SimpleERPSystem\\ERP_DAL\\B_partner_DAL.cs",
               "RelativeToolTip": "ERP_DAL\\B_partner_DAL.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAkwKgAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAowC4AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T11:58:43.177Z",
+              "WhenOpened": "2025-03-09T19:40:31.491Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "B_partner_BLL.cs",
-              "DocumentMoniker": "F:\\ComputerScience_Learning\\vsc_file\\SimpleERPSystem\\ERP_BLL\\B_partner_BLL.cs",
-              "RelativeDocumentMoniker": "ERP_BLL\\B_partner_BLL.cs",
-              "ToolTip": "F:\\ComputerScience_Learning\\vsc_file\\SimpleERPSystem\\ERP_BLL\\B_partner_BLL.cs",
-              "RelativeToolTip": "ERP_BLL\\B_partner_BLL.cs",
-              "ViewState": "AgIAAH0AAAAAAAAAAAAowKYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T15:50:58.671Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "FrmPartner.cs",
               "DocumentMoniker": "F:\\ComputerScience_Learning\\vsc_file\\SimpleERPSystem\\SimpleERPSystem\\Base\\FrmPartner.cs",
               "RelativeDocumentMoniker": "SimpleERPSystem\\Base\\FrmPartner.cs",
-              "ToolTip": "F:\\ComputerScience_Learning\\vsc_file\\SimpleERPSystem\\SimpleERPSystem\\Base\\FrmPartner.cs",
-              "RelativeToolTip": "SimpleERPSystem\\Base\\FrmPartner.cs",
-              "ViewState": "AgIAAOUAAAAAAAAAAAAuwH0AAAAaAAAAAAAAAA==",
+              "ToolTip": "F:\\ComputerScience_Learning\\vsc_file\\SimpleERPSystem\\SimpleERPSystem\\Base\\FrmPartner.cs*",
+              "RelativeToolTip": "SimpleERPSystem\\Base\\FrmPartner.cs*",
+              "ViewState": "AgIAAMUBAAAAAAAAAAAwwOcBAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T04:30:38.942Z",
+              "WhenOpened": "2025-03-09T18:28:55.612Z",
               "EditorCaption": ""
             }
           ]
