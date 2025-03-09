@@ -137,5 +137,26 @@ namespace ERP_DAL
             return DbHelperSQL.Exists(strSql.ToString());
             // return Convert.ToInt32(DbHelperSQL.GetSingle(strSql.ToString())) > 0;
         }
+
+        /// <summary>
+        ///     根据主代码查询子代码
+        /// <para> 类似当前类的 Exist 方法 </para>
+        /// <para> 同样借用 DBHelper 中的 Exist 方法</para>
+        /// <para> 
+        ///     查询时判断综合主键 <c>major_cd</c> 和 <c>minor_cd</c> 的 <c>COUNT</c> 值
+        /// </para>
+        /// </summary>
+        /// <param name="model">传入的子代码实体</param>
+        /// <returns> 返回匹配的数据表 </returns>
+        public DataTable Get_Minor_nm(B_minor model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.AppendFormat(@"
+                    SELECT minor_cd,minor_nm FROM dbo.b_minor
+                    WHERE major_cd = N'{0}'",
+                    model.major_cd);
+            return DbHelperSQL.Query(strSql.ToString()).Tables[0];
+
+        }
     }
 }

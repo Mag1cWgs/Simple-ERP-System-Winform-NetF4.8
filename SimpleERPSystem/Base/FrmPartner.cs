@@ -17,12 +17,22 @@ namespace SimpleERPSystem.Base
 {
     public partial class FrmPartner : DockContent
     {
-        public FrmPartner()
-        {
-            InitializeComponent();
-        }
 
-        #region 辅助字段、函数: bll/ model / selectedMajor_cd / Query() / HasNoSavedData() / Clear_pnl_partner_info()
+        #region 辅助字段、函数
+
+        #region 辅助字段: bll / model
+        /// <summary>
+        /// 实例化子代码业务处理层，用于业务操作
+        /// </summary>
+        B_partner_BLL bll = new B_partner_BLL();
+
+        /// <summary>
+        /// 实例化子代码对象，用于数据封装
+        /// </summary>
+        B_partner model = new B_partner();
+        #endregion
+
+        #region 辅助函数: Query() / Clear_pnl_partner_info()
         /// <summary>
         /// 作为清除 pnl_partner_info 中内容的辅助函数
         /// </summary>
@@ -31,6 +41,8 @@ namespace SimpleERPSystem.Base
             // 重置 CheckBox 内容
             this.cb_so_flag.Checked = false;
             this.cb_po_flag.Checked = false;
+            // 重置特殊的 txt_bp_cd
+            txt_bp_cd.Text = "";
             //使用字段 txt、cbb 作为中继变量
             ERP_TextBox txt;
             KryptonComboBox cbb;
@@ -72,17 +84,7 @@ namespace SimpleERPSystem.Base
                 }
             }
             this.txt_bp_cd.Focus();
-
         }
-
-        /// <summary>
-        /// 实例化子代码业务处理层，用于业务操作
-        /// </summary>
-        B_partner_BLL bll = new B_partner_BLL();
-        /// <summary>
-        /// 实例化子代码对象，用于数据封装
-        /// </summary>
-        B_partner model = new B_partner();
 
         /// <summary>
         ///     查询函数，为方便调用而设置
@@ -92,11 +94,11 @@ namespace SimpleERPSystem.Base
         {
             // 数据封装
             if (rbtn_query_so.Checked == true)
-                model.flag = "s";
+                model.so_flag = true;
             else if (rbtn_query_po.Checked == true)
-                model.flag = "p";
+                model.po_flag = true;
             else if (rbtn_query_all.Checked == true)
-                model.flag = "Y";
+                model.so_flag = model.po_flag = true;
             model.bp_full_nm = txt_query_bp_full_nm.Text.Trim();
             model.bp_repre = txt_query_bp_repre.Text.Trim();
             // 数据绑定
@@ -110,52 +112,181 @@ namespace SimpleERPSystem.Base
             }
         }
 
+        #endregion
+
+        #region 缓存查找结果变量、缓存函数、验证更改函数 tempQueryModel、TempQueryModel()、DataChange()
+        /// <summary>
+        /// 用于缓存查找结果
+        /// </summary>
+        B_partner tempQueryModel;
+        /// <summary>
+        /// 缓存查找结果
+        /// </summary>
+        /// <returns></returns>
+        private B_partner TempQueryModel()
+        {
+            B_partner newB_parter = new B_partner();
+            newB_parter.bp_cd = txt_bp_cd.Text.Trim();
+            newB_parter.bp_full_nm = txt_bp_full_nm.Text.Trim();
+            newB_parter.bp_nm = txt_bp_nm.Text.Trim();
+            newB_parter.bp_addr = txt_bp_addr.Text.Trim();
+            newB_parter.bp_repre = txt_bp_repre.Text.Trim();
+            newB_parter.bp_email = txt_bp_email.Text.Trim();
+            newB_parter.bp_tel = txt_bp_tel.Text.Trim();
+            newB_parter.bp_tax = txt_bp_tax.Text.Trim();
+            newB_parter.bank_acct_no = txt_bank_acct_no.Text.Trim();
+            newB_parter.remark = txt_remark.Text.Trim();
+            newB_parter.so_flag = cb_so_flag.Checked;
+            newB_parter.po_flag = cb_po_flag.Checked;
+            newB_parter.bank_cd = cbb_bank_cd.SelectedValue.ToString();
+            newB_parter.pay_type = cbb_pay_type.SelectedValue.ToString();
+            newB_parter.user_cd = FrmMain.user_id;
+            return newB_parter;
+        }
+        /// <summary>
+        /// 验证数据是否更改
+        /// </summary>
+        /// <returns></returns>
+        private bool DataChange()
+        {
+            return
+            tempQueryModel.bp_cd    == txt_bp_cd.Text.Trim() &&
+            tempQueryModel.bp_full_nm   == txt_bp_full_nm.Text.Trim()&&
+            tempQueryModel.bp_nm        == txt_bp_nm.Text.Trim() &&
+            tempQueryModel.bp_addr      == txt_bp_addr.Text.Trim() &&
+            tempQueryModel.bp_repre     == txt_bp_repre.Text.Trim() &&
+            tempQueryModel.bp_email     == txt_bp_email.Text.Trim() &&
+            tempQueryModel.bp_tel       == txt_bp_tel.Text.Trim() &&
+            tempQueryModel.bp_tax       == txt_bp_tax.Text.Trim() &&
+            tempQueryModel.bank_acct_no == txt_bank_acct_no.Text.Trim() &&
+            tempQueryModel.remark       == txt_remark.Text.Trim() &&
+            tempQueryModel.so_flag      == cb_so_flag.Checked &&
+            tempQueryModel.po_flag      == cb_po_flag.Checked &&
+            tempQueryModel.bank_cd      == cbb_bank_cd.SelectedValue.ToString() &&
+            tempQueryModel.pay_type     == cbb_pay_type.SelectedValue.ToString() &&
+            tempQueryModel.user_cd      == FrmMain.user_id;
+        }
+        #endregion
+
+        #endregion
+
+        #region 窗体构造函数、加载事件
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public FrmPartner()
+        {
+            InitializeComponent();
+        }
 
         /// <summary>
-        /// 判断当前 DataGridView 是否有尚未保存的数据
+        ///     窗体加载事件
         /// <para>
-        ///     存在未保存数据但要刷新或关闭表格时，会弹出提示框，提示用户是否继续操作。
+        ///     窗体加载时，从数据库中获取主代码为 <c>1002</c> 的子代码名称表，
+        ///     并加载在 <c>cbb_bank_cd</c> 上；
+        ///     同理加载 <c>1001</c> 到 <c>cbb_pay_type</c> 上。
         /// </para>
         /// </summary>
-        /// <returns>
-        ///     返回 <c>True</c> 说明存在未保存数据，需要进一步处理；
-        ///     返回 <c>False</c> 不存在未保存数据，可以直接查询或关闭窗体。
-        /// </returns>
-        private bool HasNoSavedData()
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmPartner_Load(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgView.Rows)
-            {   // 如果有未保存的数据，直接返回 true
-                if (row.Cells["idu"].ToolTipText != "")
-                    return true;
-            }
-            return false;
+            // 定义辅助变量
+            B_minor b_Minor = new B_minor();
+            B_minor_BLL b_Minor_BLL = new B_minor_BLL();
+            // 绑定 cbb_bank_cd 的值
+            b_Minor.major_cd = "1002";
+            DataTable dt_bank_cd = b_Minor_BLL.Get_Minor_nm(b_Minor);
+            cbb_bank_cd.DataSource = dt_bank_cd;
+            cbb_bank_cd.DisplayMember = "minor_nm";
+            cbb_bank_cd.ValueMember = "minor_cd";
+            // 绑定 cbb_pay_type 的值
+            b_Minor.major_cd = "1001";
+            DataTable dt_pay_type = b_Minor_BLL.Get_Minor_nm(b_Minor);
+            cbb_pay_type.DataSource = dt_pay_type;
+            cbb_pay_type.DisplayMember = "minor_nm";
+            cbb_pay_type.ValueMember = "minor_cd";
+
+            pnl_partner_info.Enabled = false;
         }
-
-
         #endregion
 
-        #region
+        #region 按钮事件
+
+        #region 查找按钮事件、数据显示事件 btnSearch_Click / dgView_CellClick
+        /// <summary>
+        /// 查询按钮事件
+        /// <para>
+        ///     通过检查 <c>pnl_partner_info</c> 是否启用
+        ///     和 <c>DataChange()</c> 的值来判断是否有未保存数据。
+        ///     若无未保存数据则校验查找条件，最后查询并启用 <c>pnl_partner_info</c>
+        /// </para>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="2102: 当前有未保存的数据，是否继续操作？"
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            // 单位全称 和 联系人 至少填一个
-            if (txt_query_bp_full_nm.Text.Trim() == "" && txt_query_bp_repre.Text.Trim() == "")
+            if(pnl_partner_info.Enabled == true && DataChange())
             {
-                B_Message_BLL.ShowConfirm("2000");
-                return;
-            }
-            /*  查询前比对数据
-            if (HasNoSavedData())
-            {
-                DialogResult dr = B_Message_BLL.ShowYesOrNo("2101");
-                if (dr == DialogResult.No)
+                if (B_Message_BLL.ShowYesOrNo("2101") == DialogResult.No)
                     return;
             }
-             */
             Query();
+            if(dgView.Rows.Count != 0)
+                pnl_partner_info.Enabled = true;
+        }
+
+        /// <summary>
+        /// 点击 <c>dgView</c> 中数据时显示查询结果。
+        /// <para>
+        ///     点击后会将 <c>txt_bp_cd</c> 禁用，防止对主键的编辑破坏。
+        /// </para>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex < -1 || e.RowIndex < 0) return;
+            // 将 txt_bp_cd 禁用防止对主键破坏
+            txt_bp_cd.Enabled = false;
+            // 可以给控件加 tag 然后遍历容器赋值
+            // 这里选用直接赋值简化代码逻辑
+            txt_bp_cd.Text = dgView[bp_cd.Name, e.RowIndex].Value.ToString();
+            txt_bp_full_nm.Text = dgView[bp_full_nm.Name, e.RowIndex].Value.ToString();
+            txt_bp_nm.Text = dgView[bp_nm.Name,e.RowIndex].Value.ToString();
+            txt_bp_addr.Text = dgView[bp_addr.Name, e.RowIndex].Value.ToString();
+            txt_bp_repre.Text = dgView[bp_repre.Name, e.RowIndex].Value.ToString();
+            txt_bp_email.Text = dgView[bp_email.Name, e.RowIndex].Value.ToString();
+            txt_bp_tel.Text = dgView[bp_tel.Name, e.RowIndex].Value.ToString();
+            txt_bp_tax.Text = dgView[bp_tax.Name, e.RowIndex].Value.ToString();
+            txt_bank_acct_no.Text = dgView[bank_acct_no.Name, e.RowIndex].Value.ToString();
+            txt_remark.Text = dgView[remark.Name, e.RowIndex].Value.ToString();
+            // CheckBox 赋值
+            cb_so_flag.Checked = dgView[so_flag.Name,e.RowIndex].Value.ToString() == "Y";
+            cb_po_flag.Checked = dgView[po_flag.Name, e.RowIndex].Value.ToString() == "Y";
+            // ComboBox 赋值
+            cbb_bank_cd.SelectedValue = dgView[bank_cd.Name, e.RowIndex].Value;
+            cbb_pay_type.SelectedValue = dgView[pay_type.Name, e.RowIndex].Value;
+            // 保证编辑可达
+            pnl_partner_info.Enabled = true;
+            tempQueryModel = TempQueryModel();
         }
         #endregion
 
-        #region 增删按钮事件 btnDel_Click
+        #region 增删按钮事件 btnAdd_Click / btnDel_Click
+        /// <summary>
+        /// 添加按钮，点击后清除显示数据，并将 <c>txt_bp_cd</c> 启用。
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Clear_pnl_partner_info();
+            pnl_partner_info.Enabled = true;
+            txt_bp_cd.Enabled = true;
+        }
+
         /// <summary>
         /// 删除按钮，点击提示是否删除，确认后删除
         /// </summary>
@@ -164,22 +295,65 @@ namespace SimpleERPSystem.Base
         /// <exception cref="2102: 敏感操作：删除，确认以继续操作"/>
         private void btnDel_Click(object sender, EventArgs e)
         {
+            if (txt_bp_cd.Text == String.Empty)
+                return;
+            // 如果 pnl_partner_info 启用，则说明存在编辑中数据
+            // 此时调用 DataChange() 判断是否存在数据改动
+            // 如果存在则弹窗，选择 No 则停止操作
+            if (pnl_partner_info.Enabled == true 
+                && DataChange() == true
+                && B_Message_BLL.ShowYesOrNo("2101") == DialogResult.No)
+                    return;
             if(B_Message_BLL.ShowYesOrNo("2102") == DialogResult.Yes)
             {
-                // 此处写删除代码
+                model.bp_cd = txt_bp_cd.Text.Trim();
+                bll.Delete_B_Partner(model);
+                Clear_pnl_partner_info();
+                pnl_partner_info.Enabled = false;
+                Query();
+                B_Message_BLL.ShowConfirm("0001");
             }
-        }
-
-        /// <summary>
-        /// 添加按钮，点击后弹出添加窗口
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            Clear_pnl_partner_info();
         }
         #endregion
 
+        #region 保存按钮事件 btnSave_Click
+        /// <summary>
+        /// 保存按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            // 缓存当前值
+            model = TempQueryModel();
+            // 新增操作判断，如果 bp_cd 可编辑则新增
+            if (txt_bp_cd.Enabled == true)
+            {   // 如果插入成功则关闭
+                if (bll.Insert_B_Partner(model) == true)
+                {
+                    txt_bp_cd.Enabled = false;
+                }
+                else // 插入失败不清理面板，但是查询并返回
+                {
+                    Query();
+                    return;
+                }
+            }
+            else // 不可编辑则更新
+            {   // 更新失败不清理面板，但是查询并返回
+                if (bll.Update_B_Partner(model)==false)
+                {
+                    Query();
+                    return;
+                }
+            }
+            pnl_partner_info.Enabled = false;
+            B_Message_BLL.ShowConfirm("0001");
+            //Clear_pnl_partner_info();
+            Query();
+        }
+        #endregion
+
+        #endregion
     }
 }

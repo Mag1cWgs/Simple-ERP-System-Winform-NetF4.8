@@ -49,9 +49,33 @@ namespace ERP_MODEL
         public string bp_tax { get; set; }
 
         /// <summary>
-        /// 销售方标记
+        /// 标记，<c>null</c> 为非法值
         /// </summary>
-        public string flag { get; set; }
+        public string flag 
+        {
+            get
+            {
+                if (so_flag == true && po_flag == false)
+                    return "s";
+                else if (so_flag == false && po_flag == true)
+                    return "p";
+                else if (so_flag == true && po_flag == true)
+                    return "Y";
+                else
+                    return null;
+            }
+            set { flag = value; }
+        }
+
+        /// <summary>
+        /// 上游销售方标记
+        /// </summary>
+        public bool so_flag { get; set; }
+
+        /// <summary>
+        /// 下游采购方标记
+        /// </summary>
+        public bool po_flag { get; set; }
 
         /// <summary>
         /// 银行类型编号

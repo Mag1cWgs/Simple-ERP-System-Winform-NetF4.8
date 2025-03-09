@@ -33,7 +33,6 @@
             this.lblBp_cd = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnAdd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.txt_bp_cd = new ERP_CL.ERP_TextBox();
             this.kryptonHeader3 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.kryptonHeader2 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
@@ -76,6 +75,7 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.lblBp_tel = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txt_bp_tel = new ERP_CL.ERP_TextBox();
+            this.txt_bp_cd = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgView = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.bp_cd = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
@@ -128,6 +128,7 @@
             this.btnSave.Image = global::SimpleERPSystem.Properties.Resources.table_save1;
             this.btnSave.Text = "保存";
             this.btnSave.UniqueName = "96E47CDE5C0C4AE45CAE8240EB0581C7";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnAdd
             // 
@@ -136,21 +137,6 @@
             this.btnAdd.Text = "添加";
             this.btnAdd.UniqueName = "E60FBF8FD534468531B932B1EE9E31C5";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // txt_bp_cd
-            // 
-            this.txt_bp_cd.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txt_bp_cd.Location = new System.Drawing.Point(81, 13);
-            this.txt_bp_cd.Name = "txt_bp_cd";
-            this.txt_bp_cd.Size = new System.Drawing.Size(160, 26);
-            this.txt_bp_cd.StateCommon.Back.Color1 = System.Drawing.Color.LightBlue;
-            this.txt_bp_cd.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
-            this.txt_bp_cd.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txt_bp_cd.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
-            this.txt_bp_cd.TabIndex = 1;
-            this.txt_bp_cd.Text = "txt_bp_cd";
             // 
             // kryptonHeader3
             // 
@@ -256,7 +242,6 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.txt_bp_full_nm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
             this.txt_bp_full_nm.TabIndex = 3;
-            this.txt_bp_full_nm.Text = "txt_bp_full_nm";
             // 
             // lblBp_addr
             // 
@@ -282,7 +267,6 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.txt_bp_addr.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
             this.txt_bp_addr.TabIndex = 7;
-            this.txt_bp_addr.Text = "txt_bp_addr";
             // 
             // txt_bp_tax
             // 
@@ -297,7 +281,6 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.txt_bp_tax.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
             this.txt_bp_tax.TabIndex = 15;
-            this.txt_bp_tax.Text = "txt_bp_tax";
             // 
             // lblBp_tax
             // 
@@ -323,7 +306,6 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.txt_remark.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
             this.txt_remark.TabIndex = 24;
-            this.txt_remark.Text = "txt_remark";
             // 
             // cb_so_flag
             // 
@@ -358,7 +340,6 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.txt_bp_email.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
             this.txt_bp_email.TabIndex = 13;
-            this.txt_bp_email.Text = "txt_bp_email";
             // 
             // lblBp_repre
             // 
@@ -384,7 +365,6 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.txt_bp_repre.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
             this.txt_bp_repre.TabIndex = 9;
-            this.txt_bp_repre.Text = "txt_bp_repre";
             // 
             // lblBp_nm
             // 
@@ -410,7 +390,6 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.txt_bp_nm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
             this.txt_bp_nm.TabIndex = 5;
-            this.txt_bp_nm.Text = "txt_bp_nm";
             // 
             // lblBp_type
             // 
@@ -508,7 +487,6 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.txt_query_bp_full_nm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
             this.txt_query_bp_full_nm.TabIndex = 5;
-            this.txt_query_bp_full_nm.Text = "txt_query_bp_full_nm";
             // 
             // txt_query_bp_repre
             // 
@@ -522,7 +500,6 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.txt_query_bp_repre.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
             this.txt_query_bp_repre.TabIndex = 7;
-            this.txt_query_bp_repre.Text = "txt_query_bp_repre";
             // 
             // rbtn_query_so
             // 
@@ -578,7 +555,6 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.txt_bank_acct_no.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
             this.txt_bank_acct_no.TabIndex = 22;
-            this.txt_bank_acct_no.Text = "txt_bank_acct_no";
             // 
             // buttonSpecAny2
             // 
@@ -602,6 +578,7 @@
             this.cbb_pay_type.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbb_pay_type.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny2});
+            this.cbb_pay_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_pay_type.DropDownWidth = 127;
             this.cbb_pay_type.Location = new System.Drawing.Point(815, 13);
             this.cbb_pay_type.Name = "cbb_pay_type";
@@ -612,7 +589,6 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.cbb_pay_type.TabIndex = 19;
-            this.cbb_pay_type.Text = "cbb_pay_type";
             // 
             // buttonSpecAny1
             // 
@@ -646,6 +622,7 @@
             this.cbb_bank_cd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cbb_bank_cd.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.buttonSpecAny1});
+            this.cbb_bank_cd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_bank_cd.DropDownWidth = 127;
             this.cbb_bank_cd.Location = new System.Drawing.Point(815, 47);
             this.cbb_bank_cd.Name = "cbb_bank_cd";
@@ -656,7 +633,6 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.cbb_bank_cd.TabIndex = 20;
-            this.cbb_bank_cd.Text = "cbb_bank_cd";
             // 
             // pnl_partner_info
             // 
@@ -673,7 +649,6 @@
             this.pnl_partner_info.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.pnl_partner_info.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.pnl_partner_info.Controls.Add(this.lblBp_cd, 1, 1);
-            this.pnl_partner_info.Controls.Add(this.txt_bp_cd, 2, 1);
             this.pnl_partner_info.Controls.Add(this.lblBp_full_nm, 3, 1);
             this.pnl_partner_info.Controls.Add(this.txt_bp_full_nm, 4, 1);
             this.pnl_partner_info.Controls.Add(this.txt_bp_addr, 4, 2);
@@ -698,6 +673,7 @@
             this.pnl_partner_info.Controls.Add(this.lblBp_email, 3, 3);
             this.pnl_partner_info.Controls.Add(this.lblBp_tax, 3, 4);
             this.pnl_partner_info.Controls.Add(this.txt_bp_tax, 4, 4);
+            this.pnl_partner_info.Controls.Add(this.txt_bp_cd, 2, 1);
             this.pnl_partner_info.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_partner_info.Location = new System.Drawing.Point(3, 158);
             this.pnl_partner_info.Name = "pnl_partner_info";
@@ -752,7 +728,19 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.txt_bp_tel.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
             this.txt_bp_tel.TabIndex = 11;
-            this.txt_bp_tel.Text = "txt_bp_tel";
+            // 
+            // txt_bp_cd
+            // 
+            this.txt_bp_cd.Location = new System.Drawing.Point(81, 13);
+            this.txt_bp_cd.Name = "txt_bp_cd";
+            this.txt_bp_cd.Size = new System.Drawing.Size(160, 26);
+            this.txt_bp_cd.StateCommon.Back.Color1 = System.Drawing.Color.LightBlue;
+            this.txt_bp_cd.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txt_bp_cd.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txt_bp_cd.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
+            this.txt_bp_cd.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -811,6 +799,7 @@
             this.dgView.RowTemplate.Height = 30;
             this.dgView.Size = new System.Drawing.Size(1378, 496);
             this.dgView.TabIndex = 5;
+            this.dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgView_CellClick);
             // 
             // bp_cd
             // 
@@ -964,6 +953,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPartner";
             this.Text = "往来单位信息";
+            this.Load += new System.EventHandler(this.FrmPartner_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbb_pay_type)).EndInit();
@@ -985,7 +975,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lblBp_cd;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnSave;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnAdd;
-        private ERP_CL.ERP_TextBox txt_bp_cd;
         private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader3;
         private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader2;
         private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader1;
@@ -1046,5 +1035,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn bank_cd_nm;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn bank_acct_no;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn remark;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_bp_cd;
     }
 }

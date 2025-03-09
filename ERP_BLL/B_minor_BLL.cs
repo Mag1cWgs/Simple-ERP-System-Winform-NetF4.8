@@ -175,5 +175,28 @@ namespace ERP_BLL
                 return false;
             }
         }
+
+
+        /// <summary>
+        ///     根据子代码实体中的主代码查询子代码
+        ///     <para>
+        ///     如果查询为空，则返回<c>null</c>，由UI层进行处理。
+        ///     </para>
+        /// </summary>
+        /// <param name="model">子代码实体类，只需传递主代码信息</param>
+        /// <returns> 返回匹配的数据表 </returns>
+        /// <exception cref="9999: 未知异常"/>
+        public DataTable Get_Minor_nm(B_minor model)
+        {
+            try  // 异常处理
+            {
+                return dal.Get_Minor_nm(model);
+            }
+            catch (Exception ex)
+            {
+                B_Message_BLL.ShowUnkownError(ex);
+                return null;
+            }
+        }
     }
 }
