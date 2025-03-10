@@ -18,25 +18,60 @@ namespace SimpleERPSystem.Base
     public partial class FrmPartner : DockContent
     {
 
-        #region 辅助字段、函数
+        #region 辅助字段、结构体、函数
 
-        #region 辅助字段: bll / model
+        #region 辅助字段: bll / model / tempQueryModel
         /// <summary>
         /// 实例化子代码业务处理层，用于业务操作
         /// </summary>
         B_partner_BLL bll = new B_partner_BLL();
 
         /// <summary>
-        /// 实例化子代码对象，用于数据封装
+        /// 实例化子代码对象，用于数据封装。
+        /// 实际需要自行实例化，避免读取错误。
         /// </summary>
         B_partner model;
+
+        /// <summary>
+        /// 用于缓存查找结果
+        /// </summary>
+        B_partner tempQueryResultModel = null;
+
+        #endregion
+
+        #region 辅助结构体 DefaultComboBoxValue
+        /// <summary>
+        /// 辅助结构，用于存储窗体加载时从数据库获取的默认值。
+        /// <para>
+        ///     只在窗体加载事件中赋值，在 <c>IsPanelClear()</c> 中用于检验是否与默认值一致。
+        ///     包含两个字段 <c>pay_type</c> / <c>bank_cd</c>，均为静态字符串类型。
+        /// </para>
+        /// </summary>
+        private struct DefaultComboBoxValue
+        {
+            public static string pay_type;
+            public static string bank_cd;
+        }
         #endregion
 
         #region 辅助函数: IsPanelClear() / Query() / Clear_pnl_partner_info()
         /// <summary>
-        /// 确认面板是否为空
+        /// 确认面板是否为空。在 添加按钮触发 / 删除按钮触发 时被调用.
+        /// <para>
+        ///     对于添加按钮：用于确认是面板启用的 新增 / 修改选取值 的哪一项，
+        ///         如果返回 <c>false</c> 说明 有新增值 / 选取过值，其中
+        ///         通过对 <c>txt_bp_cd</c> 的锁定保证如果选取了值则一定会返回 <c>false</c>。
+        /// </para>
+        /// <para>
+        ///     对于删除按钮：用于确定删除前是否有有效数据，
+        ///         如果返回 <c>true</c>，说明是 点击新增但未输入值 / 未选取值，
+        ///         只需要直接锁定面板即可。
+        /// </para>
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        ///     <c>True</c> 则说明 <c>pnl_partner_info</c> 中内容均为默认值，
+        ///     <c>False</c> 说明存在至少一处改动。
+        /// </returns>
         private bool IsPanelClear()
         {
             /* 用于测试输出
@@ -68,12 +103,24 @@ namespace SimpleERPSystem.Base
             txt_remark.Text.Trim() == String.Empty &&
             cb_so_flag.Checked == false &&
             cb_po_flag.Checked == false &&
-            cbb_bank_cd.Text == default_bank_cd &&
-            cbb_pay_type.Text == default_pay_type;
+            cbb_bank_cd.Text == DefaultComboBoxValue.bank_cd &&
+            cbb_pay_type.Text == DefaultComboBoxValue.pay_type;
         }
 
         /// <summary>
-        /// 作为清除 pnl_partner_info 中内容的辅助函数
+        /// 作为清除 <c>pnl_partner_info</c> 中内容的辅助函数，
+        /// 在 添加按钮触发 / 删除按钮触发 / 保存按钮触发时被调用。
+        /// <para>
+        ///     对于添加按钮，确认新增操作后需要清除面板内容。
+        /// </para>
+        /// <para>
+        ///     对于删除按钮，确认面板非空后清除面板内容：
+        ///         如果是新增后删除，直接清除内容；
+        ///         如果是查询选取后删除，先清除内容后操作数据库。
+        /// </para>
+        /// <para>
+        /// 
+        /// </para>
         /// </summary>
         private void Clear_pnl_partner_info()
         {
@@ -160,15 +207,15 @@ namespace SimpleERPSystem.Base
 
         #endregion
 
-        #region 缓存查找结果变量、缓存函数、验证更改函数 tempQueryModel、GetPanelShowModel()、DataChange()
+        #region 缓存函数、验证更改函数 GetPanelShowModel()、DataChange()
+
         /// <summary>
-        /// 用于缓存查找结果
+        /// 获取 pnl_partner_info 中的内容。
+        /// 在 选取查询返回值 / 保存数据 时被调用。
         /// </summary>
-        B_partner tempQueryModel = null;
-        /// <summary>
-        /// 缓存查找结果
-        /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// 获取内容所构造的新 B_partner 实例。
+        /// </returns>
         private B_partner GetPanelShowModel()
         {
             B_partner newB_parter = new B_partner();
@@ -191,7 +238,8 @@ namespace SimpleERPSystem.Base
         }
 
         /// <summary>
-        /// 验证数据是否更改
+        /// 验证数据是否更改，避免未保存操作丢失，
+        /// 在 窗体关闭 / 查询数据 / 新增数据 时调用。
         /// </summary>
         /// <returns>
         ///     <c>True</c> 对应数据已经被更改，
@@ -200,28 +248,29 @@ namespace SimpleERPSystem.Base
         private bool DataChange()
         {
             // 如果绑定空值，则说明未进行过查询、或者查询后值被新建操作清除
-            if (tempQueryModel == null)
+            if (tempQueryResultModel == null)
                 return false;
+            // 使用 或|| 来保证只要有一组 != 成立就返回 true
             bool result = (
-            tempQueryModel.bp_cd != txt_bp_cd.Text.Trim() ||
-            tempQueryModel.bp_full_nm != txt_bp_full_nm.Text.Trim() ||
-            tempQueryModel.bp_nm != txt_bp_nm.Text.Trim() ||
-            tempQueryModel.bp_addr != txt_bp_addr.Text.Trim() ||
-            tempQueryModel.bp_repre != txt_bp_repre.Text.Trim() ||
-            tempQueryModel.bp_email != txt_bp_email.Text.Trim() ||
-            tempQueryModel.bp_tel != txt_bp_tel.Text.Trim() ||
-            tempQueryModel.bp_tax != txt_bp_tax.Text.Trim() ||
-            tempQueryModel.bank_acct_no != txt_bank_acct_no.Text.Trim() ||
-            tempQueryModel.remark != txt_remark.Text.Trim() ||
-            tempQueryModel.so_flag != cb_so_flag.Checked ||
-            tempQueryModel.po_flag != cb_po_flag.Checked ||
-            tempQueryModel.bank_cd != cbb_bank_cd.SelectedValue.ToString() ||
-            tempQueryModel.pay_type != cbb_pay_type.SelectedValue.ToString());
+            tempQueryResultModel.bp_cd != txt_bp_cd.Text.Trim() ||
+            tempQueryResultModel.bp_full_nm != txt_bp_full_nm.Text.Trim() ||
+            tempQueryResultModel.bp_nm != txt_bp_nm.Text.Trim() ||
+            tempQueryResultModel.bp_addr != txt_bp_addr.Text.Trim() ||
+            tempQueryResultModel.bp_repre != txt_bp_repre.Text.Trim() ||
+            tempQueryResultModel.bp_email != txt_bp_email.Text.Trim() ||
+            tempQueryResultModel.bp_tel != txt_bp_tel.Text.Trim() ||
+            tempQueryResultModel.bp_tax != txt_bp_tax.Text.Trim() ||
+            tempQueryResultModel.bank_acct_no != txt_bank_acct_no.Text.Trim() ||
+            tempQueryResultModel.remark != txt_remark.Text.Trim() ||
+            tempQueryResultModel.so_flag != cb_so_flag.Checked ||
+            tempQueryResultModel.po_flag != cb_po_flag.Checked ||
+            tempQueryResultModel.bank_cd != cbb_bank_cd.SelectedValue.ToString() ||
+            tempQueryResultModel.pay_type != cbb_pay_type.SelectedValue.ToString());
             /* 
             // 用于测试
-                MessageBox.Show((tempQueryModel.remark).ToString()+"\n txt:"+ (txt_remark.Text.Trim()).ToString());
-                MessageBox.Show((tempQueryModel.bank_cd != cbb_bank_cd.SelectedValue.ToString()).ToString()
-                    +"\n"+(tempQueryModel.pay_type != cbb_pay_type.SelectedValue.ToString()).ToString());
+                MessageBox.Show((tempQueryResultModel.remark).ToString()+"\n txt:"+ (txt_remark.Text.Trim()).ToString());
+                MessageBox.Show((tempQueryResultModel.bank_cd != cbb_bank_cd.SelectedValue.ToString()).ToString()
+                    +"\n"+(tempQueryResultModel.pay_type != cbb_pay_type.SelectedValue.ToString()).ToString());
             // 用于测试
             MessageBox.Show(result.ToString());
              */
@@ -240,11 +289,7 @@ namespace SimpleERPSystem.Base
             InitializeComponent();
         }
 
-        /// <summary>
-        /// 辅助字段，用于存储窗体加载时从数据库获取的默认值
-        /// </summary>
-        private string default_pay_type = String.Empty;
-        private string default_bank_cd = String.Empty;
+
         /// <summary>
         ///     窗体加载事件
         /// <para>
@@ -273,13 +318,17 @@ namespace SimpleERPSystem.Base
             cbb_pay_type.DisplayMember = "minor_nm";
             cbb_pay_type.ValueMember = "minor_cd";
             // 设置辅助字段值
-            default_bank_cd = cbb_bank_cd.Text;
-            default_pay_type = cbb_pay_type.Text;
+            DefaultComboBoxValue.bank_cd = cbb_bank_cd.Text;
+            DefaultComboBoxValue.pay_type = cbb_pay_type.Text;
+            // 窗体构造时禁用 pnl_partner_info
             pnl_partner_info.Enabled = false;
         }
 
         /// <summary>
-        /// 窗体关闭事件，询问未保存数据
+        /// 窗体关闭事件，询问未保存数据。
+        /// <para>
+        ///     在 <c>UserClosing</c> / <c>MdiFormClosing</c> 时触发。
+        /// </para>
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -348,22 +397,24 @@ namespace SimpleERPSystem.Base
         /// <param name="e"></param>
         private void dgView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex < -1 || e.RowIndex < 0) return;
+            // 如果选中表头则直接返回
+            if (e.ColumnIndex < -1 || e.RowIndex < 0) 
+                return;
             // 将 txt_bp_cd 禁用防止对主键破坏
             txt_bp_cd.Enabled = false;
             // 可以给控件加 tag 然后遍历容器赋值
             // 这里选用直接赋值简化代码逻辑
-            txt_bp_cd.Text = dgView[bp_cd.Name, e.RowIndex].Value.ToString();
-            txt_bp_full_nm.Text = dgView[bp_full_nm.Name, e.RowIndex].Value.ToString();
-            txt_bp_nm.Text = dgView[bp_nm.Name,e.RowIndex].Value.ToString();
-            txt_bp_addr.Text = dgView[bp_addr.Name, e.RowIndex].Value.ToString();
-            txt_bp_repre.Text = dgView[bp_repre.Name, e.RowIndex].Value.ToString();
-            txt_bp_email.Text = dgView[bp_email.Name, e.RowIndex].Value.ToString();
-            txt_bp_tel.Text = dgView[bp_tel.Name, e.RowIndex].Value.ToString();
-            txt_bp_tax.Text = dgView[bp_tax.Name, e.RowIndex].Value.ToString();
-            txt_bank_acct_no.Text = dgView[bank_acct_no.Name, e.RowIndex].Value.ToString();
-            txt_remark.Text = dgView[remark.Name, e.RowIndex].Value.ToString();
-            // CheckBox 赋值
+            txt_bp_cd.Text          = dgView[bp_cd.Name, e.RowIndex].Value.ToString();
+            txt_bp_full_nm.Text     = dgView[bp_full_nm.Name, e.RowIndex].Value.ToString();
+            txt_bp_nm.Text          = dgView[bp_nm.Name,e.RowIndex].Value.ToString();
+            txt_bp_addr.Text        = dgView[bp_addr.Name, e.RowIndex].Value.ToString();
+            txt_bp_repre.Text       = dgView[bp_repre.Name, e.RowIndex].Value.ToString();
+            txt_bp_email.Text       = dgView[bp_email.Name, e.RowIndex].Value.ToString();
+            txt_bp_tel.Text         = dgView[bp_tel.Name, e.RowIndex].Value.ToString();
+            txt_bp_tax.Text         = dgView[bp_tax.Name, e.RowIndex].Value.ToString();
+            txt_bank_acct_no.Text   = dgView[bank_acct_no.Name, e.RowIndex].Value.ToString();
+            txt_remark.Text         = dgView[remark.Name, e.RowIndex].Value.ToString();
+            // CheckBox 赋值，赋值基于判断获取的 DataTable 其中字段是否为 "Y"
             cb_so_flag.Checked = dgView[so_flag.Name,e.RowIndex].Value.ToString() == "Y";
             cb_po_flag.Checked = dgView[po_flag.Name, e.RowIndex].Value.ToString() == "Y";
             // ComboBox 赋值
@@ -371,11 +422,11 @@ namespace SimpleERPSystem.Base
             cbb_pay_type.SelectedValue = dgView[pay_type.Name, e.RowIndex].Value;
             // 保证编辑可达
             pnl_partner_info.Enabled = true;
-            tempQueryModel = GetPanelShowModel();
+            tempQueryResultModel = GetPanelShowModel();
         }
         #endregion
 
-        #region 增删按钮事件 btnAdd_Click / btnDel_Click
+        #region 增删存按钮事件 btnAdd_Click / btnDel_Click / btnSave_Click
         /// <summary>
         /// 添加按钮，点击后清除显示数据，并将 <c>txt_bp_cd</c> 启用。
         /// </summary>
@@ -398,7 +449,7 @@ namespace SimpleERPSystem.Base
                 return;
             // 确认新增操作则清除之前查询并显示的面板
             Clear_pnl_partner_info();
-            tempQueryModel = null;
+            tempQueryResultModel = null;
             // 保证可编辑
             pnl_partner_info.Enabled = true;
             txt_bp_cd.Enabled = true;
@@ -449,9 +500,7 @@ namespace SimpleERPSystem.Base
                 B_Message_BLL.ShowConfirm("0001");
             }
         }
-        #endregion
 
-        #region 保存按钮事件 btnSave_Click
         /// <summary>
         /// 保存按钮
         /// </summary>

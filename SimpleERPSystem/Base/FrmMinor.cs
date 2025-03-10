@@ -169,8 +169,8 @@ namespace SimpleERPSystem.Base
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// <exception cref="2101: 存在未保存数据，确认以继续操作"/>
         /// <exception cref="2000: 未填写必需信息，补充后重新操作"/>
+        /// <exception cref="2101: 存在未保存数据，确认以继续操作"/>
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (txtMajor_cd.Text.Trim() == "")
