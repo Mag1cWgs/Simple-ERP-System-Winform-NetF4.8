@@ -32,9 +32,9 @@ namespace SimpleERPSystem
             frmMenu.Show(dockPanelMain, DockState.DockLeft);
             dockPanelMain.DockLeftPortion = 140; // 设置左侧菜单栏的宽度
 
-            // 作为测试，打开一个新的窗体
-            //Base.FrmMajor frmMajor = new Base.FrmMajor();
-            //frmMajor.Show(dockPanelMain, DockState.Document);
+            tsslblUser.Text = "当前用户：" + user_id;
+            tsslblDate.Text = "当前日期：" + DateTime.Now.ToString("yyyy-MM-dd");
+            tsslblVersion.Text = "版本号：V25.1";
         }
     }
 }

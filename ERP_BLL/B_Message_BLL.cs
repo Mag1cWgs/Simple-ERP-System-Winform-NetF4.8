@@ -50,6 +50,10 @@ namespace ERP_BLL
             ///     <c>2006</c> 税率编号不能为空！
             ///     <c>2007</c> 税率名称不能为空！
             ///     <c>2008</c> 税率比例不能为空！
+            ///     <c>2009</c> 人员编号不能为空！
+            ///     <c>2010</c> 人员名称不能为空！
+            ///     <c>2011</c> 联系电话不能为空！
+            ///     <c>2012</c> 所属部门不能为空！
             /// </para>
             string str = B_message_DAL.Get_Exception_Message(msg_cd);
             KryptonMessageBox.Show(str,msg_cd.ToString(),

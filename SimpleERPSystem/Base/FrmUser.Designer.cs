@@ -38,8 +38,8 @@
             this.kryptonHeader2 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtUser_nm = new ERP_CL.ERP_TextBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.idu = new System.Windows.Forms.DataGridViewImageColumn();
             this.user_cd = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.user_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
@@ -90,6 +90,7 @@
             this.btnSearch.Image = global::SimpleERPSystem.Properties.Resources.table_tab_search1;
             this.btnSearch.Text = "查询";
             this.btnSearch.UniqueName = "E71D77C7579343E5759C571694F484BB";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnSave
             // 
@@ -97,6 +98,7 @@
             this.btnSave.Image = global::SimpleERPSystem.Properties.Resources.table_save1;
             this.btnSave.Text = "保存";
             this.btnSave.UniqueName = "96E47CDE5C0C4AE45CAE8240EB0581C7";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnAddRow
             // 
@@ -104,6 +106,7 @@
             this.btnAddRow.Image = global::SimpleERPSystem.Properties.Resources.table_row_insert1;
             this.btnAddRow.Text = "添加行";
             this.btnAddRow.UniqueName = "E60FBF8FD534468531B932B1EE9E31C5";
+            this.btnAddRow.Click += new System.EventHandler(this.btnAddRow_Click);
             // 
             // btnDelRow
             // 
@@ -111,6 +114,7 @@
             this.btnDelRow.Image = global::SimpleERPSystem.Properties.Resources.table_row_delete1;
             this.btnDelRow.Text = "删除行";
             this.btnDelRow.UniqueName = "640999D05B8443CBFCAAD82EFA7B1CCA";
+            this.btnDelRow.Click += new System.EventHandler(this.btnDelRow_Click);
             // 
             // kryptonHeader2
             // 
@@ -182,6 +186,20 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1378, 54);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
+            // txtUser_nm
+            // 
+            this.txtUser_nm.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtUser_nm.Location = new System.Drawing.Point(81, 14);
+            this.txtUser_nm.Name = "txtUser_nm";
+            this.txtUser_nm.Size = new System.Drawing.Size(200, 26);
+            this.txtUser_nm.StateCommon.Back.Color1 = System.Drawing.Color.LightBlue;
+            this.txtUser_nm.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txtUser_nm.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtUser_nm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
+            this.txtUser_nm.TabIndex = 4;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.LightSteelBlue;
@@ -203,21 +221,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1384, 861);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // txtUser_nm
-            // 
-            this.txtUser_nm.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtUser_nm.Location = new System.Drawing.Point(81, 14);
-            this.txtUser_nm.Name = "txtUser_nm";
-            this.txtUser_nm.Size = new System.Drawing.Size(200, 26);
-            this.txtUser_nm.StateCommon.Back.Color1 = System.Drawing.Color.LightBlue;
-            this.txtUser_nm.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
-            this.txtUser_nm.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtUser_nm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
-            this.txtUser_nm.TabIndex = 4;
-            this.txtUser_nm.Text = "txtUser_nm";
-            // 
             // idu
             // 
             this.idu.HeaderText = "";
@@ -228,7 +231,7 @@
             // 
             // user_cd
             // 
-            this.user_cd.DataPropertyName = "user_nm";
+            this.user_cd.DataPropertyName = "user_cd";
             this.user_cd.HeaderText = "人员编号";
             this.user_cd.Name = "user_cd";
             this.user_cd.ToolTipText = "人员编号";
@@ -244,7 +247,7 @@
             // 
             // tel_no
             // 
-            this.tel_no.DataPropertyName = "tel_nm";
+            this.tel_no.DataPropertyName = "tel_no";
             this.tel_no.HeaderText = "联系电话";
             this.tel_no.Name = "tel_no";
             this.tel_no.ToolTipText = "联系电话";
@@ -275,6 +278,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmUser";
             this.Text = "人员信息";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmUser_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
