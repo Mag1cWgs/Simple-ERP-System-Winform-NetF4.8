@@ -1,4 +1,4 @@
-﻿namespace SimpleERPSystem.Base.POP
+﻿namespace SimpleERPSystem.BaseInfo.POP
 {
     partial class FrmPopMajor
     {

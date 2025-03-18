@@ -1,6 +1,6 @@
-﻿namespace SimpleERPSystem.Base
+﻿namespace SimpleERPSystem.Item
 {
-    partial class FrmMinor
+    partial class FrmItem
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMinor));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.kryptonHeader2 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
@@ -37,14 +36,16 @@
             this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblMajor_cd = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txtMajor_cd = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lblItem_nm = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.txtItem_group = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.btnSearchMajor_cd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.dgView = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.idu = new System.Windows.Forms.DataGridViewImageColumn();
             this.minor_cd = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.minor_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.remark = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.txtItem_nm = new ERP_CL.ERP_TextBox();
+            this.lblItem_group = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
@@ -69,7 +70,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
             // kryptonHeader2
             // 
@@ -126,7 +127,6 @@
             this.btnDelRow.Image = global::SimpleERPSystem.Properties.Resources.table_row_delete1;
             this.btnDelRow.Text = "删除行";
             this.btnDelRow.UniqueName = "640999D05B8443CBFCAAD82EFA7B1CCA";
-            this.btnDelRow.Click += new System.EventHandler(this.btnDelRow_Click);
             // 
             // btnAddRow
             // 
@@ -134,7 +134,6 @@
             this.btnAddRow.Image = global::SimpleERPSystem.Properties.Resources.table_row_insert1;
             this.btnAddRow.Text = "添加行";
             this.btnAddRow.UniqueName = "E60FBF8FD534468531B932B1EE9E31C5";
-            this.btnAddRow.Click += new System.EventHandler(this.btnAddRow_Click);
             // 
             // btnSave
             // 
@@ -142,7 +141,6 @@
             this.btnSave.Image = global::SimpleERPSystem.Properties.Resources.table_save1;
             this.btnSave.Text = "保存";
             this.btnSave.UniqueName = "96E47CDE5C0C4AE45CAE8240EB0581C7";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnSearch
             // 
@@ -150,19 +148,21 @@
             this.btnSearch.Image = global::SimpleERPSystem.Properties.Resources.table_tab_search1;
             this.btnSearch.Text = "查询";
             this.btnSearch.UniqueName = "E71D77C7579343E5759C571694F484BB";
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.AutoSize = true;
-            this.tableLayoutPanel2.ColumnCount = 5;
+            this.tableLayoutPanel2.ColumnCount = 6;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.Controls.Add(this.lblMajor_cd, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.txtMajor_cd, 2, 1);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.Controls.Add(this.lblItem_nm, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtItem_nm, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtItem_group, 4, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblItem_group, 3, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 55);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -170,37 +170,37 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(794, 54);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // lblMajor_cd
+            // lblItem_nm
             // 
-            this.lblMajor_cd.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblMajor_cd.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.lblMajor_cd.Location = new System.Drawing.Point(13, 17);
-            this.lblMajor_cd.Name = "lblMajor_cd";
-            this.lblMajor_cd.Size = new System.Drawing.Size(75, 20);
-            this.lblMajor_cd.TabIndex = 0;
-            this.lblMajor_cd.Values.Text = "主代码编号";
+            this.lblItem_nm.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblItem_nm.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.lblItem_nm.Location = new System.Drawing.Point(13, 17);
+            this.lblItem_nm.Name = "lblItem_nm";
+            this.lblItem_nm.Size = new System.Drawing.Size(62, 20);
+            this.lblItem_nm.TabIndex = 0;
+            this.lblItem_nm.Values.Text = "商品名称";
             // 
-            // txtMajor_cd
+            // txtItem_group
             // 
-            this.txtMajor_cd.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtMajor_cd.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.txtItem_group.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtItem_group.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
             this.btnSearchMajor_cd});
-            this.txtMajor_cd.Location = new System.Drawing.Point(94, 14);
-            this.txtMajor_cd.Name = "txtMajor_cd";
-            this.txtMajor_cd.ReadOnly = true;
-            this.txtMajor_cd.Size = new System.Drawing.Size(130, 26);
-            this.txtMajor_cd.StateCommon.Back.Color1 = System.Drawing.Color.Snow;
-            this.txtMajor_cd.StateCommon.Border.Color1 = System.Drawing.Color.OrangeRed;
-            this.txtMajor_cd.StateCommon.Border.Color2 = System.Drawing.Color.MistyRose;
-            this.txtMajor_cd.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            this.txtItem_group.Location = new System.Drawing.Point(255, 14);
+            this.txtItem_group.Name = "txtItem_group";
+            this.txtItem_group.ReadOnly = true;
+            this.txtItem_group.Size = new System.Drawing.Size(130, 26);
+            this.txtItem_group.StateCommon.Back.Color1 = System.Drawing.Color.Snow;
+            this.txtItem_group.StateCommon.Border.Color1 = System.Drawing.Color.OrangeRed;
+            this.txtItem_group.StateCommon.Border.Color2 = System.Drawing.Color.MistyRose;
+            this.txtItem_group.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtMajor_cd.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
-            this.txtMajor_cd.TabIndex = 1;
+            this.txtItem_group.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
+            this.txtItem_group.TabIndex = 1;
+            this.txtItem_group.Text = "txtItem_group";
             // 
             // btnSearchMajor_cd
             // 
@@ -208,7 +208,6 @@
             this.btnSearchMajor_cd.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.ListItem;
             this.btnSearchMajor_cd.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.btnSearchMajor_cd.UniqueName = "5120F1F90130417A42A423F2264257A5";
-            this.btnSearchMajor_cd.Click += new System.EventHandler(this.btnSearchMajor_cd_Click);
             // 
             // dgView
             // 
@@ -230,8 +229,6 @@
             this.dgView.RowTemplate.Height = 30;
             this.dgView.Size = new System.Drawing.Size(794, 289);
             this.dgView.TabIndex = 3;
-            this.dgView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgView_CellBeginEdit);
-            this.dgView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgView_CellEndEdit);
             // 
             // idu
             // 
@@ -267,16 +264,39 @@
             this.remark.ToolTipText = "备注信息";
             this.remark.Width = 300;
             // 
-            // FrmMinor
+            // txtItem_nm
+            // 
+            this.txtItem_nm.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtItem_nm.Location = new System.Drawing.Point(81, 14);
+            this.txtItem_nm.Name = "txtItem_nm";
+            this.txtItem_nm.Size = new System.Drawing.Size(100, 26);
+            this.txtItem_nm.StateCommon.Back.Color1 = System.Drawing.Color.LightBlue;
+            this.txtItem_nm.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txtItem_nm.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtItem_nm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
+            this.txtItem_nm.TabIndex = 2;
+            this.txtItem_nm.Text = "txtItem_nm";
+            // 
+            // lblItem_group
+            // 
+            this.lblItem_group.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblItem_group.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.lblItem_group.Location = new System.Drawing.Point(187, 17);
+            this.lblItem_group.Name = "lblItem_group";
+            this.lblItem_group.Size = new System.Drawing.Size(62, 20);
+            this.lblItem_group.TabIndex = 3;
+            this.lblItem_group.Values.Text = "商品分类";
+            // 
+            // FrmItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmMinor";
-            this.Text = "子代码";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMinor_FormClosing);
+            this.Name = "FrmItem";
+            this.Text = "商品信息";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -296,13 +316,15 @@
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnSave;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnSearch;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblMajor_cd;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtMajor_cd;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblItem_nm;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtItem_group;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnSearchMajor_cd;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgView;
         private System.Windows.Forms.DataGridViewImageColumn idu;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn minor_cd;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn minor_nm;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn remark;
+        private ERP_CL.ERP_TextBox txtItem_nm;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblItem_group;
     }
 }

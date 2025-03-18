@@ -1,4 +1,4 @@
-﻿namespace SimpleERPSystem.Base
+﻿namespace SimpleERPSystem.BaseInfo
 {
     partial class FrmPartner
     {

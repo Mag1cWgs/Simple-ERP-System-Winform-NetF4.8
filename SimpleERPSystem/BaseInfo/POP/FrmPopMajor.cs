@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SimpleERPSystem.Base.POP
+namespace SimpleERPSystem.BaseInfo.POP
 {
     public partial class FrmPopMajor : Form
     {

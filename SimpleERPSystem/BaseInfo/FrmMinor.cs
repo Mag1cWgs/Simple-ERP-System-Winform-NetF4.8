@@ -11,15 +11,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace SimpleERPSystem.Base
+namespace SimpleERPSystem.BaseInfo
 {
-    public partial class FrmUser : DockContent
+    public partial class FrmMinor : DockContent
     {
-        #region 窗体事件与函数
-        public FrmUser()
+
+        #region 窗体函数与事件
+        public FrmMinor()
         {
             InitializeComponent();
         }
+
 
         /// <summary>
         /// 窗体关闭事件
@@ -31,7 +33,7 @@ namespace SimpleERPSystem.Base
         /// <param name="sender"></param>
         /// <param name="e"></param>
         /// <exception cref="2101: 存在未保存数据，确认以继续操作"/>
-        private void FrmUser_FormClosing(object sender, FormClosingEventArgs e)
+        private void FrmMinor_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing
                 || e.CloseReason == CloseReason.MdiFormClosing)
@@ -55,30 +57,36 @@ namespace SimpleERPSystem.Base
 
         #endregion
 
-        #region 辅助函数
+        #region 辅助字段、函数: bll/ model / selectedMajor_cd / Query() / HasNoSavedData()
         /// <summary>
-        /// 实例化人员信息业务处理层，用于数据库操作
+        /// 实例化子代码业务处理层，用于业务操作
         /// </summary>
-        B_user_BLL bll = new B_user_BLL();
+        B_minor_BLL bll = new B_minor_BLL();
+        /// <summary>
+        /// 实例化子代码对象，用于数据封装
+        /// </summary>
+        B_minor model = new B_minor();
+        /// <summary>
+        /// 用于存储选中的主代码
+        /// </summary>
+        public static string selectedMajor_cd = String.Empty;
 
         /// <summary>
         ///     查询函数，为方便调用而设置
         /// </summary>
-        /// <exception cref="1002:未找到所要操作数据，请确认查找条件是否正确" />
+        /// <exception cref="1002: 查找失败！未找到所要操作数据，请确认查找条件是否正确！"/>
         private void Query()
         {
             // 数据封装
-            B_user model = new B_user()
-            {
-                user_nm = txtUser_nm.Text.Trim()
-            };
-            DataTable dt = bll.Get_B_User(model);
+            model.major_cd = txtMajor_cd.Text.Trim();
+            // 数据绑定
+            DataTable dt = bll.Get_B_Minor(model);
             dgView.DataSource = dt;
 
             // 设置主代码列为只读，添加进来的新行的主代码列仍可以编辑，需要另外设置
             foreach (DataGridViewRow row in dgView.Rows)
             {
-                row.Cells[user_cd.Name].ReadOnly = true;
+                row.Cells[minor_cd.Name].ReadOnly = true;
             }
 
             // 先绑定数据源，再判断是否有数据
@@ -87,6 +95,7 @@ namespace SimpleERPSystem.Base
                 B_message_BLL.ShowConfirm("1002");
             }
         }
+
 
         /// <summary>
         /// 判断当前 DataGridView 是否有尚未保存的数据
@@ -110,28 +119,77 @@ namespace SimpleERPSystem.Base
 
         #endregion
 
-        #region 增删改查功能
+        #region 主代码选取与查询 btnSearchMajor_cd_Click btnSearch_Click
+
         /// <summary>
-        ///     搜索按钮，根据输入条件查询人员信息表。
+        /// 主代码文本框的回车事件，触发查询按钮的点击事件。
+        /// <para>
+        /// 如果在弹出的参照窗体中选中了主代码，使用 <c>FrmMinor.selectedMajor_cd</c> 
+        /// 将主代码赋值给主代码文本框，
+        /// 然后清除 <c>FrmMinor.selectedMajor_cd</c> 的值。
+        /// </para>
+        /// <para>
+        /// 如果没有在弹出的参照窗体中选中主代码，不做任何操作，
+        /// 也不修改 <c>FrmMinor.selectedMajor_cd</c> 的值。
+        /// </para>
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSearchMajor_cd_Click(object sender, EventArgs e)
+        {
+            POP.FrmPopMajor frm = new POP.FrmPopMajor();
+            frm.ShowDialog(); // 使用时阻塞主窗体
+            /// <remarks>
+            /// 如果在弹出的参照窗体中选中了主代码，则 <c>selectedMajor_cd</c> 不为空，
+            /// 此时将 <c>selectedMajor_cd</c> 赋值给主代码文本框，并重置 <c>selectedMajor_cd</c>。
+            /// </remarks>
+            if (selectedMajor_cd != String.Empty)
+            {
+                txtMajor_cd.Text = selectedMajor_cd; // 选中的主代码赋值给主代码文本框
+                selectedMajor_cd = String.Empty; // 清空选中的主代码
+                Query(); // 查询主代码对应的子代码
+                ///<remarks>
+                /// 当前选用方案中不允许用户直接输入主代码，只能通过参照窗体选取，
+                /// 因而不在这里单独设置只读，直接对该控件设置只读
+                ///     避免使用保存按钮时主键选取错误。
+                /// 如果有单独字段存储查询结果，则可设置控件非只读，此处就应设置若有选取值则只读,即:
+                /// <code>string temp = txtMajor_cd.Text.Trim();</code>
+                /// 用字段 <c>temp</c> 存储查询结果，在保存时判断 <c>temp</c> 是否有被用户输入修改
+                /// 若修改则弹窗让用户选择一个有效结果，若未修改则直接使用 <c>temp</c> 赋值给模型并实例化。
+                ///</remarks>
+                //txtMajor_cd.ReadOnly = true; // 主代码文本框设置为只读
+            }
+        }
+
+        /// <summary>
+        ///     搜索按钮，根据输入条件查询主代码表。
         /// <para>
         ///     如果有已经标记但未保存的数据，会弹出提示框
         /// </para>
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// <exception cref="2000: 未填写必需信息，补充后重新操作"/>
         /// <exception cref="2101: 存在未保存数据，确认以继续操作"/>
         private void btnSearch_Click(object sender, EventArgs e)
-        {   // 存在未保存数据，提示是否继续查询
-            if (HasNoSavedData())
+        {
+            if (txtMajor_cd.Text.Trim() == "")
+            {
+                B_message_BLL.ShowConfirm("2000");
+                return;
+            }
+            if(HasNoSavedData())
             {
                 DialogResult dr = B_message_BLL.ShowYesOrNo("2101");
                 if (dr == DialogResult.No)
                     return;
             }
-            // 不存在未保存数据，直接查询
             Query();
         }
 
+        #endregion
+
+        #region 增删改按钮 btnSave_Click btnAddRow_Click btnDelRow_Click
         #region dgView编辑事件 dgView_CellBeginEdit dgView_CellEndEdit
         // 存储表格内容
         string str_old, str_new;
@@ -176,13 +234,20 @@ namespace SimpleERPSystem.Base
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnAddRow_Click(object sender, EventArgs e)
-        {   
+        {   /*
+             * ERROR: “未将对象引用设置到对象的实例。”
+             * Analysis: 该语句原理是为 dgView.DataSource 绑定一个 DataTable，
+             *          然后再添加行，但是如果一开始没有绑定DataSource，会出现访问空值导致异常
+             * Solution: 条件判断如下
+             */
             if (dgView.DataSource == null)
             {
                 dgView.Rows.Add(); // 直接添加行
             }
             else
-            { 
+            {   /* ERROR: “当控件为数据绑定时，不能以编程方式将行添加到DataGridView的行集合中。”
+                 * Analysis：dgv.DataSource = dt.DefaultView 导致的问题
+                 * Solution：修正数据绑定，并在句中将 dgView.DataSource 强制转换为 DataTable 然后添加行。 */
                 ((DataTable)dgView.DataSource).Rows.Add();
             }
 
@@ -211,7 +276,6 @@ namespace SimpleERPSystem.Base
             }
         }
 
-
         /// <summary>
         ///    保存按钮，保存表格内容。
         ///    若操作成功会触发保存成功提示框 (<c>0001</c>)。
@@ -226,22 +290,19 @@ namespace SimpleERPSystem.Base
         /// <exception cref="1005: 未找到要更新的数据"/>
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // 数据封装
-            B_user model = new B_user();
             // 数据保存
             foreach (DataGridViewRow row in dgView.Rows)
             {
-                model.user_cd = (row.Cells[user_cd.Name].Value == null)
-                                ? "" : row.Cells[user_cd.Name].Value.ToString();
-                model.user_nm = (row.Cells[user_nm.Name].Value == null)
-                                ? "" : row.Cells[user_nm.Name].Value.ToString();
-                model.tel_no = (row.Cells[tel_no.Name].Value == null)
-                                ? "" : row.Cells[tel_no.Name].Value.ToString();
-                model.dept_nm = (row.Cells[dept_nm.Name].Value == null)
-                                ? "" : row.Cells[dept_nm.Name].Value.ToString();
+                // 主代码由主代码文本框提供，因而要设置控件只读，避免用户修改后带来的主键查询失败
+                model.major_cd = txtMajor_cd.Text.Trim();
+                // 其余数据由表格提供
+                model.minor_cd = (row.Cells[minor_cd.Name].Value == null)
+                                ? "" : row.Cells[minor_cd.Name].Value.ToString();
+                model.minor_nm = (row.Cells[minor_nm.Name].Value == null)
+                                ? "" : row.Cells[minor_nm.Name].Value.ToString();
                 model.remark = (row.Cells[remark.Name].Value == null)
                                 ? "" : row.Cells[remark.Name].Value.ToString();
-                model.user_using_cd = FrmMain.user_id;
+                model.user_cd = FrmMain.user_id;
 
                 // 根据标记进行增删改操作
                 switch (row.Cells["idu"].ToolTipText)
@@ -249,26 +310,50 @@ namespace SimpleERPSystem.Base
                     case "":    // 无标记
                         break;
                     case "Insert":  // 新增操作，返回值为 false 时，提示错误信息并返回
-                        if (!bll.Insert_B_User(model))
+                        if (!bll.Insert_B_Minor(model))
                         {
+                            /// <remarks>
+                            /// 在插入失败时会弹出两次提示框，
+                            /// 一次是插入自身的不合法提示(<c>1001/2001/2002</c>)
+                            /// 一次是插入失败(<c>1003</c>)
+                            /// </remarks>
                             B_message_BLL.ShowConfirm("1003");
                             return;
                         }
                         break;
                     case "Update":  // 修改操作，返回值为 false 时，提示错误信息并返回
-                        if (!bll.Update_B_User(model))
+                        if (!bll.Update_B_Minor(model))
                         {
+                            /// <remarks>
+                            /// 在更新失败时会弹出两次提示框，
+                            /// 一次是插入自身的不合法提示(<c>1005/2002</c>)
+                            /// 一次是插入失败(<c>1005</c>)
+                            /// </remarks>
                             B_message_BLL.ShowConfirm("1005");
                             return;
                         }
                         break;
                     case "Delete":  // 删除操作，返回值为 false 时，提示错误信息并返回
-                        if (!bll.Delete_B_User(model))
+                        if (!bll.Delete_B_Minor(model))
                         {
+                            /// <remarks>
+                            /// 在插入失败时会弹出两次提示框，
+                            /// 一次是插入自身的不合法提示(<c>1004</c>)
+                            /// 一次是插入失败(<c>1004</c>)
+                            /// </remarks>
                             B_message_BLL.ShowConfirm("1004");
                             return;
                         }
 
+                        ///<remarks>
+                        /// <c>foreach</c> 语句是基于 <c>MoveNext</c> 等函数顺序执行，
+                        /// 删除正在遍历元素会导致索引的异常。比如：
+                        ///     第六行标记为删除，删除后，第七行变为第六行，
+                        ///     但是 foreach 会认为新的第六行已经被遍历过了,
+                        ///     会导致原本的第七行被跳过，无法进行 switch 判断
+                        /// </remarks>
+                        // 无需直接删除，只需修正标记即可，后续查询时会自动过滤
+                        // dgView.Rows.Remove(row);  // 保存成功后，删除表中该行
                         break;
                 }
                 // 数据库操作成功后，将需操作标记改为无标记

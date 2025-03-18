@@ -90,40 +90,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\FrmMajor.cs">
+    <Compile Include="BaseInfo\FrmMajor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Base\FrmMajor.Designer.cs">
+    <Compile Include="BaseInfo\FrmMajor.Designer.cs">
       <DependentUpon>FrmMajor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Base\FrmMinor.cs">
+    <Compile Include="BaseInfo\FrmMinor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Base\FrmMinor.Designer.cs">
+    <Compile Include="BaseInfo\FrmMinor.Designer.cs">
       <DependentUpon>FrmMinor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Base\FrmPartner.cs">
+    <Compile Include="BaseInfo\FrmPartner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Base\FrmPartner.Designer.cs">
+    <Compile Include="BaseInfo\FrmPartner.Designer.cs">
       <DependentUpon>FrmPartner.cs</DependentUpon>
     </Compile>
-    <Compile Include="Base\FrmTax.cs">
+    <Compile Include="BaseInfo\FrmTax.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Base\FrmTax.Designer.cs">
+    <Compile Include="BaseInfo\FrmTax.Designer.cs">
       <DependentUpon>FrmTax.cs</DependentUpon>
     </Compile>
-    <Compile Include="Base\FrmUser.cs">
+    <Compile Include="BaseInfo\FrmUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Base\FrmUser.Designer.cs">
+    <Compile Include="BaseInfo\FrmUser.Designer.cs">
       <DependentUpon>FrmUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Base\POP\FrmPopMajor.cs">
+    <Compile Include="BaseInfo\POP\FrmPopMajor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Base\POP\FrmPopMajor.Designer.cs">
+    <Compile Include="BaseInfo\POP\FrmPopMajor.Designer.cs">
       <DependentUpon>FrmPopMajor.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmHomePage.cs">
@@ -144,24 +144,36 @@
     <Compile Include="FrmMenu.Designer.cs">
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Item\FrmItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item\FrmItem.Designer.cs">
+      <DependentUpon>FrmItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Item\FrmPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Item\FrmPrice.Designer.cs">
+      <DependentUpon>FrmPrice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Base\FrmMajor.resx">
+    <EmbeddedResource Include="BaseInfo\FrmMajor.resx">
       <DependentUpon>FrmMajor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Base\FrmMinor.resx">
+    <EmbeddedResource Include="BaseInfo\FrmMinor.resx">
       <DependentUpon>FrmMinor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Base\FrmPartner.resx">
+    <EmbeddedResource Include="BaseInfo\FrmPartner.resx">
       <DependentUpon>FrmPartner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Base\FrmTax.resx">
+    <EmbeddedResource Include="BaseInfo\FrmTax.resx">
       <DependentUpon>FrmTax.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Base\FrmUser.resx">
+    <EmbeddedResource Include="BaseInfo\FrmUser.resx">
       <DependentUpon>FrmUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Base\POP\FrmPopMajor.resx">
+    <EmbeddedResource Include="BaseInfo\POP\FrmPopMajor.resx">
       <DependentUpon>FrmPopMajor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHomePage.resx">
@@ -174,6 +186,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item\FrmItem.resx">
+      <DependentUpon>FrmItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Item\FrmPrice.resx">
+      <DependentUpon>FrmPrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -371,6 +389,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="image\32x32\page_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\16x16\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\32x32\money.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

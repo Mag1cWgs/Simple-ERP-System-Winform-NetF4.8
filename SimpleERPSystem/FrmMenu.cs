@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
-using SimpleERPSystem.Base;
 using System.Security.AccessControl;
 using ComponentFactory.Krypton.Toolkit;
 
@@ -16,6 +15,7 @@ namespace SimpleERPSystem
 {
     public partial class FrmMenu : DockContent
     {
+        #region 构造函数 / 窗体事件
         /// <summary>
         /// 构造函数
         /// </summary>
@@ -24,8 +24,6 @@ namespace SimpleERPSystem
             InitializeComponent();
         }
 
-
-        #region 窗体加载事件
         /// <summary>
         /// 窗体加载事件的辅助函数，用于打开子窗体，并保证单例
         /// </summary>
@@ -48,63 +46,88 @@ namespace SimpleERPSystem
             // 显示窗体，使用静态类FrmMain中的frmMain对象取巧
             dockContent.Show(FrmMain.frmMain.dockPanelMain);
         }
+        #endregion
 
+        #region 基础信息分菜单中的点击事件
         /// <summary>
-        /// 窗体加载事件
+        /// 主代码窗体加载事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void lblMajor_Click(object sender, EventArgs e)
         {
             var lbl = sender as KryptonLabel;
-            OpenSubForm(new Base.FrmMajor(),lbl);
+            OpenSubForm(new BaseInfo.FrmMajor(),lbl);
         }
 
-
         /// <summary>
-        /// 窗体加载事件
+        /// 子代码窗体加载事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void lblMinor_Click(object sender, EventArgs e)
         {
             var lbl = sender as KryptonLabel;
-            OpenSubForm(new Base.FrmMinor(), lbl);
+            OpenSubForm(new BaseInfo.FrmMinor(), lbl);
         }
 
         /// <summary>
-        /// 窗体加载事件
+        /// 往来单位窗体加载事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void lblPartner_Click(object sender, EventArgs e)
         {
             var lbl = sender as KryptonLabel;
-            OpenSubForm(new Base.FrmPartner(), lbl);
+            OpenSubForm(new BaseInfo.FrmPartner(), lbl);
         }
 
         /// <summary>
-        /// 窗体加载事件
+        /// 税率窗体加载事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void lblTax_Click(object sender, EventArgs e)
         {
             var lbl = sender as KryptonLabel;
-            OpenSubForm(new Base.FrmTax(), lbl);
+            OpenSubForm(new BaseInfo.FrmTax(), lbl);
         }
 
         /// <summary>
-        /// 窗体加载事件
+        /// 用户信息窗体加载事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void lblUser_Click(object sender, EventArgs e)
         {
             var lbl = sender as KryptonLabel;
-            OpenSubForm(new Base.FrmUser(), lbl);
+            OpenSubForm(new BaseInfo.FrmUser(), lbl);
+        }
+        #endregion
+
+        #region 商品信息分菜单中的点击事件
+        /// <summary>
+        /// 商品信息窗体加载事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lblItem_Click(object sender, EventArgs e)
+        {
+            var lbl = sender as KryptonLabel;
+            OpenSubForm(new Item.FrmItem(), lbl);
+        }
+
+        /// <summary>
+        /// 往来单价窗体加载事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lblPrice_Click(object sender, EventArgs e)
+        {
+            var lbl = sender as KryptonLabel;
+            OpenSubForm(new Item.FrmPrice(), lbl);
         }
         #endregion
     }
-   
+
 }
