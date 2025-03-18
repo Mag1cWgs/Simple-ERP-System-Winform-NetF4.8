@@ -234,6 +234,7 @@
             this.user_cd.DataPropertyName = "user_cd";
             this.user_cd.HeaderText = "人员编号";
             this.user_cd.Name = "user_cd";
+            this.user_cd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.user_cd.ToolTipText = "人员编号";
             this.user_cd.Width = 100;
             // 
@@ -242,6 +243,7 @@
             this.user_nm.DataPropertyName = "user_nm";
             this.user_nm.HeaderText = "人员姓名";
             this.user_nm.Name = "user_nm";
+            this.user_nm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.user_nm.ToolTipText = "人员姓名";
             this.user_nm.Width = 100;
             // 
@@ -250,6 +252,7 @@
             this.tel_no.DataPropertyName = "tel_no";
             this.tel_no.HeaderText = "联系电话";
             this.tel_no.Name = "tel_no";
+            this.tel_no.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.tel_no.ToolTipText = "联系电话";
             this.tel_no.Width = 150;
             // 
@@ -258,6 +261,7 @@
             this.dept_nm.DataPropertyName = "dept_nm";
             this.dept_nm.HeaderText = "所在部门";
             this.dept_nm.Name = "dept_nm";
+            this.dept_nm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.dept_nm.ToolTipText = "所在部门";
             this.dept_nm.Width = 150;
             // 
@@ -266,6 +270,7 @@
             this.remark.DataPropertyName = "remark";
             this.remark.HeaderText = "备注信息";
             this.remark.Name = "remark";
+            this.remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.remark.ToolTipText = "备注信息";
             this.remark.Width = 300;
             // 

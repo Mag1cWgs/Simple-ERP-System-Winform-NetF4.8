@@ -247,6 +247,7 @@
             this.minor_cd.HeaderText = "子代码编号";
             this.minor_cd.Name = "minor_cd";
             this.minor_cd.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.minor_cd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.minor_cd.Width = 100;
             // 
             // minor_nm
@@ -255,6 +256,7 @@
             this.minor_nm.HeaderText = "子代码名称";
             this.minor_nm.Name = "minor_nm";
             this.minor_nm.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.minor_nm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.minor_nm.ToolTipText = "子代码名称";
             this.minor_nm.Width = 150;
             // 
@@ -264,6 +266,7 @@
             this.remark.HeaderText = "备注信息";
             this.remark.Name = "remark";
             this.remark.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.remark.ToolTipText = "备注信息";
             this.remark.Width = 300;
             // 

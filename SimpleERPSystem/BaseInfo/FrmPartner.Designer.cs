@@ -808,6 +808,7 @@
             this.bp_cd.Name = "bp_cd";
             this.bp_cd.ReadOnly = true;
             this.bp_cd.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.bp_cd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.bp_cd.ToolTipText = "单位编号";
             this.bp_cd.Width = 60;
             // 
@@ -818,6 +819,7 @@
             this.bp_full_nm.Name = "bp_full_nm";
             this.bp_full_nm.ReadOnly = true;
             this.bp_full_nm.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.bp_full_nm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.bp_full_nm.ToolTipText = "单位全称";
             this.bp_full_nm.Width = 200;
             // 
@@ -827,6 +829,7 @@
             this.bp_nm.HeaderText = "单位简称";
             this.bp_nm.Name = "bp_nm";
             this.bp_nm.ReadOnly = true;
+            this.bp_nm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.bp_nm.ToolTipText = "单位简称";
             this.bp_nm.Width = 100;
             // 
@@ -836,6 +839,7 @@
             this.bp_addr.HeaderText = "单位地址";
             this.bp_addr.Name = "bp_addr";
             this.bp_addr.ReadOnly = true;
+            this.bp_addr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.bp_addr.ToolTipText = "单位地址";
             this.bp_addr.Width = 200;
             // 
@@ -845,6 +849,7 @@
             this.bp_repre.HeaderText = "联系人";
             this.bp_repre.Name = "bp_repre";
             this.bp_repre.ReadOnly = true;
+            this.bp_repre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.bp_repre.ToolTipText = "联系人";
             this.bp_repre.Width = 60;
             // 
@@ -854,6 +859,7 @@
             this.bp_email.HeaderText = "邮箱地址";
             this.bp_email.Name = "bp_email";
             this.bp_email.ReadOnly = true;
+            this.bp_email.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.bp_email.ToolTipText = "邮箱地址";
             this.bp_email.Width = 100;
             // 
@@ -863,6 +869,7 @@
             this.bp_tel.HeaderText = "联系电话";
             this.bp_tel.Name = "bp_tel";
             this.bp_tel.ReadOnly = true;
+            this.bp_tel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.bp_tel.ToolTipText = "联系电话";
             this.bp_tel.Width = 100;
             // 
@@ -872,6 +879,7 @@
             this.so_flag.HeaderText = "上游销售方";
             this.so_flag.Name = "so_flag";
             this.so_flag.ReadOnly = true;
+            this.so_flag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.so_flag.ToolTipText = "上游销售方";
             this.so_flag.Width = 80;
             // 
@@ -881,6 +889,7 @@
             this.po_flag.HeaderText = "下游采购方";
             this.po_flag.Name = "po_flag";
             this.po_flag.ReadOnly = true;
+            this.po_flag.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.po_flag.ToolTipText = "下游采购方";
             this.po_flag.Width = 80;
             // 
@@ -890,6 +899,7 @@
             this.bp_tax.HeaderText = "税号";
             this.bp_tax.Name = "bp_tax";
             this.bp_tax.ReadOnly = true;
+            this.bp_tax.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.bp_tax.Width = 100;
             // 
             // pay_type
@@ -898,6 +908,7 @@
             this.pay_type.HeaderText = "付款方式编号";
             this.pay_type.Name = "pay_type";
             this.pay_type.ReadOnly = true;
+            this.pay_type.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.pay_type.Width = 100;
             // 
             // pay_type_nm
@@ -906,6 +917,7 @@
             this.pay_type_nm.HeaderText = "付款方式名称";
             this.pay_type_nm.Name = "pay_type_nm";
             this.pay_type_nm.ReadOnly = true;
+            this.pay_type_nm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.pay_type_nm.ToolTipText = "付款方式名称";
             // 
             // bank_cd
@@ -914,6 +926,7 @@
             this.bank_cd.HeaderText = "银行编号";
             this.bank_cd.Name = "bank_cd";
             this.bank_cd.ReadOnly = true;
+            this.bank_cd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.bank_cd.ToolTipText = "银行编号";
             this.bank_cd.Width = 60;
             // 
@@ -923,6 +936,7 @@
             this.bank_cd_nm.HeaderText = "银行名称";
             this.bank_cd_nm.Name = "bank_cd_nm";
             this.bank_cd_nm.ReadOnly = true;
+            this.bank_cd_nm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.bank_cd_nm.ToolTipText = "银行名称";
             this.bank_cd_nm.Width = 80;
             // 
@@ -932,6 +946,7 @@
             this.bank_acct_no.HeaderText = "银行账户";
             this.bank_acct_no.Name = "bank_acct_no";
             this.bank_acct_no.ReadOnly = true;
+            this.bank_acct_no.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.bank_acct_no.ToolTipText = "银行账户";
             this.bank_acct_no.Width = 160;
             // 
@@ -941,6 +956,7 @@
             this.remark.HeaderText = "备注信息";
             this.remark.Name = "remark";
             this.remark.ReadOnly = true;
+            this.remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.remark.ToolTipText = "备注信息";
             this.remark.Width = 200;
             // 
@@ -1020,6 +1036,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbtn_query_so;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbtn_query_po;
         private ComponentFactory.Krypton.Toolkit.KryptonRadioButton rbtn_query_all;
+        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_bp_cd;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn bp_cd;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn bp_full_nm;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn bp_nm;
@@ -1036,6 +1053,5 @@
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn bank_cd_nm;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn bank_acct_no;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn remark;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_bp_cd;
     }
 }

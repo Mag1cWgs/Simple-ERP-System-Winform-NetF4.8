@@ -283,6 +283,7 @@
             this.major_cd.DataPropertyName = "major_cd";
             this.major_cd.HeaderText = "主代码编号";
             this.major_cd.Name = "major_cd";
+            this.major_cd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.major_cd.ToolTipText = "主代码编号";
             this.major_cd.Width = 100;
             // 
@@ -291,6 +292,7 @@
             this.major_nm.DataPropertyName = "major_nm";
             this.major_nm.HeaderText = "主代码名称";
             this.major_nm.Name = "major_nm";
+            this.major_nm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.major_nm.ToolTipText = "主代码名称";
             this.major_nm.Width = 150;
             // 
@@ -299,6 +301,7 @@
             this.remark.DataPropertyName = "remark";
             this.remark.HeaderText = "备注信息";
             this.remark.Name = "remark";
+            this.remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.remark.ToolTipText = "备注信息";
             this.remark.Width = 300;
             // 

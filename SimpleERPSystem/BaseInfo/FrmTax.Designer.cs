@@ -31,11 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTax));
             this.dgView = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.idu = new System.Windows.Forms.DataGridViewImageColumn();
-            this.tax_cd = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
-            this.tax_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
-            this.tax_rate = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
-            this.remark = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.btnSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnAddRow = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
@@ -43,6 +38,11 @@
             this.kryptonHeader2 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.idu = new System.Windows.Forms.DataGridViewImageColumn();
+            this.tax_cd = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.tax_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.tax_rate = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.remark = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -71,50 +71,6 @@
             this.dgView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgView_CellBeginEdit);
             this.dgView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgView_CellEndEdit);
             this.dgView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgView_DataError);
-            // 
-            // idu
-            // 
-            this.idu.HeaderText = "";
-            this.idu.Image = global::SimpleERPSystem.Properties.Resources.table;
-            this.idu.Name = "idu";
-            this.idu.ReadOnly = true;
-            this.idu.Width = 30;
-            // 
-            // tax_cd
-            // 
-            this.tax_cd.DataPropertyName = "tax_cd";
-            this.tax_cd.HeaderText = "税率编号";
-            this.tax_cd.Name = "tax_cd";
-            this.tax_cd.ToolTipText = "税率编号";
-            this.tax_cd.Width = 80;
-            // 
-            // tax_nm
-            // 
-            this.tax_nm.DataPropertyName = "tax_nm";
-            this.tax_nm.HeaderText = "税率名称";
-            this.tax_nm.Name = "tax_nm";
-            this.tax_nm.ToolTipText = "税率名称";
-            this.tax_nm.Width = 150;
-            // 
-            // tax_rate
-            // 
-            this.tax_rate.DataPropertyName = "tax_rate";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N4";
-            dataGridViewCellStyle1.NullValue = null;
-            this.tax_rate.DefaultCellStyle = dataGridViewCellStyle1;
-            this.tax_rate.HeaderText = "税率比例";
-            this.tax_rate.Name = "tax_rate";
-            this.tax_rate.ToolTipText = "税率比例";
-            this.tax_rate.Width = 100;
-            // 
-            // remark
-            // 
-            this.remark.DataPropertyName = "remark";
-            this.remark.HeaderText = "备注信息";
-            this.remark.Name = "remark";
-            this.remark.ToolTipText = "备注信息";
-            this.remark.Width = 300;
             // 
             // btnSearch
             // 
@@ -215,6 +171,54 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1384, 861);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // idu
+            // 
+            this.idu.HeaderText = "";
+            this.idu.Image = global::SimpleERPSystem.Properties.Resources.table;
+            this.idu.Name = "idu";
+            this.idu.ReadOnly = true;
+            this.idu.Width = 30;
+            // 
+            // tax_cd
+            // 
+            this.tax_cd.DataPropertyName = "tax_cd";
+            this.tax_cd.HeaderText = "税率编号";
+            this.tax_cd.Name = "tax_cd";
+            this.tax_cd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.tax_cd.ToolTipText = "税率编号";
+            this.tax_cd.Width = 80;
+            // 
+            // tax_nm
+            // 
+            this.tax_nm.DataPropertyName = "tax_nm";
+            this.tax_nm.HeaderText = "税率名称";
+            this.tax_nm.Name = "tax_nm";
+            this.tax_nm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.tax_nm.ToolTipText = "税率名称";
+            this.tax_nm.Width = 150;
+            // 
+            // tax_rate
+            // 
+            this.tax_rate.DataPropertyName = "tax_rate";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N4";
+            dataGridViewCellStyle1.NullValue = null;
+            this.tax_rate.DefaultCellStyle = dataGridViewCellStyle1;
+            this.tax_rate.HeaderText = "税率比例";
+            this.tax_rate.Name = "tax_rate";
+            this.tax_rate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.tax_rate.ToolTipText = "税率比例";
+            this.tax_rate.Width = 100;
+            // 
+            // remark
+            // 
+            this.remark.DataPropertyName = "remark";
+            this.remark.HeaderText = "备注信息";
+            this.remark.Name = "remark";
+            this.remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.remark.ToolTipText = "备注信息";
+            this.remark.Width = 300;
             // 
             // FrmTax
             // 
