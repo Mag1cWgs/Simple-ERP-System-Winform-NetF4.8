@@ -201,7 +201,7 @@ namespace SimpleERPSystem.Base
             // 先绑定数据源，再判断是否有数据
             if (dt.Rows.Count == 0)
             {
-                B_Message_BLL.ShowConfirm("1002");
+                B_message_BLL.ShowConfirm("1002");
             }
         }
 
@@ -340,7 +340,7 @@ namespace SimpleERPSystem.Base
             {  // 存在未保存数据，提示用户是否继续关闭
                 if (pnl_partner_info.Enabled == true && DataChange() == true)
                 {   // 用户选择 No 时，取消关闭窗体
-                    if (B_Message_BLL.ShowYesOrNo("2101") == DialogResult.No)
+                    if (B_message_BLL.ShowYesOrNo("2101") == DialogResult.No)
                     {
                         e.Cancel = true;  // 取消 FormClosing 事件，默认为 false
                         return;
@@ -375,7 +375,7 @@ namespace SimpleERPSystem.Base
             // 且数据被修改: 获取过数据并修改
             if(pnl_partner_info.Enabled && DataChange())
             {
-                if (B_Message_BLL.ShowYesOrNo("2101") == DialogResult.No)
+                if (B_message_BLL.ShowYesOrNo("2101") == DialogResult.No)
                     return;
             }
             Query();
@@ -445,7 +445,7 @@ namespace SimpleERPSystem.Base
             if (pnl_partner_info.Enabled == true 
                 && IsPanelClear() == false
                 && DataChange() == true
-                && B_Message_BLL.ShowYesOrNo("2101") == DialogResult.No)
+                && B_message_BLL.ShowYesOrNo("2101") == DialogResult.No)
                 return;
             // 确认新增操作则清除之前查询并显示的面板
             Clear_pnl_partner_info();
@@ -489,7 +489,7 @@ namespace SimpleERPSystem.Base
                 return;
              */
             // 面板非空，未启用 txt_bp_cd 则需要操作数据库清除并刷新
-            if (B_Message_BLL.ShowYesOrNo("2102") == DialogResult.Yes)
+            if (B_message_BLL.ShowYesOrNo("2102") == DialogResult.Yes)
             {
                 model = new B_partner();
                 model.bp_cd = txt_bp_cd.Text.Trim();
@@ -497,7 +497,7 @@ namespace SimpleERPSystem.Base
                 Clear_pnl_partner_info();
                 pnl_partner_info.Enabled = false;
                 Query();
-                B_Message_BLL.ShowConfirm("0001");
+                B_message_BLL.ShowConfirm("0001");
             }
         }
 
@@ -533,7 +533,7 @@ namespace SimpleERPSystem.Base
                 }
             }
             pnl_partner_info.Enabled = false;
-            B_Message_BLL.ShowConfirm("0001");
+            B_message_BLL.ShowConfirm("0001");
             Clear_pnl_partner_info();
             Query();
         }

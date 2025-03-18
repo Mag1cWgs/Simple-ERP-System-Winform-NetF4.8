@@ -44,6 +44,8 @@
     <Compile Include="B_major.cs" />
     <Compile Include="B_minor.cs" />
     <Compile Include="B_partner.cs" />
+    <Compile Include="B_tax.cs" />
+    <Compile Include="B_user.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

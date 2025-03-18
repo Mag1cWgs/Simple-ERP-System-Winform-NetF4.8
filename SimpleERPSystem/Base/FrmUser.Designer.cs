@@ -29,20 +29,278 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUser));
+            this.dgView = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.lblUser_nm = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.btnSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnAddRow = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.btnDelRow = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            this.kryptonHeader2 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtUser_nm = new ERP_CL.ERP_TextBox();
+            this.idu = new System.Windows.Forms.DataGridViewImageColumn();
+            this.user_cd = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.user_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.tel_no = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.dept_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.remark = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // dgView
+            // 
+            this.dgView.AllowUserToAddRows = false;
+            this.dgView.AllowUserToDeleteRows = false;
+            this.dgView.AllowUserToResizeRows = false;
+            this.dgView.ColumnHeadersHeight = 40;
+            this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idu,
+            this.user_cd,
+            this.user_nm,
+            this.tel_no,
+            this.dept_nm,
+            this.remark});
+            this.dgView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dgView.Location = new System.Drawing.Point(3, 158);
+            this.dgView.Name = "dgView";
+            this.dgView.RowHeadersWidth = 70;
+            this.dgView.RowTemplate.Height = 30;
+            this.dgView.Size = new System.Drawing.Size(1378, 700);
+            this.dgView.TabIndex = 3;
+            // 
+            // lblUser_nm
+            // 
+            this.lblUser_nm.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblUser_nm.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.lblUser_nm.Location = new System.Drawing.Point(13, 17);
+            this.lblUser_nm.Name = "lblUser_nm";
+            this.lblUser_nm.Size = new System.Drawing.Size(62, 20);
+            this.lblUser_nm.TabIndex = 0;
+            this.lblUser_nm.Values.Text = "人员姓名";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
+            this.btnSearch.Image = global::SimpleERPSystem.Properties.Resources.table_tab_search1;
+            this.btnSearch.Text = "查询";
+            this.btnSearch.UniqueName = "E71D77C7579343E5759C571694F484BB";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
+            this.btnSave.Image = global::SimpleERPSystem.Properties.Resources.table_save1;
+            this.btnSave.Text = "保存";
+            this.btnSave.UniqueName = "96E47CDE5C0C4AE45CAE8240EB0581C7";
+            // 
+            // btnAddRow
+            // 
+            this.btnAddRow.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
+            this.btnAddRow.Image = global::SimpleERPSystem.Properties.Resources.table_row_insert1;
+            this.btnAddRow.Text = "添加行";
+            this.btnAddRow.UniqueName = "E60FBF8FD534468531B932B1EE9E31C5";
+            // 
+            // btnDelRow
+            // 
+            this.btnDelRow.Edge = ComponentFactory.Krypton.Toolkit.PaletteRelativeEdgeAlign.Near;
+            this.btnDelRow.Image = global::SimpleERPSystem.Properties.Resources.table_row_delete1;
+            this.btnDelRow.Text = "删除行";
+            this.btnDelRow.UniqueName = "640999D05B8443CBFCAAD82EFA7B1CCA";
+            // 
+            // kryptonHeader2
+            // 
+            this.kryptonHeader2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonHeader2.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Form;
+            this.kryptonHeader2.Location = new System.Drawing.Point(3, 115);
+            this.kryptonHeader2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.kryptonHeader2.Name = "kryptonHeader2";
+            this.kryptonHeader2.Size = new System.Drawing.Size(1378, 40);
+            this.kryptonHeader2.StateCommon.Content.Padding = new System.Windows.Forms.Padding(3);
+            this.kryptonHeader2.StateNormal.Back.Color1 = System.Drawing.Color.LightCyan;
+            this.kryptonHeader2.StateNormal.Back.Color2 = System.Drawing.Color.Azure;
+            this.kryptonHeader2.StateNormal.Back.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Form;
+            this.kryptonHeader2.StateNormal.Border.Color1 = System.Drawing.Color.DeepSkyBlue;
+            this.kryptonHeader2.StateNormal.Border.Color2 = System.Drawing.Color.SteelBlue;
+            this.kryptonHeader2.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonHeader2.TabIndex = 2;
+            this.kryptonHeader2.Values.Description = "";
+            this.kryptonHeader2.Values.Heading = "查询结果";
+            this.kryptonHeader2.Values.Image = global::SimpleERPSystem.Properties.Resources.table1;
+            // 
+            // kryptonHeader1
+            // 
+            this.kryptonHeader1.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
+            this.btnDelRow,
+            this.btnAddRow,
+            this.btnSave,
+            this.btnSearch});
+            this.kryptonHeader1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kryptonHeader1.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Form;
+            this.kryptonHeader1.Location = new System.Drawing.Point(3, 3);
+            this.kryptonHeader1.Name = "kryptonHeader1";
+            this.kryptonHeader1.Size = new System.Drawing.Size(1378, 46);
+            this.kryptonHeader1.StateCommon.ButtonPadding = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.kryptonHeader1.StateCommon.Content.Padding = new System.Windows.Forms.Padding(3);
+            this.kryptonHeader1.StateNormal.Back.Color1 = System.Drawing.Color.LightCyan;
+            this.kryptonHeader1.StateNormal.Back.Color2 = System.Drawing.Color.Azure;
+            this.kryptonHeader1.StateNormal.Back.ColorAlign = ComponentFactory.Krypton.Toolkit.PaletteRectangleAlign.Form;
+            this.kryptonHeader1.StateNormal.Border.Color1 = System.Drawing.Color.DeepSkyBlue;
+            this.kryptonHeader1.StateNormal.Border.Color2 = System.Drawing.Color.SteelBlue;
+            this.kryptonHeader1.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonHeader1.TabIndex = 0;
+            this.kryptonHeader1.Values.Description = "";
+            this.kryptonHeader1.Values.Heading = "";
+            this.kryptonHeader1.Values.Image = null;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.AutoSize = true;
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.lblUser_nm, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtUser_nm, 2, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 55);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1378, 54);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.kryptonHeader2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.kryptonHeader1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dgView, 0, 3);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1384, 861);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // txtUser_nm
+            // 
+            this.txtUser_nm.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtUser_nm.Location = new System.Drawing.Point(81, 14);
+            this.txtUser_nm.Name = "txtUser_nm";
+            this.txtUser_nm.Size = new System.Drawing.Size(200, 26);
+            this.txtUser_nm.StateCommon.Back.Color1 = System.Drawing.Color.LightBlue;
+            this.txtUser_nm.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txtUser_nm.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtUser_nm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
+            this.txtUser_nm.TabIndex = 4;
+            this.txtUser_nm.Text = "txtUser_nm";
+            // 
+            // idu
+            // 
+            this.idu.HeaderText = "";
+            this.idu.Image = global::SimpleERPSystem.Properties.Resources.table;
+            this.idu.Name = "idu";
+            this.idu.ReadOnly = true;
+            this.idu.Width = 30;
+            // 
+            // user_cd
+            // 
+            this.user_cd.DataPropertyName = "user_nm";
+            this.user_cd.HeaderText = "人员编号";
+            this.user_cd.Name = "user_cd";
+            this.user_cd.ToolTipText = "人员编号";
+            this.user_cd.Width = 100;
+            // 
+            // user_nm
+            // 
+            this.user_nm.DataPropertyName = "user_nm";
+            this.user_nm.HeaderText = "人员姓名";
+            this.user_nm.Name = "user_nm";
+            this.user_nm.ToolTipText = "人员姓名";
+            this.user_nm.Width = 100;
+            // 
+            // tel_no
+            // 
+            this.tel_no.DataPropertyName = "tel_nm";
+            this.tel_no.HeaderText = "联系电话";
+            this.tel_no.Name = "tel_no";
+            this.tel_no.ToolTipText = "联系电话";
+            this.tel_no.Width = 150;
+            // 
+            // dept_nm
+            // 
+            this.dept_nm.DataPropertyName = "dept_nm";
+            this.dept_nm.HeaderText = "所在部门";
+            this.dept_nm.Name = "dept_nm";
+            this.dept_nm.ToolTipText = "所在部门";
+            this.dept_nm.Width = 150;
+            // 
+            // remark
+            // 
+            this.remark.DataPropertyName = "remark";
+            this.remark.HeaderText = "备注信息";
+            this.remark.Name = "remark";
+            this.remark.ToolTipText = "备注信息";
+            this.remark.Width = 300;
             // 
             // FrmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1384, 861);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmUser";
-            this.Text = "用户信息";
+            this.Text = "人员信息";
+            ((System.ComponentModel.ISupportInitialize)(this.dgView)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgView;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblUser_nm;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnSearch;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnSave;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnAddRow;
+        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDelRow;
+        private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader2;
+        private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private ERP_CL.ERP_TextBox txtUser_nm;
+        private System.Windows.Forms.DataGridViewImageColumn idu;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn user_cd;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn user_nm;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn tel_no;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn dept_nm;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn remark;
     }
 }

@@ -71,7 +71,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1384, 861);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // kryptonHeader2
@@ -81,7 +81,7 @@
             this.kryptonHeader2.Location = new System.Drawing.Point(3, 115);
             this.kryptonHeader2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.kryptonHeader2.Name = "kryptonHeader2";
-            this.kryptonHeader2.Size = new System.Drawing.Size(794, 40);
+            this.kryptonHeader2.Size = new System.Drawing.Size(1378, 40);
             this.kryptonHeader2.StateCommon.Content.Padding = new System.Windows.Forms.Padding(3);
             this.kryptonHeader2.StateNormal.Back.Color1 = System.Drawing.Color.LightCyan;
             this.kryptonHeader2.StateNormal.Back.Color2 = System.Drawing.Color.Azure;
@@ -107,7 +107,7 @@
             this.kryptonHeader1.HeaderStyle = ComponentFactory.Krypton.Toolkit.HeaderStyle.Form;
             this.kryptonHeader1.Location = new System.Drawing.Point(3, 3);
             this.kryptonHeader1.Name = "kryptonHeader1";
-            this.kryptonHeader1.Size = new System.Drawing.Size(794, 46);
+            this.kryptonHeader1.Size = new System.Drawing.Size(1378, 46);
             this.kryptonHeader1.StateCommon.ButtonPadding = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.kryptonHeader1.StateCommon.Content.Padding = new System.Windows.Forms.Padding(3);
             this.kryptonHeader1.StateNormal.Back.Color1 = System.Drawing.Color.LightCyan;
@@ -176,7 +176,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(794, 54);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1378, 54);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // lblMajor_cd
@@ -265,7 +265,7 @@
             this.dgView.Name = "dgView";
             this.dgView.RowHeadersWidth = 70;
             this.dgView.RowTemplate.Height = 30;
-            this.dgView.Size = new System.Drawing.Size(794, 289);
+            this.dgView.Size = new System.Drawing.Size(1378, 700);
             this.dgView.TabIndex = 3;
             this.dgView.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgView_CellBeginEdit);
             this.dgView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgView_CellEndEdit);
@@ -306,7 +306,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1384, 861);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)(((((WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight) 
             | WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop) 

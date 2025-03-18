@@ -40,7 +40,7 @@ namespace SimpleERPSystem.Base
             {
                 if (HasNoSavedData())  // 存在未保存数据，提示用户是否继续关闭
                 {
-                    DialogResult dr = B_Message_BLL.ShowYesOrNo("2101");
+                    DialogResult dr = B_message_BLL.ShowYesOrNo("2101");
                     if (dr == DialogResult.No) // 用户选择 No 时，取消关闭窗体
                     {
                         e.Cancel = true;  // 取消 FormClosing 事件，默认为 false
@@ -92,7 +92,7 @@ namespace SimpleERPSystem.Base
             // 先绑定数据源，再判断是否有数据
             if (dt.Rows.Count == 0)
             {
-                B_Message_BLL.ShowConfirm("1002");
+                B_message_BLL.ShowConfirm("1002");
             }
         }
 
@@ -175,12 +175,12 @@ namespace SimpleERPSystem.Base
         {
             if (txtMajor_cd.Text.Trim() == "")
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return;
             }
             if(HasNoSavedData())
             {
-                DialogResult dr = B_Message_BLL.ShowYesOrNo("2101");
+                DialogResult dr = B_message_BLL.ShowYesOrNo("2101");
                 if (dr == DialogResult.No)
                     return;
             }
@@ -317,7 +317,7 @@ namespace SimpleERPSystem.Base
                             /// 一次是插入自身的不合法提示(<c>1001/2001/2002</c>)
                             /// 一次是插入失败(<c>1003</c>)
                             /// </remarks>
-                            B_Message_BLL.ShowConfirm("1003");
+                            B_message_BLL.ShowConfirm("1003");
                             return;
                         }
                         break;
@@ -329,7 +329,7 @@ namespace SimpleERPSystem.Base
                             /// 一次是插入自身的不合法提示(<c>1005/2002</c>)
                             /// 一次是插入失败(<c>1005</c>)
                             /// </remarks>
-                            B_Message_BLL.ShowConfirm("1005");
+                            B_message_BLL.ShowConfirm("1005");
                             return;
                         }
                         break;
@@ -341,7 +341,7 @@ namespace SimpleERPSystem.Base
                             /// 一次是插入自身的不合法提示(<c>1004</c>)
                             /// 一次是插入失败(<c>1004</c>)
                             /// </remarks>
-                            B_Message_BLL.ShowConfirm("1004");
+                            B_message_BLL.ShowConfirm("1004");
                             return;
                         }
 
@@ -362,7 +362,7 @@ namespace SimpleERPSystem.Base
             }
             // 使用查询函数刷新数据，避免因为原 Delete 操作中对行直接删除导致的索引错误
             Query();
-            B_Message_BLL.ShowConfirm("0001");  // 查询后提示保存成功
+            B_message_BLL.ShowConfirm("0001");  // 查询后提示保存成功
         }
 
         #endregion

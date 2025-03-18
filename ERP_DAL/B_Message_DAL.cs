@@ -11,7 +11,7 @@ namespace ERP_DAL
     /// <summary>
     /// 消息提示类数据访问层
     /// </summary>
-    public abstract class B_Message_DAL
+    public abstract class B_message_DAL
     {
         /// <summary>
         ///     获取异常信息，通过输入的消息代码获取对应的消息文本：

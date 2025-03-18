@@ -1,48 +1,38 @@
-﻿using System;
+﻿using ERP_MODEL;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ERP_DAL;
-using ERP_MODEL;
-using ComponentFactory.Krypton.Toolkit;
 using System.Windows.Forms;
+using ERP_DAL;
 
 namespace ERP_BLL
 {
-    /// <summary>
-    /// 主代码业务逻辑层
-    /// </summary>
-    public class B_major_BLL
+    public class B_tax_BLL
     {
         /// <summary>
-        /// 实例化主代码数据访问层，用于数据库操作
+        /// DAL 层的辅助实例，方便调用DAL层
         /// </summary>
-        B_major_DAL dal = new B_major_DAL();
+        B_tax_DAL dal = new B_tax_DAL();
 
         /// <summary>
-        /// 接受主代码实体，查询主代码表
+        /// 查询税率信息表
         ///     <para>
         ///     如果查询为空，则返回<c>null</c>，由UI层进行处理。
         ///     </para>
         /// </summary>
-        /// <param name="model">主代码实体类</param>
         /// <returns>
-        ///     匹配 <c>major_cd</c> 或 <c>major_nm</c> 的结果，
+        ///     直接输出查询到的所有数据，
         ///     如果查询为空，则返回<c>null</c>。
         /// </returns>
         /// <exception cref="9999: 未知异常"/>
-        public DataTable Get_B_Major(B_major model)
-        {   
+        public DataTable Get_B_Tax()
+        {
             try  // 异常处理
             {
-             // 正常返回查询结果，在UI层进行处理
-             //DataTable dt = new B_major_DAL().Get_B_Major(model);
-             //if(dt.Rows.Count == 0)
-             //    B_Message_BLL.ShowConfirm(1002);
-             //KryptonMessageBox.Show("查询成功！共有" + dt.Rows.Count + "条数据。");
-                return dal.Get_B_Major(model);
+                return dal.Get_B_Tax();
             }
             catch (Exception ex)
             {
@@ -52,40 +42,46 @@ namespace ERP_BLL
         }
 
         /// <summary>
-        /// 插入主代码行
+        /// 插入税率信息行
         /// </summary>
-        /// <param name="model">主代码实体</param>
+        /// <param name="model">税率信息实体</param>
         /// <returns>
         ///     <c>True</c>: 成功;
         ///     <c>False</c>: 失败。
         /// </returns>
         /// <exception cref="1001: 主代码已存在"/>
-        /// <exception cref="2001: 主代码不能为空"/>
-        /// <exception cref="2002: 主代码名称不能为空"/>
+        /// <exception cref="2006: 税率编号不能为空"/>
+        /// <exception cref="2007: 税率名称不能为空"/>
+        /// <exception cref="2008: 税率比例不能为空"/>
         /// <exception cref="9999: 未知异常"/>
-        public bool Insert_B_Major(B_major model)
-        {   // 判断主代码是否为空
-            if (String.IsNullOrWhiteSpace(model.major_cd))
+        public bool Insert_B_Tax(B_tax model)
+        {   // 判断税率编号是否为空 2006
+            if (String.IsNullOrWhiteSpace(model.tax_cd))
             {
-                B_message_BLL.ShowConfirm("2001");
+                B_message_BLL.ShowConfirm("2006");
                 return false;
             }
-            // 判断主代码名称是否为空
-            if (String.IsNullOrWhiteSpace(model.major_nm))
+            // 判断税率名称名称是否为空 2007
+            if (String.IsNullOrWhiteSpace(model.tax_nm))
             {
-                B_message_BLL.ShowConfirm("2002");
+                B_message_BLL.ShowConfirm("2007");
                 return false;
             }
-            // 保存前判断是否存在相同的主代码
+            // 判断税率比例是否为空 2008
+            if(String.IsNullOrWhiteSpace(model.tax_rate.ToString()))
+            {
+                B_message_BLL.ShowConfirm("2008");
+            }
+            // 保存前判断是否存在相同的主代码 1001
             if (dal.Exist(model))
             {
                 B_message_BLL.ShowConfirm("1001");
                 return false;
             }
-            // 保存数据，未知异常处理
+            // 保存数据，未知异常处理 ex
             try
             {
-                return dal.Insert_B_Major(model);
+                return dal.Insert_B_Tax(model);
             }
             catch (Exception ex)
             {
@@ -95,37 +91,30 @@ namespace ERP_BLL
         }
 
         /// <summary>
-        /// 删除主代码信息
+        /// 删除税率信息信息
         /// </summary>
-        /// <param name="model">主代码实体</param>
+        /// <param name="model">税率信息实体</param>
         /// <returns>
         ///     <c>True</c>: 成功;
         ///     <c>False</c>: 失败。
         /// </returns>
         /// <exception cref="1004: 未找到要删除的数据"/>
-        /// <exception cref="1006: 存在关联的子代码实体，无法删除当前主代码"/>
         /// <exception cref="2001: 主代码不能为空"/>
         /// <exception cref="9999: 未知异常"/>
-        public bool Delete_B_Major(B_major model)
+        public bool Delete_B_Tax(B_tax model)
         {
-            // 判断主代码是否为空
-            if (String.IsNullOrWhiteSpace(model.major_cd))
+            // 判断主代码是否为空 2001
+            if (String.IsNullOrWhiteSpace(model.tax_cd))
             {
                 B_message_BLL.ShowConfirm("2001");
                 return false;
             }
-            // 保存前判断是否存在要操作的数据
+            // 保存前判断是否存在要操作的数据 1001 / ex
             if (dal.Exist(model))
-            {
-                // 确认子代码表中是否存在对应该主代码的子代码实体
-                if(dal.ExistMinor(model))
+            {   // 存在该数据，则执行删除操作
+                try
                 {
-                    B_message_BLL.ShowConfirm("1006");
-                    return false;
-                }
-                try   // 存在该数据，则执行删除操作
-                {
-                    return dal.Delete_B_Major(model);
+                    return dal.Delete_B_Tax(model);
                 }
                 catch (Exception ex)
                 {
@@ -141,29 +130,36 @@ namespace ERP_BLL
         }
 
         /// <summary>
-        /// 修改主代码信息
+        /// 修改税率信息信息
         /// </summary>
-        /// <param name="model">主代码实体</param>
+        /// <param name="model">税率信息实体</param>
         /// <returns>
         ///     <c>True</c>: 成功;
         ///     <c>False</c>: 失败。
         /// </returns>
         /// <exception cref="1005: 未找到要更新的数据"/>
-        /// <exception cref="2002: 主代码名称不能为空"/>
+        /// <exception cref="2007: 税率名称不能为空"/>
+        /// <exception cref="2008: 税率比例不能为空"/>
         /// <exception cref="9999: 未知异常"/>
-        public bool Update_B_Major(B_major model)
-        {   // 判断当前主代码名称是否为空
-            if (String.IsNullOrWhiteSpace(model.major_nm))
+        public bool Update_B_Tax(B_tax model)
+        {   // 判断当前税率名称是否为空
+            if (String.IsNullOrWhiteSpace(model.tax_nm))
             {
-                B_message_BLL.ShowConfirm("2002");
+                B_message_BLL.ShowConfirm("2007");
                 return false;
             }
-            // 保存前判断是否存在要操作的数据
+            // 判断当前税率比例是否为空
+            if (String.IsNullOrWhiteSpace(model.tax_rate.ToString()))
+            {
+                B_message_BLL.ShowConfirm("2008");
+                return false;
+            }
+            // 保存前判断是否存在要操作的数据 ex / 1005
             if (dal.Exist(model))
             {   // 存在该数据，则执行修改操作
                 try
                 {
-                    return dal.Update_B_Major(model);
+                    return dal.Update_B_Tax(model);
                 }
                 catch (Exception ex)
                 {
@@ -177,5 +173,6 @@ namespace ERP_BLL
                 return false;
             }
         }
+
     }
 }

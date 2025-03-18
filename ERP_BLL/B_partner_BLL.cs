@@ -35,7 +35,7 @@ namespace ERP_BLL
             }
             catch (Exception ex)
             {
-                B_Message_BLL.ShowUnkownError(ex);
+                B_message_BLL.ShowUnkownError(ex);
                 return null;
             }
         }
@@ -57,59 +57,59 @@ namespace ERP_BLL
         {   // 判断非空条件，均报 2000 异常
             if (String.IsNullOrWhiteSpace(model.bp_cd))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(model.bp_full_nm))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(model.bp_nm))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(model.bp_addr))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(model.bp_repre))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(model.bp_tel))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(model.bp_email))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(model.bp_tax))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(model.bank_acct_no))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             // 既非上游销售方又非下游采购方时报 2005 异常
             if(model.flag == null)
             {
-                B_Message_BLL.ShowConfirm("2005");
+                B_message_BLL.ShowConfirm("2005");
                 return false;
             }
             // 保存前判断是否存在相同的主代码
             if (dal.Exist(model))
             {
-                B_Message_BLL.ShowConfirm("1001");
+                B_message_BLL.ShowConfirm("1001");
                 return false;
             }
             // 保存数据，未知异常处理
@@ -119,7 +119,7 @@ namespace ERP_BLL
             }
             catch (Exception ex)
             {
-                B_Message_BLL.ShowUnkownError(ex);
+                B_message_BLL.ShowUnkownError(ex);
                 return false;
             }
         }
@@ -140,7 +140,7 @@ namespace ERP_BLL
             // 判断主代码是否为空
             if (String.IsNullOrWhiteSpace(model.bp_cd))
             {
-                B_Message_BLL.ShowConfirm("2001");
+                B_message_BLL.ShowConfirm("2001");
                 return false;
             }
 
@@ -153,13 +153,13 @@ namespace ERP_BLL
                 }
                 catch (Exception ex)
                 {
-                    B_Message_BLL.ShowUnkownError(ex);
+                    B_message_BLL.ShowUnkownError(ex);
                     return false;
                 }
             }
             else // 不存在该数据
             {
-                B_Message_BLL.ShowConfirm("1004");
+                B_message_BLL.ShowConfirm("1004");
                 return false;
             }
         }
@@ -181,48 +181,48 @@ namespace ERP_BLL
             // 判断非空条件，均报 2000 异常
             if (String.IsNullOrWhiteSpace(model.bp_full_nm))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(model.bp_nm))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(model.bp_addr))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(model.bp_repre))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(model.bp_tel))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(model.bp_email))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(model.bp_tax))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             if (String.IsNullOrWhiteSpace(model.bank_acct_no))
             {
-                B_Message_BLL.ShowConfirm("2000");
+                B_message_BLL.ShowConfirm("2000");
                 return false;
             }
             // 既非上游销售方又非下游采购方时报 2005 异常
             if (model.flag == null)
             {
-                B_Message_BLL.ShowConfirm("2005");
+                B_message_BLL.ShowConfirm("2005");
                 return false;
             }
             // 保存前判断是否存在要操作的数据
@@ -234,13 +234,13 @@ namespace ERP_BLL
                 }
                 catch (Exception ex)
                 {
-                    B_Message_BLL.ShowUnkownError(ex);
+                    B_message_BLL.ShowUnkownError(ex);
                     return false;
                 }
             }
             else // 不存在该数据
             {
-                B_Message_BLL.ShowConfirm("1005");
+                B_message_BLL.ShowConfirm("1005");
                 return false;
             }
         }

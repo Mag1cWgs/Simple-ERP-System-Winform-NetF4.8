@@ -50,7 +50,7 @@ namespace SimpleERPSystem.Base.POP
             dgView.DataSource = dt;
             if (dt.Rows.Count == 0)
             {
-                B_Message_BLL.ShowConfirm("1002");
+                B_message_BLL.ShowConfirm("1002");
             }
         }
 
