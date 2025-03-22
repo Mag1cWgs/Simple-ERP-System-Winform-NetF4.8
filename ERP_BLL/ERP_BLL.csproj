@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="B_item_BLL.cs" />
     <Compile Include="B_major_BLL.cs" />
     <Compile Include="B_message_BLL.cs" />
     <Compile Include="B_minor_BLL.cs" />

@@ -1,5 +1,7 @@
 ﻿using ERP_BLL;
 using ERP_MODEL;
+using NPOI.SS.Formula.Functions;
+using SimpleERPSystem.Item;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +25,7 @@ namespace SimpleERPSystem.POP
         {
             InitializeComponent();
             model = minorImport;
+            this.Text = model.major_cd + " 子代码查询";
         }
 
         /// <summary>
@@ -55,12 +58,15 @@ namespace SimpleERPSystem.POP
         /// <exception cref="1002: 未找到所要操作数据，请确认查找条件是否正确！"/>
         private void Query()
         {
-            //if(model.minor_cd == "")
+            if(string.IsNullOrEmpty(model.minor_cd))
                 model.minor_cd = txtMinor_cd.Text.Trim();
-            //if(model.minor_nm == "")
+            if(string.IsNullOrEmpty(model.minor_nm))
                 model.minor_nm = txtMinor_nm.Text.Trim();
             DataTable dt = bll.Get_Minor_Pop(model);
             dgView.DataSource = dt;
+            // 查询完数据后，清空 model 中的数据
+            model.minor_cd = "";
+            model.minor_nm = "";
             if (dt.Rows.Count == 0)
             {
                 B_message_BLL.ShowConfirm("1002");
@@ -94,6 +100,8 @@ namespace SimpleERPSystem.POP
             {
                 // 选取 dgView 中 major_cd 列、触发行 e.Index 的值，传递给 FrmMinor 中的回调字段
                 //BaseInfo.FrmMinor.selectedMajor_cd = dgView[major_cd.Name, e.RowIndex].Value.ToString();
+                FrmItem.minor_cd_query = dgView[minor_cd.Name, e.RowIndex].Value.ToString();
+                FrmItem.minor_nm_query = dgView[minor_nm.Name, e.RowIndex].Value.ToString();
                 this.Close();
             }
         }

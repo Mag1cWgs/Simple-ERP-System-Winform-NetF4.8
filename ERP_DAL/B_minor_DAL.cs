@@ -172,8 +172,8 @@ namespace ERP_DAL
                     SELECT minor_cd, minor_nm, remark
                     FROM dbo.b_minor
                     WHERE major_cd = N'{0}'
-                    AND minor_cd LIKE N'{1}'
-                    AND minor_nm LIKE N'{2}'",
+                    AND minor_cd LIKE N'%{1}%'
+                    AND minor_nm LIKE N'%{2}%'",
                     model.major_cd, model.minor_cd, model.minor_nm);
 
             return DbHelperSQL.Query(strSql.ToString()).Tables[0];

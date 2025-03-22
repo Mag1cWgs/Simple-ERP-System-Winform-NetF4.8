@@ -129,9 +129,8 @@ namespace SimpleERPSystem.BaseInfo
             this.cb_po_flag.Checked = false;
             // 重置特殊的 txt_bp_cd
             txt_bp_cd.Text = "";
-            //使用字段 txt、cbb 作为中继变量
+            //使用字段 txt 作为中继变量
             ERP_TextBox txt;
-            KryptonComboBox cbb;
             /*  使用foreach循环遍历控件，对每一个ERP_TextBox控件进行清空操作
              *  其中 pnl_partner_info 为存放 ERP_TextBox 控件的Panel控件
              *  它的 Controls属性存放了所有子控件，均基于 Control 父类    */

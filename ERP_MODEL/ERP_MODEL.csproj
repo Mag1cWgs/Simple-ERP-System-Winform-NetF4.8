@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="B_item.cs" />
     <Compile Include="B_major.cs" />
     <Compile Include="B_minor.cs" />
     <Compile Include="B_partner.cs" />

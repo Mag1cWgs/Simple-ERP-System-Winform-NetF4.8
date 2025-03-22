@@ -32,13 +32,13 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblMinor_cd = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.lblMinor_nm = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.txtMinor_cd = new ERP_CL.ERP_TextBox();
+            this.txtMinor_nm = new ERP_CL.ERP_TextBox();
             this.kryptonHeader2 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.btnSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgView = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.txtMinor_cd = new ERP_CL.ERP_TextBox();
-            this.txtMinor_nm = new ERP_CL.ERP_TextBox();
             this.minor_cd = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.minor_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.remark = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
@@ -90,6 +90,34 @@
             this.lblMinor_nm.Size = new System.Drawing.Size(75, 20);
             this.lblMinor_nm.TabIndex = 2;
             this.lblMinor_nm.Values.Text = "子代码名称";
+            // 
+            // txtMinor_cd
+            // 
+            this.txtMinor_cd.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtMinor_cd.Location = new System.Drawing.Point(94, 14);
+            this.txtMinor_cd.Name = "txtMinor_cd";
+            this.txtMinor_cd.Size = new System.Drawing.Size(160, 26);
+            this.txtMinor_cd.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.txtMinor_cd.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txtMinor_cd.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtMinor_cd.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
+            this.txtMinor_cd.TabIndex = 4;
+            // 
+            // txtMinor_nm
+            // 
+            this.txtMinor_nm.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtMinor_nm.Location = new System.Drawing.Point(341, 14);
+            this.txtMinor_nm.Name = "txtMinor_nm";
+            this.txtMinor_nm.Size = new System.Drawing.Size(200, 26);
+            this.txtMinor_nm.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.txtMinor_nm.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txtMinor_nm.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtMinor_nm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
+            this.txtMinor_nm.TabIndex = 5;
             // 
             // kryptonHeader2
             // 
@@ -188,34 +216,7 @@
             this.dgView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgView.Size = new System.Drawing.Size(618, 280);
             this.dgView.TabIndex = 3;
-            // 
-            // txtMinor_cd
-            // 
-            this.txtMinor_cd.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtMinor_cd.Location = new System.Drawing.Point(94, 14);
-            this.txtMinor_cd.Name = "txtMinor_cd";
-            this.txtMinor_cd.Size = new System.Drawing.Size(160, 26);
-            this.txtMinor_cd.StateCommon.Back.Color1 = System.Drawing.Color.LightBlue;
-            this.txtMinor_cd.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
-            this.txtMinor_cd.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtMinor_cd.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
-            this.txtMinor_cd.TabIndex = 4;
-            // 
-            // txtMinor_nm
-            // 
-            this.txtMinor_nm.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtMinor_nm.Location = new System.Drawing.Point(341, 14);
-            this.txtMinor_nm.Name = "txtMinor_nm";
-            this.txtMinor_nm.Size = new System.Drawing.Size(200, 26);
-            this.txtMinor_nm.StateCommon.Back.Color1 = System.Drawing.Color.LightBlue;
-            this.txtMinor_nm.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
-            this.txtMinor_nm.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtMinor_nm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
-            this.txtMinor_nm.TabIndex = 5;
+            this.dgView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgView_CellDoubleClick);
             // 
             // minor_cd
             // 
@@ -250,6 +251,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPopMinor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "子代码查询";
             this.Load += new System.EventHandler(this.FrmPopMinor_Load);
             this.tableLayoutPanel2.ResumeLayout(false);

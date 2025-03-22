@@ -56,9 +56,9 @@
             this.item_group = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.btn_group = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
             this.item_group_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
-            this.item_sl_cd = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.sl_cd = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.btn_sl = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
-            this.item_sl_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.sl_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.remark = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -285,9 +285,9 @@
             this.item_group,
             this.btn_group,
             this.item_group_nm,
-            this.item_sl_cd,
+            this.sl_cd,
             this.btn_sl,
-            this.item_sl_nm,
+            this.sl_nm,
             this.remark});
             this.dgView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
@@ -366,6 +366,8 @@
             // 
             this.item_unit_nm.HeaderText = "单位名称";
             this.item_unit_nm.Name = "item_unit_nm";
+            this.item_unit_nm.ReadOnly = true;
+            this.item_unit_nm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.item_unit_nm.Width = 60;
             // 
             // item_group
@@ -387,16 +389,18 @@
             // 
             this.item_group_nm.HeaderText = "分类名称";
             this.item_group_nm.Name = "item_group_nm";
+            this.item_group_nm.ReadOnly = true;
+            this.item_group_nm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.item_group_nm.Width = 60;
             // 
-            // item_sl_cd
+            // sl_cd
             // 
-            this.item_sl_cd.DataPropertyName = "item_sl_cd";
-            this.item_sl_cd.HeaderText = "商品仓库";
-            this.item_sl_cd.Name = "item_sl_cd";
-            this.item_sl_cd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.item_sl_cd.ToolTipText = "商品仓库";
-            this.item_sl_cd.Width = 150;
+            this.sl_cd.DataPropertyName = "sl_cd";
+            this.sl_cd.HeaderText = "商品仓库";
+            this.sl_cd.Name = "sl_cd";
+            this.sl_cd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.sl_cd.ToolTipText = "商品仓库";
+            this.sl_cd.Width = 150;
             // 
             // btn_sl
             // 
@@ -404,11 +408,13 @@
             this.btn_sl.Name = "btn_sl";
             this.btn_sl.Width = 30;
             // 
-            // item_sl_nm
+            // sl_nm
             // 
-            this.item_sl_nm.HeaderText = "仓库名称";
-            this.item_sl_nm.Name = "item_sl_nm";
-            this.item_sl_nm.Width = 60;
+            this.sl_nm.HeaderText = "仓库名称";
+            this.sl_nm.Name = "sl_nm";
+            this.sl_nm.ReadOnly = true;
+            this.sl_nm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.sl_nm.Width = 60;
             // 
             // remark
             // 
@@ -465,9 +471,9 @@
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn item_group;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn btn_group;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn item_group_nm;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn item_sl_cd;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn sl_cd;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn btn_sl;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn item_sl_nm;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn sl_nm;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn remark;
     }
 }
