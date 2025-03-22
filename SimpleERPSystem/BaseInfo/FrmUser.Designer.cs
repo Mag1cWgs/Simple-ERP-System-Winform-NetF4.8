@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUser));
             this.dgView = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.idu = new System.Windows.Forms.DataGridViewImageColumn();
+            this.user_cd = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.user_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.tel_no = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.dept_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.remark = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.lblUser_nm = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.btnSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
@@ -40,12 +46,6 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txtUser_nm = new ERP_CL.ERP_TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.idu = new System.Windows.Forms.DataGridViewImageColumn();
-            this.user_cd = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
-            this.user_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
-            this.tel_no = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
-            this.dept_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
-            this.remark = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -73,6 +73,59 @@
             this.dgView.RowTemplate.Height = 30;
             this.dgView.Size = new System.Drawing.Size(1378, 700);
             this.dgView.TabIndex = 3;
+            // 
+            // idu
+            // 
+            this.idu.HeaderText = "";
+            this.idu.Image = global::SimpleERPSystem.Properties.Resources.table;
+            this.idu.Name = "idu";
+            this.idu.ReadOnly = true;
+            this.idu.Width = 30;
+            // 
+            // user_cd
+            // 
+            this.user_cd.DataPropertyName = "user_cd";
+            this.user_cd.HeaderText = "人员编号";
+            this.user_cd.Name = "user_cd";
+            this.user_cd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.user_cd.ToolTipText = "人员编号";
+            this.user_cd.Width = 100;
+            // 
+            // user_nm
+            // 
+            this.user_nm.DataPropertyName = "user_nm";
+            this.user_nm.HeaderText = "人员姓名";
+            this.user_nm.Name = "user_nm";
+            this.user_nm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.user_nm.ToolTipText = "人员姓名";
+            this.user_nm.Width = 100;
+            // 
+            // tel_no
+            // 
+            this.tel_no.DataPropertyName = "tel_no";
+            this.tel_no.HeaderText = "联系电话";
+            this.tel_no.Name = "tel_no";
+            this.tel_no.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.tel_no.ToolTipText = "联系电话";
+            this.tel_no.Width = 150;
+            // 
+            // dept_nm
+            // 
+            this.dept_nm.DataPropertyName = "dept_nm";
+            this.dept_nm.HeaderText = "所在部门";
+            this.dept_nm.Name = "dept_nm";
+            this.dept_nm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dept_nm.ToolTipText = "所在部门";
+            this.dept_nm.Width = 150;
+            // 
+            // remark
+            // 
+            this.remark.DataPropertyName = "remark";
+            this.remark.HeaderText = "备注信息";
+            this.remark.Name = "remark";
+            this.remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.remark.ToolTipText = "备注信息";
+            this.remark.Width = 300;
             // 
             // lblUser_nm
             // 
@@ -198,7 +251,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.txtUser_nm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
-            this.txtUser_nm.TabIndex = 4;
+            this.txtUser_nm.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -220,59 +273,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1384, 861);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // idu
-            // 
-            this.idu.HeaderText = "";
-            this.idu.Image = global::SimpleERPSystem.Properties.Resources.table;
-            this.idu.Name = "idu";
-            this.idu.ReadOnly = true;
-            this.idu.Width = 30;
-            // 
-            // user_cd
-            // 
-            this.user_cd.DataPropertyName = "user_cd";
-            this.user_cd.HeaderText = "人员编号";
-            this.user_cd.Name = "user_cd";
-            this.user_cd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.user_cd.ToolTipText = "人员编号";
-            this.user_cd.Width = 100;
-            // 
-            // user_nm
-            // 
-            this.user_nm.DataPropertyName = "user_nm";
-            this.user_nm.HeaderText = "人员姓名";
-            this.user_nm.Name = "user_nm";
-            this.user_nm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.user_nm.ToolTipText = "人员姓名";
-            this.user_nm.Width = 100;
-            // 
-            // tel_no
-            // 
-            this.tel_no.DataPropertyName = "tel_no";
-            this.tel_no.HeaderText = "联系电话";
-            this.tel_no.Name = "tel_no";
-            this.tel_no.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.tel_no.ToolTipText = "联系电话";
-            this.tel_no.Width = 150;
-            // 
-            // dept_nm
-            // 
-            this.dept_nm.DataPropertyName = "dept_nm";
-            this.dept_nm.HeaderText = "所在部门";
-            this.dept_nm.Name = "dept_nm";
-            this.dept_nm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dept_nm.ToolTipText = "所在部门";
-            this.dept_nm.Width = 150;
-            // 
-            // remark
-            // 
-            this.remark.DataPropertyName = "remark";
-            this.remark.HeaderText = "备注信息";
-            this.remark.Name = "remark";
-            this.remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.remark.ToolTipText = "备注信息";
-            this.remark.Width = 300;
             // 
             // FrmUser
             // 

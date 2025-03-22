@@ -1,6 +1,6 @@
-﻿namespace SimpleERPSystem.BaseInfo.POP
+﻿namespace SimpleERPSystem.POP
 {
-    partial class FrmPopMajor
+    partial class FrmPopMinor
     {
         /// <summary>
         /// Required designer variable.
@@ -28,42 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPopMajor));
-            this.btnDelMajor_nm = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.btnDelMajor_cd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPopMinor));
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblMajor_cd = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txtMajor_cd = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.lblMajor_nm = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txtMajor_nm = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.lblMinor_cd = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lblMinor_nm = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonHeader2 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.btnSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dgView = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.major_cd = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
-            this.major_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.txtMinor_cd = new ERP_CL.ERP_TextBox();
+            this.txtMinor_nm = new ERP_CL.ERP_TextBox();
+            this.minor_cd = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.minor_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.remark = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnDelMajor_nm
-            // 
-            this.btnDelMajor_nm.Image = global::SimpleERPSystem.Properties.Resources.bin_closed;
-            this.btnDelMajor_nm.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.ListItem;
-            this.btnDelMajor_nm.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
-            this.btnDelMajor_nm.UniqueName = "5120F1F90130417A42A423F2264257A5";
-            this.btnDelMajor_nm.Click += new System.EventHandler(this.btnDelMajor_nm_Click);
-            // 
-            // btnDelMajor_cd
-            // 
-            this.btnDelMajor_cd.Image = global::SimpleERPSystem.Properties.Resources.bin_closed;
-            this.btnDelMajor_cd.Style = ComponentFactory.Krypton.Toolkit.PaletteButtonStyle.ListItem;
-            this.btnDelMajor_cd.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
-            this.btnDelMajor_cd.UniqueName = "5120F1F90130417A42A423F2264257A5";
-            this.btnDelMajor_cd.Click += new System.EventHandler(this.btnDelMajor_cd_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -74,10 +56,10 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.Controls.Add(this.lblMajor_cd, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.txtMajor_cd, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.lblMajor_nm, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.txtMajor_nm, 4, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblMinor_cd, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblMinor_nm, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtMinor_cd, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtMinor_nm, 4, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 55);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -89,57 +71,25 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(618, 54);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // lblMajor_cd
+            // lblMinor_cd
             // 
-            this.lblMajor_cd.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblMajor_cd.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.lblMajor_cd.Location = new System.Drawing.Point(13, 17);
-            this.lblMajor_cd.Name = "lblMajor_cd";
-            this.lblMajor_cd.Size = new System.Drawing.Size(75, 20);
-            this.lblMajor_cd.TabIndex = 0;
-            this.lblMajor_cd.Values.Text = "主代码编号";
+            this.lblMinor_cd.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblMinor_cd.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.lblMinor_cd.Location = new System.Drawing.Point(13, 17);
+            this.lblMinor_cd.Name = "lblMinor_cd";
+            this.lblMinor_cd.Size = new System.Drawing.Size(75, 20);
+            this.lblMinor_cd.TabIndex = 0;
+            this.lblMinor_cd.Values.Text = "子代码编号";
             // 
-            // txtMajor_cd
+            // lblMinor_nm
             // 
-            this.txtMajor_cd.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtMajor_cd.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.btnDelMajor_cd});
-            this.txtMajor_cd.Location = new System.Drawing.Point(94, 14);
-            this.txtMajor_cd.Name = "txtMajor_cd";
-            this.txtMajor_cd.Size = new System.Drawing.Size(130, 26);
-            this.txtMajor_cd.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
-            this.txtMajor_cd.StateCommon.Border.Color2 = System.Drawing.Color.Gray;
-            this.txtMajor_cd.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtMajor_cd.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
-            this.txtMajor_cd.TabIndex = 1;
-            // 
-            // lblMajor_nm
-            // 
-            this.lblMajor_nm.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblMajor_nm.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.lblMajor_nm.Location = new System.Drawing.Point(230, 17);
-            this.lblMajor_nm.Name = "lblMajor_nm";
-            this.lblMajor_nm.Size = new System.Drawing.Size(75, 20);
-            this.lblMajor_nm.TabIndex = 2;
-            this.lblMajor_nm.Values.Text = "主代码名称";
-            // 
-            // txtMajor_nm
-            // 
-            this.txtMajor_nm.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtMajor_nm.ButtonSpecs.AddRange(new ComponentFactory.Krypton.Toolkit.ButtonSpecAny[] {
-            this.btnDelMajor_nm});
-            this.txtMajor_nm.Location = new System.Drawing.Point(311, 14);
-            this.txtMajor_nm.Name = "txtMajor_nm";
-            this.txtMajor_nm.Size = new System.Drawing.Size(130, 26);
-            this.txtMajor_nm.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
-            this.txtMajor_nm.StateCommon.Border.Color2 = System.Drawing.Color.Gray;
-            this.txtMajor_nm.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtMajor_nm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
-            this.txtMajor_nm.TabIndex = 3;
+            this.lblMinor_nm.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblMinor_nm.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
+            this.lblMinor_nm.Location = new System.Drawing.Point(260, 17);
+            this.lblMinor_nm.Name = "lblMinor_nm";
+            this.lblMinor_nm.Size = new System.Drawing.Size(75, 20);
+            this.lblMinor_nm.TabIndex = 2;
+            this.lblMinor_nm.Values.Text = "子代码名称";
             // 
             // kryptonHeader2
             // 
@@ -214,7 +164,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(624, 441);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
             // dgView
             // 
@@ -224,8 +174,8 @@
             this.dgView.ColumnHeadersHeight = 40;
             this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.major_cd,
-            this.major_nm,
+            this.minor_cd,
+            this.minor_nm,
             this.remark});
             this.dgView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
@@ -238,25 +188,50 @@
             this.dgView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgView.Size = new System.Drawing.Size(618, 280);
             this.dgView.TabIndex = 3;
-            this.dgView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgView_CellDoubleClick);
             // 
-            // major_cd
+            // txtMinor_cd
             // 
-            this.major_cd.DataPropertyName = "major_cd";
-            this.major_cd.HeaderText = "主代码编号";
-            this.major_cd.Name = "major_cd";
-            this.major_cd.ReadOnly = true;
-            this.major_cd.ToolTipText = "主代码编号";
-            this.major_cd.Width = 100;
+            this.txtMinor_cd.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtMinor_cd.Location = new System.Drawing.Point(94, 14);
+            this.txtMinor_cd.Name = "txtMinor_cd";
+            this.txtMinor_cd.Size = new System.Drawing.Size(160, 26);
+            this.txtMinor_cd.StateCommon.Back.Color1 = System.Drawing.Color.LightBlue;
+            this.txtMinor_cd.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txtMinor_cd.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtMinor_cd.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
+            this.txtMinor_cd.TabIndex = 4;
             // 
-            // major_nm
+            // txtMinor_nm
             // 
-            this.major_nm.DataPropertyName = "major_nm";
-            this.major_nm.HeaderText = "主代码名称";
-            this.major_nm.Name = "major_nm";
-            this.major_nm.ReadOnly = true;
-            this.major_nm.ToolTipText = "主代码名称";
-            this.major_nm.Width = 150;
+            this.txtMinor_nm.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtMinor_nm.Location = new System.Drawing.Point(341, 14);
+            this.txtMinor_nm.Name = "txtMinor_nm";
+            this.txtMinor_nm.Size = new System.Drawing.Size(200, 26);
+            this.txtMinor_nm.StateCommon.Back.Color1 = System.Drawing.Color.LightBlue;
+            this.txtMinor_nm.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txtMinor_nm.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtMinor_nm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
+            this.txtMinor_nm.TabIndex = 5;
+            // 
+            // minor_cd
+            // 
+            this.minor_cd.DataPropertyName = "minor_cd";
+            this.minor_cd.HeaderText = "子代码编号";
+            this.minor_cd.Name = "minor_cd";
+            this.minor_cd.ReadOnly = true;
+            this.minor_cd.Width = 100;
+            // 
+            // minor_nm
+            // 
+            this.minor_nm.DataPropertyName = "minor_nm";
+            this.minor_nm.HeaderText = "子代码名称";
+            this.minor_nm.Name = "minor_nm";
+            this.minor_nm.ReadOnly = true;
+            this.minor_nm.Width = 150;
             // 
             // remark
             // 
@@ -267,19 +242,16 @@
             this.remark.ToolTipText = "备注信息";
             this.remark.Width = 300;
             // 
-            // FrmPopMajor
+            // FrmPopMinor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 441);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "FrmPopMajor";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "主代码参照";
-            this.Load += new System.EventHandler(this.FrmPopMajor_Load);
+            this.Name = "FrmPopMinor";
+            this.Text = "子代码查询";
+            this.Load += new System.EventHandler(this.FrmPopMinor_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -290,20 +262,18 @@
         }
 
         #endregion
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDelMajor_nm;
-        private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnDelMajor_cd;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblMajor_cd;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtMajor_cd;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblMajor_nm;
-        private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtMajor_nm;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblMinor_cd;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblMinor_nm;
         private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader2;
         private ComponentFactory.Krypton.Toolkit.KryptonHeader kryptonHeader1;
         private ComponentFactory.Krypton.Toolkit.ButtonSpecAny btnSearch;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgView;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn major_cd;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn major_nm;
+        private ERP_CL.ERP_TextBox txtMinor_cd;
+        private ERP_CL.ERP_TextBox txtMinor_nm;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn minor_cd;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn minor_nm;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn remark;
     }
 }

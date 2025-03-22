@@ -139,11 +139,11 @@ namespace ERP_DAL
         }
 
         /// <summary>
-        ///     根据主代码查询子代码
-        /// <para> 类似当前类的 Exist 方法 </para>
-        /// <para> 同样借用 DBHelper 中的 Exist 方法</para>
+        ///     根据主代码查询子代码，返回子代码名称，用于下拉框绑定。
+        /// <para> 类似当前类的 Exist 方法。 </para>
+        /// <para> 同样借用 DBHelper 中的 Exist 方法。</para>
         /// <para> 
-        ///     查询时判断综合主键 <c>major_cd</c> 和 <c>minor_cd</c> 的 <c>COUNT</c> 值
+        ///     查询时判断综合主键 <c>major_cd</c> 和 <c>minor_cd</c> 的 <c>COUNT</c> 值。
         /// </para>
         /// </summary>
         /// <param name="model">传入的子代码实体</param>
@@ -157,6 +157,26 @@ namespace ERP_DAL
                     model.major_cd);
             return DbHelperSQL.Query(strSql.ToString()).Tables[0];
 
+        }
+
+
+        /// <summary>
+        /// 查询子代码表，用于参照窗体 Pop.FrmPopMinor
+        /// </summary>
+        /// <param name="model">子代码实体类</param>
+        /// <returns>匹配 <c>major_cd</c> / <c>minor_cd</c> / <c>minor_nm</c> 的子代码结果</returns>
+        public DataTable Get_B_Minor_Pop(B_minor model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.AppendFormat(@"
+                    SELECT minor_cd, minor_nm, remark
+                    FROM dbo.b_minor
+                    WHERE major_cd = N'{0}'
+                    AND minor_cd LIKE N'{1}'
+                    AND minor_nm LIKE N'{2}'",
+                    model.major_cd, model.minor_cd, model.minor_nm);
+
+            return DbHelperSQL.Query(strSql.ToString()).Tables[0];
         }
     }
 }

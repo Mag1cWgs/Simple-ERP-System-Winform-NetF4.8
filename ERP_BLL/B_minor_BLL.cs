@@ -178,7 +178,7 @@ namespace ERP_BLL
 
 
         /// <summary>
-        ///     根据子代码实体中的主代码查询子代码
+        ///     根据子代码实体中的主代码查询子代码，返回子代码名称，用于下拉框绑定。
         ///     <para>
         ///     如果查询为空，则返回<c>null</c>，由UI层进行处理。
         ///     </para>
@@ -191,6 +191,28 @@ namespace ERP_BLL
             try  // 异常处理
             {
                 return dal.Get_Minor_nm(model);
+            }
+            catch (Exception ex)
+            {
+                B_message_BLL.ShowUnkownError(ex);
+                return null;
+            }
+        }
+
+        /// <summary>
+        ///     根据子代码实体中的主代码查询子代码，用于 Pop.FrmPopMinor 窗体的查询。
+        ///     <para>
+        ///     如果查询为空，则返回<c>null</c>，由UI层进行处理。
+        ///     </para>
+        /// </summary>
+        /// <param name="model">子代码实体类，传递主代码和子代码信息</param>
+        /// <returns> 返回匹配的数据表 </returns>
+        /// <exception cref="9999: 未知异常"/>
+        public DataTable Get_Minor_Pop(B_minor model)
+        {
+            try  // 异常处理
+            {
+                return dal.Get_B_Minor_Pop(model);
             }
             catch (Exception ex)
             {

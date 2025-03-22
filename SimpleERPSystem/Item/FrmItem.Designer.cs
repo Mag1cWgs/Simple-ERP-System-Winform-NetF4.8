@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmItem));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.kryptonHeader2 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
             this.kryptonHeader1 = new ComponentFactory.Krypton.Toolkit.KryptonHeader();
@@ -38,20 +39,26 @@
             this.btnSearch = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblItem_nm = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.txtItem_nm = new ERP_CL.ERP_TextBox();
             this.txtItem_group = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.btnSearchMajor_cd = new ComponentFactory.Krypton.Toolkit.ButtonSpecAny();
-            this.dgView = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.txtItem_nm = new ERP_CL.ERP_TextBox();
             this.lblItem_group = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.txtItem_group_nm = new ERP_CL.ERP_TextBox();
+            this.dgView = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.idu = new System.Windows.Forms.DataGridViewImageColumn();
             this.item_cd = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.item_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.item_spec = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.item_price = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.item_unit = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.btn_unit = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
+            this.item_unit_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.item_group = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.btn_group = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
+            this.item_group_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.item_sl_cd = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
+            this.btn_sl = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
+            this.item_sl_nm = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.remark = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -96,7 +103,7 @@
             this.kryptonHeader2.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonHeader2.TabIndex = 2;
+            this.kryptonHeader2.TabIndex = 1;
             this.kryptonHeader2.Values.Description = "";
             this.kryptonHeader2.Values.Heading = "查询结果";
             this.kryptonHeader2.Values.Image = global::SimpleERPSystem.Properties.Resources.table1;
@@ -123,7 +130,7 @@
             this.kryptonHeader1.StateNormal.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.kryptonHeader1.TabIndex = 0;
+            this.kryptonHeader1.TabIndex = 3;
             this.kryptonHeader1.Values.Description = "";
             this.kryptonHeader1.Values.Heading = "";
             this.kryptonHeader1.Values.Image = null;
@@ -134,6 +141,7 @@
             this.btnDelRow.Image = global::SimpleERPSystem.Properties.Resources.table_row_delete1;
             this.btnDelRow.Text = "删除行";
             this.btnDelRow.UniqueName = "640999D05B8443CBFCAAD82EFA7B1CCA";
+            this.btnDelRow.Click += new System.EventHandler(this.btnDelRow_Click);
             // 
             // btnAddRow
             // 
@@ -141,6 +149,7 @@
             this.btnAddRow.Image = global::SimpleERPSystem.Properties.Resources.table_row_insert1;
             this.btnAddRow.Text = "添加行";
             this.btnAddRow.UniqueName = "E60FBF8FD534468531B932B1EE9E31C5";
+            this.btnAddRow.Click += new System.EventHandler(this.btnAddRow_Click);
             // 
             // btnSave
             // 
@@ -180,7 +189,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1378, 54);
-            this.tableLayoutPanel2.TabIndex = 1;
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
             // lblItem_nm
             // 
@@ -191,6 +200,21 @@
             this.lblItem_nm.Size = new System.Drawing.Size(62, 20);
             this.lblItem_nm.TabIndex = 0;
             this.lblItem_nm.Values.Text = "商品名称";
+            // 
+            // txtItem_nm
+            // 
+            this.txtItem_nm.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtItem_nm.Location = new System.Drawing.Point(81, 14);
+            this.txtItem_nm.Name = "txtItem_nm";
+            this.txtItem_nm.Size = new System.Drawing.Size(200, 26);
+            this.txtItem_nm.StateCommon.Back.Color1 = System.Drawing.Color.White;
+            this.txtItem_nm.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
+            this.txtItem_nm.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.txtItem_nm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
+            this.txtItem_nm.TabIndex = 1;
+            this.txtItem_nm.Text = "txtItem_nm";
             // 
             // txtItem_group
             // 
@@ -208,8 +232,7 @@
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.txtItem_group.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
-            this.txtItem_group.TabIndex = 1;
-            this.txtItem_group.Text = "txtItem_group";
+            this.txtItem_group.TabIndex = 3;
             // 
             // btnSearchMajor_cd
             // 
@@ -218,47 +241,6 @@
             this.btnSearchMajor_cd.Type = ComponentFactory.Krypton.Toolkit.PaletteButtonSpecStyle.Close;
             this.btnSearchMajor_cd.UniqueName = "5120F1F90130417A42A423F2264257A5";
             // 
-            // dgView
-            // 
-            this.dgView.AllowUserToAddRows = false;
-            this.dgView.AllowUserToDeleteRows = false;
-            this.dgView.AllowUserToResizeRows = false;
-            this.dgView.ColumnHeadersHeight = 40;
-            this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idu,
-            this.item_cd,
-            this.item_nm,
-            this.item_spec,
-            this.item_price,
-            this.item_unit,
-            this.item_group,
-            this.item_sl_cd,
-            this.remark});
-            this.dgView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dgView.Location = new System.Drawing.Point(3, 158);
-            this.dgView.Name = "dgView";
-            this.dgView.RowHeadersWidth = 70;
-            this.dgView.RowTemplate.Height = 30;
-            this.dgView.Size = new System.Drawing.Size(1378, 700);
-            this.dgView.TabIndex = 3;
-            // 
-            // txtItem_nm
-            // 
-            this.txtItem_nm.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtItem_nm.Location = new System.Drawing.Point(81, 14);
-            this.txtItem_nm.Name = "txtItem_nm";
-            this.txtItem_nm.Size = new System.Drawing.Size(200, 26);
-            this.txtItem_nm.StateCommon.Back.Color1 = System.Drawing.Color.White;
-            this.txtItem_nm.StateCommon.Border.Color1 = System.Drawing.Color.Gray;
-            this.txtItem_nm.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.txtItem_nm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
-            this.txtItem_nm.TabIndex = 2;
-            this.txtItem_nm.Text = "txtItem_nm";
-            // 
             // lblItem_group
             // 
             this.lblItem_group.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -266,7 +248,7 @@
             this.lblItem_group.Location = new System.Drawing.Point(287, 17);
             this.lblItem_group.Name = "lblItem_group";
             this.lblItem_group.Size = new System.Drawing.Size(62, 20);
-            this.lblItem_group.TabIndex = 3;
+            this.lblItem_group.TabIndex = 2;
             this.lblItem_group.Values.Text = "商品分类";
             // 
             // txtItem_group_nm
@@ -283,6 +265,39 @@
             this.txtItem_group_nm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(4);
             this.txtItem_group_nm.TabIndex = 4;
             this.txtItem_group_nm.Text = "txtItem_group_nm";
+            // 
+            // dgView
+            // 
+            this.dgView.AllowUserToAddRows = false;
+            this.dgView.AllowUserToDeleteRows = false;
+            this.dgView.AllowUserToResizeRows = false;
+            this.dgView.ColumnHeadersHeight = 40;
+            this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idu,
+            this.item_cd,
+            this.item_nm,
+            this.item_spec,
+            this.item_price,
+            this.item_unit,
+            this.btn_unit,
+            this.item_unit_nm,
+            this.item_group,
+            this.btn_group,
+            this.item_group_nm,
+            this.item_sl_cd,
+            this.btn_sl,
+            this.item_sl_nm,
+            this.remark});
+            this.dgView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.dgView.Location = new System.Drawing.Point(3, 158);
+            this.dgView.Name = "dgView";
+            this.dgView.RowHeadersWidth = 70;
+            this.dgView.RowTemplate.Height = 30;
+            this.dgView.Size = new System.Drawing.Size(1378, 700);
+            this.dgView.TabIndex = 2;
+            this.dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgView_CellClick);
             // 
             // idu
             // 
@@ -341,6 +356,18 @@
             this.item_unit.ToolTipText = "计量单位";
             this.item_unit.Width = 60;
             // 
+            // btn_unit
+            // 
+            this.btn_unit.HeaderText = "";
+            this.btn_unit.Name = "btn_unit";
+            this.btn_unit.Width = 30;
+            // 
+            // item_unit_nm
+            // 
+            this.item_unit_nm.HeaderText = "单位名称";
+            this.item_unit_nm.Name = "item_unit_nm";
+            this.item_unit_nm.Width = 60;
+            // 
             // item_group
             // 
             this.item_group.DataPropertyName = "item_group";
@@ -350,6 +377,18 @@
             this.item_group.ToolTipText = "商品分类";
             this.item_group.Width = 100;
             // 
+            // btn_group
+            // 
+            this.btn_group.HeaderText = "";
+            this.btn_group.Name = "btn_group";
+            this.btn_group.Width = 30;
+            // 
+            // item_group_nm
+            // 
+            this.item_group_nm.HeaderText = "分类名称";
+            this.item_group_nm.Name = "item_group_nm";
+            this.item_group_nm.Width = 60;
+            // 
             // item_sl_cd
             // 
             this.item_sl_cd.DataPropertyName = "item_sl_cd";
@@ -358,6 +397,18 @@
             this.item_sl_cd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.item_sl_cd.ToolTipText = "商品仓库";
             this.item_sl_cd.Width = 150;
+            // 
+            // btn_sl
+            // 
+            this.btn_sl.HeaderText = "";
+            this.btn_sl.Name = "btn_sl";
+            this.btn_sl.Width = 30;
+            // 
+            // item_sl_nm
+            // 
+            this.item_sl_nm.HeaderText = "仓库名称";
+            this.item_sl_nm.Name = "item_sl_nm";
+            this.item_sl_nm.Width = 60;
             // 
             // remark
             // 
@@ -374,6 +425,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1384, 861);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmItem";
             this.Text = "商品信息";
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -408,8 +460,14 @@
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn item_spec;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn item_price;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn item_unit;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn btn_unit;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn item_unit_nm;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn item_group;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn btn_group;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn item_group_nm;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn item_sl_cd;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn btn_sl;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn item_sl_nm;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewTextBoxColumn remark;
     }
 }
