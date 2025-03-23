@@ -14,10 +14,24 @@ namespace ERP_DAL
         /// 查询商品信息
         /// </summary>
         /// <param name="model">商品信息实体类</param>
-        /// <returns>匹配  的结果</returns>
+        /// <returns>匹配 <c>item_nm</c> 或 <c>item_group</c> 的结果</returns>
         public DataTable Get_B_Item(B_item model)
         {
-            return null;
+            StringBuilder strSql = new StringBuilder();
+            strSql.AppendFormat(@"
+                    SELECT 
+	                    item_cd, item_nm, item_spec, item_price,
+	                    item_unit, dbo.Get_Minor_nm('1003',item_unit) AS item_unit_nm,
+                        item_group, dbo.Get_Minor_nm('1004',item_group) AS item_group_nm,
+	                    sl_cd, dbo.Get_Minor_nm('1005',sl_cd) AS sl_nm,
+	                    remark FROM dbo.b_item
+                    WHERE item_nm LIKE N'%{0}%'
+                    AND CASE WHEN N'{1}' = '' THEN ''
+                        ELSE item_group END = N'{1}'",
+                    model.item_nm,
+                    model.item_group);
+
+            return DbHelperSQL.Query(strSql.ToString()).Tables[0];
         }
 
         /// <summary>
@@ -44,6 +58,54 @@ namespace ERP_DAL
                     )",
                     model.item_cd, model.item_nm, model.item_spec, model.item_price, model.item_unit,
                     model.item_group, model.sl_cd, model.remark, model.user_cd, model.user_cd);
+            return DbHelperSQL.ExecuteSql(strSql.ToString()) > 0;
+        }
+
+
+        /// <summary>
+        /// 删除商品信息信息
+        /// </summary>
+        /// <param name="model">商品信息实体</param>
+        /// <returns>
+        ///     <c>True</c>: 成功;
+        ///     <c>False</c>: 失败。
+        /// </returns>
+        public bool Delete_B_Item(B_item model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.AppendFormat(@"
+                    DELETE FROM dbo.b_item
+                    WHERE item_cd = N'{0}'",
+                    model.item_cd);
+            return DbHelperSQL.ExecuteSql(strSql.ToString()) > 0;
+        }
+
+        /// <summary>
+        ///     修改商品信息信息
+        /// </summary>
+        /// <param name="model">商品信息实体</param>
+        /// <returns>
+        ///     <c>True</c>: 成功;
+        ///     <c>False</c>: 失败。
+        /// </returns>
+        public bool Update_B_Item(B_item model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.AppendFormat(@"
+                    UPDATE dbo.b_item SET
+                    item_nm		= N'{1}',
+                    item_spec	= N'{2}',
+                    item_price	= {3},
+                    item_unit	= N'{4}',
+                    item_group	= N'{5}',
+                    sl_cd		= N'{6}',
+                    remark		= N'{7}',
+                    up_user		= N'{8}',   
+                    up_date		= GETDATE()
+                    WHERE item_cd = N'{0}'",
+                    model.item_cd, model.item_nm, model.item_spec, model.item_price,
+                    model.item_unit, model.item_group, model.sl_cd, model.remark,
+                    model.user_cd);
             return DbHelperSQL.ExecuteSql(strSql.ToString()) > 0;
         }
 

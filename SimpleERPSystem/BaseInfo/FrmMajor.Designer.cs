@@ -319,6 +319,7 @@
             this.Name = "FrmMajor";
             this.Text = "主代码";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMajor_FormClosing);
+            this.Load += new System.EventHandler(this.FrmMajor_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

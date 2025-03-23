@@ -16,9 +16,29 @@ namespace ERP_BLL
         /// </summary>
         B_item_DAL dal = new B_item_DAL();
 
+        /// <summary>
+        /// 接受商品信息实体，查询主代码表
+        ///     <para>
+        ///     如果查询为空，则返回<c>null</c>，由UI层进行处理。
+        ///     </para>
+        /// </summary>
+        /// <param name="model">商品信息实体类</param>
+        /// <returns>
+        ///     匹配 <c>item_nm</c> 或 <c>item_group</c> 的结果，
+        ///     如果查询为空，则返回<c>null</c>。
+        /// </returns>
+        /// <exception cref="9999: 未知异常"/>
         public DataTable Get_B_Item(B_item model)
         {
-            return null;
+            try
+            {
+                return dal.Get_B_Item(model);
+            }
+            catch (Exception ex)
+            {
+                B_message_BLL.ShowUnkownError(ex);
+                return null;
+            }
         }
 
         /// <summary>
@@ -70,8 +90,7 @@ namespace ERP_BLL
                 B_message_BLL.ShowConfirm("1001");
                 return false;
             }
-            // 保存数据，未知异常处理
-            try
+            try  // 保存数据，未知异常处理
             {
                 return dal.Insert_B_Item(model);
             }
@@ -82,15 +101,82 @@ namespace ERP_BLL
             }
         }
 
-
+        /// <summary>
+        /// 修改商品信息信息
+        /// </summary>
+        /// <param name="model">商品信息实体</param>
+        /// <returns>
+        ///     <c>True</c>: 成功;
+        ///     <c>False</c>: 失败。
+        /// </returns>
+        /// <exception cref="1005: 未找到要更新的数据"/>
+        /// <exception cref="2002: 主代码名称不能为空"/>
+        /// <exception cref="9999: 未知异常"/>
         public bool Update_B_Item(B_item model)
         {
-            return false;
+            // 判断当前主代码名称是否为空
+            if (String.IsNullOrWhiteSpace(model.item_nm))
+            {
+                B_message_BLL.ShowConfirm("2002");
+                return false;
+            }
+            // 保存前判断是否存在要操作的数据
+            if (dal.Exist(model))
+            {   // 存在该数据，则执行修改操作
+                try
+                {
+                    return dal.Update_B_Item(model);
+                }
+                catch (Exception ex)
+                {
+                    B_message_BLL.ShowUnkownError(ex);
+                    return false;
+                }
+            }
+            else // 不存在该数据
+            {
+                B_message_BLL.ShowConfirm("1005");
+                return false;
+            }
         }
 
+        /// <summary>
+        /// 删除商品信息信息
+        /// </summary>
+        /// <param name="model">商品信息实体</param>
+        /// <returns>
+        ///     <c>True</c>: 成功;
+        ///     <c>False</c>: 失败。
+        /// </returns>
+        /// <exception cref="1004: 未找到要删除的数据"/>
+        /// <exception cref="2001: 主代码不能为空"/>
+        /// <exception cref="9999: 未知异常"/>
         public bool Delete_B_Item(B_item model)
         {
-            return false;
+            // 判断主代码是否为空
+            if (String.IsNullOrWhiteSpace(model.item_cd))
+            {
+                B_message_BLL.ShowConfirm("2001");
+                return false;
+            }
+            // 保存前判断是否存在要操作的数据
+            if (dal.Exist(model))
+            {
+                try   // 存在该数据，则执行删除操作
+                {
+                    return dal.Delete_B_Item(model);
+                }
+                catch (Exception ex)
+                {
+                    B_message_BLL.ShowUnkownError(ex);
+                    return false;
+                }
+            }
+            else // 不存在该数据
+            {
+                B_message_BLL.ShowConfirm("1004");
+                return false;
+            }
         }
     }
 }

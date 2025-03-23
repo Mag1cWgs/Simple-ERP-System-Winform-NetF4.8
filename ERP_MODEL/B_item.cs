@@ -26,7 +26,7 @@ namespace ERP_MODEL
         /// <summary>
         /// 商品单价
         /// </summary>
-        public decimal item_price { get; set; }
+        public decimal? item_price { get; set; }
 
         /// <summary>
         /// 商品单位

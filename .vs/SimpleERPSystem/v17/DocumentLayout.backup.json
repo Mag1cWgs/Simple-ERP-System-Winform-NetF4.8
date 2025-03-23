@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "F:\\CSharpFile\\SimpleERPSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8755C0AF-32E5-4BC6-A9E9-5A6FB6485E49}|ERP_BLL\\ERP_BLL.csproj|f:\\csharpfile\\simpleerpsystem\\erp_bll\\b_item_bll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{17511246-BD67-429C-81A2-8A6F3CD0D308}|SimpleERPSystem\\SimpleERPSystem.csproj|f:\\csharpfile\\simpleerpsystem\\simpleerpsystem\\item\\frmitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17511246-BD67-429C-81A2-8A6F3CD0D308}|SimpleERPSystem\\SimpleERPSystem.csproj|solutionrelative:simpleerpsystem\\item\\frmitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17511246-BD67-429C-81A2-8A6F3CD0D308}|SimpleERPSystem\\SimpleERPSystem.csproj|F:\\CSharpFile\\SimpleERPSystem\\simpleerpsystem\\item\\frmitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{17511246-BD67-429C-81A2-8A6F3CD0D308}|SimpleERPSystem\\SimpleERPSystem.csproj|solutionrelative:simpleerpsystem\\item\\frmitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8755C0AF-32E5-4BC6-A9E9-5A6FB6485E49}|ERP_BLL\\ERP_BLL.csproj|F:\\CSharpFile\\SimpleERPSystem\\erp_bll\\b_item_bll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8755C0AF-32E5-4BC6-A9E9-5A6FB6485E49}|ERP_BLL\\ERP_BLL.csproj|solutionrelative:erp_bll\\b_item_bll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2B33D886-FF7F-474D-9A3F-1764F2837856}|ERP_DAL\\ERP_DAL.csproj|f:\\csharpfile\\simpleerpsystem\\erp_dal\\b_item_dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2B33D886-FF7F-474D-9A3F-1764F2837856}|ERP_DAL\\ERP_DAL.csproj|F:\\CSharpFile\\SimpleERPSystem\\erp_dal\\b_item_dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2B33D886-FF7F-474D-9A3F-1764F2837856}|ERP_DAL\\ERP_DAL.csproj|solutionrelative:erp_dal\\b_item_dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2B33D886-FF7F-474D-9A3F-1764F2837856}|ERP_DAL\\ERP_DAL.csproj|f:\\csharpfile\\simpleerpsystem\\erp_dal\\b_major_dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2B33D886-FF7F-474D-9A3F-1764F2837856}|ERP_DAL\\ERP_DAL.csproj|solutionrelative:erp_dal\\b_major_dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8755C0AF-32E5-4BC6-A9E9-5A6FB6485E49}|ERP_BLL\\ERP_BLL.csproj|f:\\csharpfile\\simpleerpsystem\\erp_bll\\b_major_bll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8755C0AF-32E5-4BC6-A9E9-5A6FB6485E49}|ERP_BLL\\ERP_BLL.csproj|solutionrelative:erp_bll\\b_major_bll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{17511246-BD67-429C-81A2-8A6F3CD0D308}|SimpleERPSystem\\SimpleERPSystem.csproj|F:\\CSharpFile\\SimpleERPSystem\\simpleerpsystem\\item\\frmitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17511246-BD67-429C-81A2-8A6F3CD0D308}|SimpleERPSystem\\SimpleERPSystem.csproj|solutionrelative:simpleerpsystem\\item\\frmitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17511246-BD67-429C-81A2-8A6F3CD0D308}|SimpleERPSystem\\SimpleERPSystem.csproj|F:\\CSharpFile\\SimpleERPSystem\\simpleerpsystem\\item\\frmitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{17511246-BD67-429C-81A2-8A6F3CD0D308}|SimpleERPSystem\\SimpleERPSystem.csproj|solutionrelative:simpleerpsystem\\item\\frmitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2B33D886-FF7F-474D-9A3F-1764F2837856}|ERP_DAL\\ERP_DAL.csproj|f:\\csharpfile\\simpleerpsystem\\erp_dal\\b_major_dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2B33D886-FF7F-474D-9A3F-1764F2837856}|ERP_DAL\\ERP_DAL.csproj|solutionrelative:erp_dal\\b_major_dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 157,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,76 +70,80 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "B_major_BLL.cs",
-              "DocumentMoniker": "F:\\CSharpFile\\SimpleERPSystem\\ERP_BLL\\B_major_BLL.cs",
-              "RelativeDocumentMoniker": "ERP_BLL\\B_major_BLL.cs",
-              "ToolTip": "F:\\CSharpFile\\SimpleERPSystem\\ERP_BLL\\B_major_BLL.cs",
-              "RelativeToolTip": "ERP_BLL\\B_major_BLL.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAqwF4AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-22T10:48:22.82Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "B_item_BLL.cs",
-              "DocumentMoniker": "F:\\CSharpFile\\SimpleERPSystem\\ERP_BLL\\B_item_BLL.cs",
-              "RelativeDocumentMoniker": "ERP_BLL\\B_item_BLL.cs",
-              "ToolTip": "F:\\CSharpFile\\SimpleERPSystem\\ERP_BLL\\B_item_BLL.cs*",
-              "RelativeToolTip": "ERP_BLL\\B_item_BLL.cs*",
-              "ViewState": "AgIAACsAAAAAAAAAAAAAAEkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-22T10:46:58.281Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "B_major_DAL.cs",
               "DocumentMoniker": "F:\\CSharpFile\\SimpleERPSystem\\ERP_DAL\\B_major_DAL.cs",
               "RelativeDocumentMoniker": "ERP_DAL\\B_major_DAL.cs",
               "ToolTip": "F:\\CSharpFile\\SimpleERPSystem\\ERP_DAL\\B_major_DAL.cs",
               "RelativeToolTip": "ERP_DAL\\B_major_DAL.cs",
-              "ViewState": "AgIAAF8AAAAAAAAAAAAAwHcAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAqwDoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-22T10:40:16.26Z",
+              "WhenOpened": "2025-03-23T07:34:41.976Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
+              "Title": "B_major_BLL.cs",
+              "DocumentMoniker": "F:\\CSharpFile\\SimpleERPSystem\\ERP_BLL\\B_major_BLL.cs",
+              "RelativeDocumentMoniker": "ERP_BLL\\B_major_BLL.cs",
+              "ToolTip": "F:\\CSharpFile\\SimpleERPSystem\\ERP_BLL\\B_major_BLL.cs",
+              "RelativeToolTip": "ERP_BLL\\B_major_BLL.cs",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAzwLIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T07:49:20.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "B_item_DAL.cs",
               "DocumentMoniker": "F:\\CSharpFile\\SimpleERPSystem\\ERP_DAL\\B_item_DAL.cs",
               "RelativeDocumentMoniker": "ERP_DAL\\B_item_DAL.cs",
               "ToolTip": "F:\\CSharpFile\\SimpleERPSystem\\ERP_DAL\\B_item_DAL.cs",
               "RelativeToolTip": "ERP_DAL\\B_item_DAL.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAmwEMAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAEwAAAAAAAAAAAApwGgAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-22T10:37:21.848Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
+              "Title": "B_item_BLL.cs",
+              "DocumentMoniker": "F:\\CSharpFile\\SimpleERPSystem\\ERP_BLL\\B_item_BLL.cs",
+              "RelativeDocumentMoniker": "ERP_BLL\\B_item_BLL.cs",
+              "ToolTip": "F:\\CSharpFile\\SimpleERPSystem\\ERP_BLL\\B_item_BLL.cs",
+              "RelativeToolTip": "ERP_BLL\\B_item_BLL.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAhwH8AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T10:46:58.281Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "FrmItem.cs",
               "DocumentMoniker": "F:\\CSharpFile\\SimpleERPSystem\\SimpleERPSystem\\Item\\FrmItem.cs",
               "RelativeDocumentMoniker": "SimpleERPSystem\\Item\\FrmItem.cs",
               "ToolTip": "F:\\CSharpFile\\SimpleERPSystem\\SimpleERPSystem\\Item\\FrmItem.cs",
               "RelativeToolTip": "SimpleERPSystem\\Item\\FrmItem.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAIA0wHwAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAcBAAAAAAAAAAAYwNYAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T11:44:22.295Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "FrmItem.cs [\u8BBE\u8BA1]",
               "DocumentMoniker": "F:\\CSharpFile\\SimpleERPSystem\\SimpleERPSystem\\Item\\FrmItem.cs",
               "RelativeDocumentMoniker": "SimpleERPSystem\\Item\\FrmItem.cs",

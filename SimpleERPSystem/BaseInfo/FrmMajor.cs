@@ -25,6 +25,18 @@ namespace SimpleERPSystem.BaseInfo
         }
 
         /// <summary>
+        ///   主代码表窗体加载事件，加载时自动查询主代码表，设置操作权限为可用
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmMajor_Load(object sender, EventArgs e)
+        {
+            Query();
+            //OperationAvailable = true;
+        }
+
+
+        /// <summary>
         /// 窗体关闭事件
         /// <para>
         /// 当窗体关闭原因为用户关闭 (<c>UserClosing</c>) 时，
@@ -58,6 +70,8 @@ namespace SimpleERPSystem.BaseInfo
         #endregion
 
         #region 辅助函数
+        //private bool OperationAvailable = false;
+
         /// <summary>
         ///     查询函数，为方便调用而设置
         /// </summary>
