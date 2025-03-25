@@ -129,5 +129,55 @@ namespace ERP_DAL
             return DbHelperSQL.Exists(strSql.ToString());
         }
 
+        /// <summary>
+        ///     删除商品信息前，验证是否有在采购订单中的关联数据
+        /// </summary>
+        /// <param name="model">商品信息实体类，仅需要 <c>item_cd</c> </param>
+        /// <returns>
+        ///     <c>True</c> 则说明有关联数据，不允许删除；
+        /// </returns>
+        public bool Exist_Po_dtl(B_item model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.AppendFormat(@"
+                    SELECT COUNT(1) FROM dbo.po_dtl
+                    WHERE item_cd = N'{0}'",
+                    model.item_cd);
+            return DbHelperSQL.Exists(strSql.ToString());
+        }
+
+        /// <summary>
+        ///     删除商品信息前，验证是否有在销售订单中的关联数据
+        /// </summary>
+        /// <param name="model">商品信息实体类，仅需要 <c>item_cd</c> </param>
+        /// <returns>
+        ///     <c>True</c> 则说明有关联数据，不允许删除；
+        /// </returns>
+        public bool Exist_So_dtl(B_item model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.AppendFormat(@"
+                    SELECT COUNT(1) FROM dbo.so_dtl
+                    WHERE item_cd = N'{0}'",
+                    model.item_cd);
+            return DbHelperSQL.Exists(strSql.ToString());
+        }
+
+        /// <summary>
+        ///     删除商品信息前，验证是否有在商品单价表中的关联数据
+        /// </summary>
+        /// <param name="model">商品信息实体类，仅需要 <c>item_cd</c> </param>
+        /// <returns>
+        ///     <c>True</c> 则说明有关联数据，不允许删除；
+        /// </returns>
+        public bool Exist_B_Item_Price(B_item model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.AppendFormat(@"
+                    SELECT COUNT(1) FROM dbo.b_item_price
+                    WHERE item_cd = N'{0}'",
+                    model.item_cd);
+            return DbHelperSQL.Exists(strSql.ToString());
+        }
     }
 }

@@ -149,6 +149,9 @@ namespace ERP_BLL
         ///     <c>False</c>: 失败。
         /// </returns>
         /// <exception cref="1004: 未找到要删除的数据"/>
+        /// <exception cref="1008: 有关联的采购订单"/>
+        /// <exception cref="1009: 有关联的销售订单"/>
+        /// <exception cref="1010: 有关联的商品单价信息"/>
         /// <exception cref="2001: 主代码不能为空"/>
         /// <exception cref="9999: 未知异常"/>
         public bool Delete_B_Item(B_item model)
@@ -162,7 +165,26 @@ namespace ERP_BLL
             // 保存前判断是否存在要操作的数据
             if (dal.Exist(model))
             {
-                try   // 存在该数据，则执行删除操作
+                // 判断是否有关联的采购订单
+                if (dal.Exist_Po_dtl(model))
+                {
+                    B_message_BLL.ShowConfirm("1008");
+                    return false;
+                }
+                // 判断是否有关联的销售订单
+                if (dal.Exist_So_dtl(model))
+                {
+                    B_message_BLL.ShowConfirm("1009");
+                    return false;
+                }
+                // 判断是否有关联的商品单价信息
+                if (dal.Exist_B_Item_Price(model))
+                {
+                    B_message_BLL.ShowConfirm("1010");
+                    return false;
+                }
+                // 执行删除操作
+                try
                 {
                     return dal.Delete_B_Item(model);
                 }

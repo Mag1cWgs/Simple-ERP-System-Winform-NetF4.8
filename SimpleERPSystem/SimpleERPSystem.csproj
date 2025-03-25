@@ -256,9 +256,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="image\house.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="image\16x16\cards_bind_address.png" />
   </ItemGroup>
   <ItemGroup>

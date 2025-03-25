@@ -133,6 +133,9 @@ namespace ERP_BLL
         ///     <c>False</c>: 失败。
         /// </returns>
         /// <exception cref="1004: 未找到要删除的数据"/>
+        /// <exception cref="1008: 有关联的采购订单"/>
+        /// <exception cref="1009: 有关联的销售订单"/>
+        /// <exception cref="1010: 有关联的商品单价信息"/>
         /// <exception cref="2003: 子代码不能为空"/>
         /// <exception cref="9999: 未知异常"/>
         public bool Delete_B_Partner(B_partner model)
@@ -143,10 +146,28 @@ namespace ERP_BLL
                 B_message_BLL.ShowConfirm("2001");
                 return false;
             }
-
             // 保存前判断是否存在要操作的数据
             if (dal.Exist(model))
             {
+                // 往来单位也要有相应的删除查询 Po_hdr So_hdr B_item_price
+                // 判断是否有关联的采购订单
+                if (dal.Exist_Po_hdr(model))
+                {
+                    B_message_BLL.ShowConfirm("1008");
+                    return false;
+                }
+                // 判断是否有关联的销售订单
+                if (dal.Exist_So_hdr(model))
+                {
+                    B_message_BLL.ShowConfirm("1009");
+                    return false;
+                }
+                // 判断是否有关联的商品单价信息
+                if (dal.Exist_B_Item_Price(model))
+                {
+                    B_message_BLL.ShowConfirm("1010");
+                    return false;
+                }
                 try   // 存在该数据，则执行删除操作
                 {
                     return dal.Delete_B_Partner(model);

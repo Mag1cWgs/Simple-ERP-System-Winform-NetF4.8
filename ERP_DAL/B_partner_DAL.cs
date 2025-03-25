@@ -90,9 +90,9 @@ namespace ERP_DAL
         }
 
         /// <summary>
-        /// 删除子代码信息
+        /// 删除往来单位信息
         /// </summary>
-        /// <param name="model">子代码实体</param>
+        /// <param name="model">往来单位实体</param>
         /// <returns>
         ///     <c>True</c>: 成功;
         ///     <c>False</c>: 失败。
@@ -104,14 +104,14 @@ namespace ERP_DAL
             StringBuilder strSql = new StringBuilder();
             strSql.AppendFormat(@"
                     DELETE FROM dbo.b_partner WHERE bp_cd = N'{0}'
-                    ",model.bp_cd);
+                    ", model.bp_cd);
             return DbHelperSQL.ExecuteSql(strSql.ToString()) > 0;
         }
 
         /// <summary>
-        ///     修改子代码信息
+        ///     修改往来单位信息
         /// </summary>
-        /// <param name="model">子代码实体</param>
+        /// <param name="model">往来单位实体</param>
         /// <returns>
         ///     <c>True</c>: 成功;
         ///     <c>False</c>: 失败。
@@ -165,6 +165,57 @@ namespace ERP_DAL
             StringBuilder strSql = new StringBuilder();
             strSql.AppendFormat(@"
                     SELECT COUNT(1) FROM dbo.b_partner
+                    WHERE bp_cd = N'{0}'",
+                    model.bp_cd);
+            return DbHelperSQL.Exists(strSql.ToString());
+        }
+
+        /// <summary>
+        ///     删除往来单位信息前，验证是否有在采购订单中的关联数据
+        /// </summary>
+        /// <param name="model">往来单位信息实体类，仅需要 <c>bp_cd</c> </param>
+        /// <returns>
+        ///     <c>True</c> 则说明有关联数据，不允许删除；
+        /// </returns>
+        public bool Exist_Po_hdr(B_partner model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.AppendFormat(@"
+                    SELECT COUNT(1) FROM dbo.po_hdr
+                    WHERE bp_cd = N'{0}'",
+                    model.bp_cd);
+            return DbHelperSQL.Exists(strSql.ToString());
+        }
+
+        /// <summary>
+        ///     删除往来单位信息前，验证是否有在销售订单中的关联数据
+        /// </summary>
+        /// <param name="model">往来单位信息实体类，仅需要 <c>bp_cd</c> </param>
+        /// <returns>
+        ///     <c>True</c> 则说明有关联数据，不允许删除；
+        /// </returns>
+        public bool Exist_So_hdr(B_partner model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.AppendFormat(@"
+                    SELECT COUNT(1) FROM dbo.so_hdr
+                    WHERE bp_cd = N'{0}'",
+                    model.bp_cd);
+            return DbHelperSQL.Exists(strSql.ToString());
+        }
+
+        /// <summary>
+        ///     删除往来单位信息前，验证是否有在商品单价表中的关联数据
+        /// </summary>
+        /// <param name="model">往来单位信息实体类，仅需要 <c>bp_cd</c> </param>
+        /// <returns>
+        ///     <c>True</c> 则说明有关联数据，不允许删除；
+        /// </returns>
+        public bool Exist_B_Item_Price(B_partner model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.AppendFormat(@"
+                    SELECT COUNT(1) FROM dbo.b_item_price
                     WHERE bp_cd = N'{0}'",
                     model.bp_cd);
             return DbHelperSQL.Exists(strSql.ToString());
