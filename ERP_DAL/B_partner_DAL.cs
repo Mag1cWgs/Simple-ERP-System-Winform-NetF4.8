@@ -220,5 +220,25 @@ namespace ERP_DAL
                     model.bp_cd);
             return DbHelperSQL.Exists(strSql.ToString());
         }
+
+
+        /// <summary>
+        /// 查询往来单位信息，用于弹出窗口
+        /// </summary>
+        /// <param name="model">往来单位实体类</param>
+        /// <returns>匹配的往来单位结果</returns>
+        public DataTable Get_B_Partner_Pop(B_partner model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.AppendFormat(@"
+                    SELECT bp_cd,
+                           bp_full_nm,
+                           bp_nm,
+                           remark
+                    FROM dbo.b_partner
+                    WHERE  bp_cd LIKE '%{0}%'",
+                    model.bp_cd);
+            return DbHelperSQL.Query(strSql.ToString()).Tables[0];
+        }
     }
 }

@@ -163,7 +163,7 @@ namespace SimpleERPSystem.Item
                 B_minor b_Minor = new B_minor();
                 b_Minor.major_cd = "1003";
                 // 弹出单位选择窗口
-                FrmPopMinor frmPopMinor = new FrmPopMinor(b_Minor);
+                FrmPopMinor frmPopMinor = new FrmPopMinor(b_Minor, "FrmItem");
                 frmPopMinor.Owner = this;
                 frmPopMinor.ShowDialog();
                 if (FrmItem.minor_cd_query != "" && FrmItem.minor_nm_query != "")
@@ -173,13 +173,13 @@ namespace SimpleERPSystem.Item
                 }
             }
             // 点击组别时弹出选择窗口
-            if (dgView.Columns[e.ColumnIndex].Name == btn_group.Name)
+            else if (dgView.Columns[e.ColumnIndex].Name == btn_group.Name)
             {
                 str_old = dgView[sl_cd.Name, e.RowIndex].Value.ToString();
                 B_minor b_Minor = new B_minor();
                 b_Minor.major_cd = "1004";
                 // 弹出单位选择窗口
-                FrmPopMinor frmPopMinor = new FrmPopMinor(b_Minor);
+                FrmPopMinor frmPopMinor = new FrmPopMinor(b_Minor, "FrmItem");
                 frmPopMinor.Owner = this;
                 frmPopMinor.ShowDialog();
                 if (FrmItem.minor_cd_query != "" && FrmItem.minor_nm_query != "")
@@ -189,13 +189,13 @@ namespace SimpleERPSystem.Item
                 }
             }
             // 点击库位时，弹出库位选择窗口
-            if (dgView.Columns[e.ColumnIndex].Name == btn_sl.Name)
+            else if (dgView.Columns[e.ColumnIndex].Name == btn_sl.Name)
             {
                 str_old = dgView[sl_cd.Name, e.RowIndex].Value.ToString();
                 B_minor b_Minor = new B_minor();
                 b_Minor.major_cd = "1005";
                 // 弹出单位选择窗口
-                FrmPopMinor frmPopMinor = new FrmPopMinor(b_Minor);
+                FrmPopMinor frmPopMinor = new FrmPopMinor(b_Minor, "FrmItem");
                 frmPopMinor.Owner = this;
                 frmPopMinor.ShowDialog();
                 if (FrmItem.minor_cd_query != "" && FrmItem.minor_nm_query != "")
@@ -265,7 +265,7 @@ namespace SimpleERPSystem.Item
 
         #region 保存按钮 btnSave_Click / 查询按钮 btnSearch_Click / 查询分类按钮 btnSearchMajor_cd_Click
         /// <summary>
-        ///   保存按钮，保存表格内容。
+        ///   查询按钮
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -359,12 +359,17 @@ namespace SimpleERPSystem.Item
             B_message_BLL.ShowConfirm("0001");  // 查询后提示保存成功
         }
 
+        /// <summary>
+        ///   查询分类按钮，弹出分类选择窗口
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSearchItem_cd_Click(object sender, EventArgs e)
         {
             B_minor b_Minor = new B_minor();
             b_Minor.major_cd = "1004";
             // 弹出单位选择窗口
-            FrmPopMinor frmPopMinor = new FrmPopMinor(b_Minor);
+            FrmPopMinor frmPopMinor = new FrmPopMinor(b_Minor, "FrmItem");
             frmPopMinor.Owner = this;
             frmPopMinor.ShowDialog();
             if (FrmItem.minor_cd_query != "" && FrmItem.minor_nm_query != "")

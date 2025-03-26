@@ -68,6 +68,8 @@ namespace ERP_BLL
             ///     <c>2015</c> 商品单价不能为空！
             ///     <c>2016</c> 商品单位不能为空！
             ///     <c>2017</c> 商品分类不能为空！
+            /// B_item_price
+            ///     <c>2018</c> 商品单价所属往来单位不能为空！
             /// </para>
             string str = B_message_DAL.Get_Exception_Message(msg_cd);
             KryptonMessageBox.Show(str,msg_cd.ToString(),

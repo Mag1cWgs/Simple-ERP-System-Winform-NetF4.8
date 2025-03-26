@@ -1,6 +1,7 @@
 ﻿using ERP_BLL;
 using ERP_MODEL;
 using NPOI.SS.Formula.Functions;
+using NPOI.XWPF.UserModel;
 using SimpleERPSystem.Item;
 using System;
 using System.Collections.Generic;
@@ -21,11 +22,12 @@ namespace SimpleERPSystem.POP
         /// 窗体构造函数
         /// </summary>
         /// <param name="minorImport">传入要查询的子代码</param>
-        public FrmPopMinor(B_minor minorImport)
+        public FrmPopMinor(B_minor minorImport, string frmName)
         {
             InitializeComponent();
-            model = minorImport;
+            this.model = minorImport;
             this.Text = model.major_cd + " 子代码查询";
+            this.callFormName = frmName;
         }
 
         /// <summary>
@@ -40,6 +42,9 @@ namespace SimpleERPSystem.POP
         #endregion
 
         #region 辅助字段 / 函数 : model, bll, Query()
+        // 记录调用窗体名称
+        string callFormName = "";
+
         /// <summary>
         ///    子代码实体，用于存储查询条件
         /// </summary>
@@ -87,7 +92,7 @@ namespace SimpleERPSystem.POP
         }
 
         /// <summary>
-        /// 双击选取数据，赋值给 <c>FrmMinor.selectedMajor_cd</c>，作为回调字段
+        /// 双击选取数据，赋值给传入窗体的回调字段
         /// <para>
         /// 通过对 <c>e.RowIndex</c> 和 <c>e.ColumnIndex</c> 的限定，保证选取的数据是有效的。
         /// </para>
@@ -98,10 +103,21 @@ namespace SimpleERPSystem.POP
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                // 选取 dgView 中 major_cd 列、触发行 e.Index 的值，传递给 FrmMinor 中的回调字段
-                //BaseInfo.FrmMinor.selectedMajor_cd = dgView[major_cd.Name, e.RowIndex].Value.ToString();
-                FrmItem.minor_cd_query = dgView[minor_cd.Name, e.RowIndex].Value.ToString();
-                FrmItem.minor_nm_query = dgView[minor_nm.Name, e.RowIndex].Value.ToString();
+                switch(callFormName)
+                {
+                    case "FrmItem":
+                        // 选取 dgView 中 major_cd 列、触发行 e.Index 的值，传递给 FrmMinor 中的回调字段
+                        //BaseInfo.FrmMinor.selectedMajor_cd = dgView[major_cd.Name, e.RowIndex].Value.ToString();
+                        FrmItem.minor_cd_query = dgView[minor_cd.Name, e.RowIndex].Value.ToString();
+                        FrmItem.minor_nm_query = dgView[minor_nm.Name, e.RowIndex].Value.ToString();
+                            break;
+                    case "FrmPrice":
+                        // 另外有 FrmPrice 中的回调字段，也需要赋值
+                        // ...
+                        FrmPrice.minor_cd_query = dgView[minor_cd.Name, e.RowIndex].Value.ToString();
+                        FrmPrice.minor_nm_query = dgView[minor_nm.Name, e.RowIndex].Value.ToString();
+                        break;
+                }
                 this.Close();
             }
         }

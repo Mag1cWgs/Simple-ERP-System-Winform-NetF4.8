@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="B_item_DAL.cs" />
+    <Compile Include="B_item_price_DAL.cs" />
     <Compile Include="B_major_DAL.cs" />
     <Compile Include="B_message_DAL.cs" />
     <Compile Include="B_minor_DAL.cs" />

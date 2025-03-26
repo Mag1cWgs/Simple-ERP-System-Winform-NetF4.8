@@ -50,8 +50,11 @@ namespace ERP_BLL
         ///     <c>False</c>: 失败。
         /// </returns>
         /// <exception cref="1001: 主代码已存在"/>
-        /// <exception cref="2001: 主代码不能为空"/>
-        /// <exception cref="2002: 主代码名称不能为空"/>
+        /// <exception cref="2013: 商品编号不能为空"/>
+        /// <exception cref="2014: 商品名称不能为空"/>
+        /// <exception cref="2015: 商品单价不能为空"/>
+        /// <exception cref="2016: 商品单位不能为空"/>
+        /// <exception cref="2017: 商品分类不能为空"/>
         /// <exception cref="9999: 未知异常"/>
         public bool Insert_B_Item(B_item model)
         {   // 判断商品信息代码是否为空
@@ -198,6 +201,33 @@ namespace ERP_BLL
             {
                 B_message_BLL.ShowConfirm("1004");
                 return false;
+            }
+        }
+
+
+        /// <summary>
+        /// 查询商品信息，用于弹出窗口
+        ///     <para>
+        ///     如果查询为空，则返回<c>null</c>，由UI层进行处理。
+        ///     </para>
+        /// </summary>
+        /// <param name="item">商品信息实例</param>
+        /// <param name="partner">往来单位实例</param>
+        /// <returns>
+        ///     匹配 <c>item_nm</c> 或 <c>item_group</c> 的结果，
+        ///     如果查询为空，则返回<c>null</c>。
+        /// </returns>
+        /// <exception cref="9999: 未知异常"/>
+        public DataTable Get_B_Item_Pop(B_partner partner, B_item item)
+        {
+            try
+            {
+                return dal.Get_B_Item_Pop(partner, item);
+            }
+            catch (Exception ex)
+            {
+                B_message_BLL.ShowUnkownError(ex);
+                return null;
             }
         }
     }

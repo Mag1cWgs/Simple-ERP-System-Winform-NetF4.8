@@ -120,6 +120,12 @@
     <Compile Include="BaseInfo\FrmUser.Designer.cs">
       <DependentUpon>FrmUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="POP\FrmPopItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POP\FrmPopItem.Designer.cs">
+      <DependentUpon>FrmPopItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="POP\FrmPopMajor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,12 @@
     <Compile Include="POP\FrmPopMinor.Designer.cs">
       <DependentUpon>FrmPopMinor.cs</DependentUpon>
     </Compile>
+    <Compile Include="POP\FrmPopPartner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="POP\FrmPopPartner.Designer.cs">
+      <DependentUpon>FrmPopPartner.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BaseInfo\FrmMajor.resx">
@@ -178,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaseInfo\FrmUser.resx">
       <DependentUpon>FrmUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POP\FrmPopItem.resx">
+      <DependentUpon>FrmPopItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="POP\FrmPopMajor.resx">
       <DependentUpon>FrmPopMajor.cs</DependentUpon>
@@ -201,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="POP\FrmPopMinor.resx">
       <DependentUpon>FrmPopMinor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POP\FrmPopPartner.resx">
+      <DependentUpon>FrmPopPartner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

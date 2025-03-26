@@ -179,5 +179,35 @@ namespace ERP_DAL
                     model.item_cd);
             return DbHelperSQL.Exists(strSql.ToString());
         }
+
+
+
+        /// <summary>
+        /// 获取未登记单价的商品，用于弹出窗口
+        /// </summary>
+        /// <param name="item_price">商品信息实例</param>
+        /// <param name="item">商品实例</param>
+        /// <returns>返回查询结果</returns>
+        public DataTable Get_B_Item_Pop(B_partner partner, B_item item)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.AppendFormat(@"
+                SELECT
+	                N'{0}' AS bp_cd,
+	                N'{1}' AS bp_nm,
+                    item_cd, item_nm, item_spec, item_price,
+                    dbo.Get_Minor_nm('1003',item_unit) AS item_unit_nm,
+                    dbo.Get_Minor_nm('1004',item_group) AS item_group_nm,
+                    NULL remark
+                FROM dbo.b_item
+                WHERE CASE WHEN N'{2}' = '' THEN ''
+                                            ELSE item_group END = N'{2}'
+                AND item_nm LIKE N'%{3}%'
+                AND item_cd NOT IN (SELECT item_cd FROM dbo.b_item_price WHERE bp_cd = N'{0}')",
+                    partner.bp_cd,partner.bp_nm,
+                    item.item_group, item.item_nm);
+
+            return DbHelperSQL.Query(strSql.ToString()).Tables[0];
+        }
     }
 }

@@ -265,5 +265,30 @@ namespace ERP_BLL
                 return false;
             }
         }
+
+
+        /// <summary>
+        /// 查询往来单位信息，用于弹出窗口
+        ///     <para>
+        ///     如果查询为空，则返回<c>null</c>，由UI层进行处理。
+        ///     </para>
+        /// </summary>
+        /// <param name="model">往来单位信息实体类</param>
+        /// <returns>
+        ///     匹配的结果，如果查询为空，则返回<c>null</c>。
+        /// </returns>
+        /// <exception cref="9999: 未知异常"/>
+        public DataTable Get_B_Partner_Pop(B_partner model)
+        {
+            try
+            {
+                return dal.Get_B_Partner_Pop(model);
+            }
+            catch (Exception ex)
+            {
+                B_message_BLL.ShowUnkownError(ex);
+                return null;
+            }
+        }
     }
 }
